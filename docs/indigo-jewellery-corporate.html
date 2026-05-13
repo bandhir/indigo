@@ -1,0 +1,1813 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Indigo Jewellery — B2B Diamond Jewellery Manufacturing</title>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+:root {
+  --blue-deep: #0a0f2e;
+  --blue-dark: #0d1545;
+  --blue-mid: #1a2a7a;
+  --blue-bright: #2352d4;
+  --blue-accent: #3b6ef8;
+  --blue-glow: #4d82ff;
+  --blue-pale: #c8d5ff;
+  --blue-ghost: #e8edff;
+  --gold: #c9a84c;
+  --gold-light: #e8c97a;
+  --cream: #f8f9fe;
+  --white: #ffffff;
+  --ink: #0a0f1e;
+  --muted: #6b7494;
+  --border: rgba(59,110,248,0.15);
+  --grid-line: rgba(59,110,248,0.07);
+  --serif: 'Playfair Display', Georgia, serif;
+  --sans: 'Space Grotesk', sans-serif;
+  --glass: rgba(255,255,255,0.04);
+  --glass-border: rgba(255,255,255,0.08);
+}
+html { scroll-behavior: smooth; }
+body { font-family: var(--sans); background: var(--blue-deep); color: var(--white); overflow-x: hidden; cursor: none; }
+
+/* CURSOR */
+#cur { position:fixed;width:8px;height:8px;background:var(--blue-glow);border-radius:50%;pointer-events:none;z-index:9999;transform:translate(-50%,-50%);transition:width .15s,height .15s,background .2s; }
+#cur-ring { position:fixed;width:32px;height:32px;border:1px solid rgba(77,130,255,.5);border-radius:50%;pointer-events:none;z-index:9998;transform:translate(-50%,-50%); }
+
+/* NAV */
+nav { position:fixed;top:0;left:0;right:0;z-index:200;display:flex;align-items:center;justify-content:space-between;padding:1.4rem 4rem;transition:background .4s,padding .3s; }
+nav.scrolled { background:rgba(10,15,46,.92);backdrop-filter:blur(20px);border-bottom:1px solid var(--glass-border);padding:1rem 4rem; }
+.nav-logo { display:flex;align-items:center;gap:.7rem;text-decoration:none; }
+.logo-mark { width:34px;height:34px;position:relative;flex-shrink:0; }
+.logo-mark svg { width:100%;height:100%; }
+.logo-text { font-family:var(--sans);font-size:1.05rem;font-weight:600;color:var(--white);letter-spacing:.06em; }
+.logo-sub { font-size:.6rem;font-weight:300;color:var(--blue-pale);letter-spacing:.2em;text-transform:uppercase;display:block;margin-top:-2px; }
+.nav-links { display:flex;gap:2rem;list-style:none;align-items:center; }
+.nav-links a { font-size:.75rem;font-weight:400;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.65);text-decoration:none;transition:color .3s;position:relative;padding-bottom:2px; }
+.nav-links a::after { content:'';position:absolute;bottom:0;left:0;width:0;height:1px;background:var(--blue-glow);transition:width .3s; }
+.nav-links a:hover { color:var(--white); }
+.nav-links a:hover::after { width:100%; }
+.nav-btn { background:var(--blue-accent);color:var(--white)!important;padding:.55rem 1.4rem!important;border-radius:2px;letter-spacing:.12em!important; }
+.nav-btn:hover { background:var(--gold)!important;color:var(--ink)!important; }
+.nav-btn::after { display:none!important; }
+
+/* PAGE SYSTEM */
+.page { display:none;min-height:100vh; }
+.page.active { display:block; }
+
+/* GRID BACKGROUND */
+.grid-bg {
+  position:absolute;inset:0;pointer-events:none;overflow:hidden;
+  background-image:linear-gradient(var(--grid-line) 1px,transparent 1px),linear-gradient(90deg,var(--grid-line) 1px,transparent 1px);
+  background-size:60px 60px;
+}
+.grid-bg::after {
+  content:'';position:absolute;inset:0;
+  background:radial-gradient(ellipse 80% 60% at 50% 0%,rgba(35,82,212,.18) 0%,transparent 70%);
+}
+
+/* HERO */
+.hero { min-height:100vh;display:grid;grid-template-columns:1fr 1fr;align-items:center;position:relative;overflow:hidden;padding-top:90px; }
+.hero::before { content:'';position:absolute;inset:0;background:radial-gradient(ellipse 60% 80% at 0% 50%,rgba(35,82,212,.12) 0%,transparent 60%); }
+.hero-left { padding:5rem 4rem 5rem 5rem;position:relative;z-index:2; }
+.hero-tag { display:inline-flex;align-items:center;gap:.6rem;background:var(--glass);border:1px solid var(--glass-border);padding:.4rem 1rem;border-radius:2px;margin-bottom:2rem;opacity:0;animation:fadeUp .7s .2s forwards; }
+.hero-tag-dot { width:6px;height:6px;background:var(--blue-glow);border-radius:50%;animation:pulse 2s infinite; }
+.hero-tag span { font-size:.65rem;font-weight:400;letter-spacing:.2em;text-transform:uppercase;color:var(--blue-pale); }
+.hero-h1 { font-family:var(--serif);font-size:clamp(2.8rem,4.5vw,5rem);font-weight:400;line-height:1.05;margin-bottom:1.5rem;opacity:0;animation:fadeUp .7s .4s forwards; }
+.hero-h1 em { font-style:italic;color:var(--blue-glow); }
+.hero-desc { font-size:.95rem;font-weight:300;line-height:1.9;color:rgba(255,255,255,.6);max-width:420px;margin-bottom:2.5rem;opacity:0;animation:fadeUp .7s .6s forwards; }
+.hero-ctas { display:flex;gap:1rem;flex-wrap:wrap;opacity:0;animation:fadeUp .7s .8s forwards; }
+.btn-primary { display:inline-flex;align-items:center;gap:.6rem;background:var(--blue-accent);color:var(--white);padding:.85rem 2rem;font-family:var(--sans);font-size:.75rem;font-weight:500;letter-spacing:.12em;text-transform:uppercase;border:none;cursor:none;text-decoration:none;border-radius:2px;transition:background .3s,transform .2s;position:relative;overflow:hidden; }
+.btn-primary::after { content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(255,255,255,.1),transparent);opacity:0;transition:opacity .3s; }
+.btn-primary:hover { background:var(--blue-glow);transform:translateY(-2px); }
+.btn-primary:hover::after { opacity:1; }
+.btn-outline { display:inline-flex;align-items:center;gap:.6rem;background:transparent;color:rgba(255,255,255,.8);padding:.85rem 2rem;font-family:var(--sans);font-size:.75rem;font-weight:400;letter-spacing:.12em;text-transform:uppercase;border:1px solid var(--glass-border);cursor:none;text-decoration:none;border-radius:2px;transition:all .3s; }
+.btn-outline:hover { border-color:var(--blue-accent);color:var(--white);background:rgba(59,110,248,.1); }
+.hero-stats { display:flex;gap:2.5rem;margin-top:3rem;padding-top:2.5rem;border-top:1px solid var(--glass-border);opacity:0;animation:fadeUp .7s 1s forwards; }
+.hero-stat-num { font-family:var(--serif);font-size:2.2rem;font-weight:400;color:var(--white);line-height:1;display:block; }
+.hero-stat-label { font-size:.65rem;font-weight:300;letter-spacing:.15em;text-transform:uppercase;color:var(--muted);margin-top:.3rem;display:block; }
+.hero-right { position:relative;height:100%;min-height:600px;overflow:hidden;display:flex;align-items:center;justify-content:center; }
+#ringCanvas { display:block;width:100%!important;height:100%!important;cursor:grab; }
+#ringCanvas:active { cursor:grabbing; }
+.hero-badge-float { position:absolute;background:rgba(10,15,46,.9);backdrop-filter:blur(20px);border:1px solid var(--glass-border);padding:1rem 1.4rem;border-radius:4px; }
+.hero-badge-float:nth-child(2) { top:20%;left:-10%;animation:floatCard 6s ease-in-out infinite; }
+.hero-badge-float:nth-child(3) { bottom:25%;right:-5%;animation:floatCard 6s ease-in-out 2s infinite; }
+.hbf-label { font-size:.6rem;font-weight:300;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);display:block;margin-bottom:.3rem; }
+.hbf-value { font-family:var(--serif);font-size:1.4rem;font-weight:400;color:var(--white);display:block;line-height:1; }
+
+/* TICKER */
+.ticker { background:var(--blue-dark);border-top:1px solid var(--glass-border);border-bottom:1px solid var(--glass-border);padding:.75rem 0;overflow:hidden; }
+.ticker-inner { display:inline-flex;animation:marquee 35s linear infinite;white-space:nowrap; }
+.ticker-item { display:inline-flex;align-items:center;gap:1.2rem;padding:0 2.5rem;font-size:.68rem;font-weight:300;letter-spacing:.25em;text-transform:uppercase;color:var(--blue-pale); }
+.ticker-sep { width:4px;height:4px;background:var(--gold);border-radius:50%;flex-shrink:0; }
+
+/* SECTIONS */
+section { position:relative; }
+.sec-label { font-size:.65rem;font-weight:400;letter-spacing:.3em;text-transform:uppercase;color:var(--blue-glow);margin-bottom:.8rem;display:flex;align-items:center;gap:.6rem; }
+.sec-label::before { content:'';width:20px;height:1px;background:var(--blue-glow); }
+.sec-title { font-family:var(--serif);font-size:clamp(2rem,3vw,3.2rem);font-weight:400;line-height:1.1;color:var(--white); }
+.sec-title em { font-style:italic;color:var(--blue-glow); }
+
+/* ABOUT SECTION */
+.about-section { padding:7rem 5rem;overflow:hidden; }
+.about-grid { display:grid;grid-template-columns:1fr 1fr;gap:6rem;align-items:center; }
+.about-content .sec-title { margin-bottom:1.5rem; }
+.about-content p { font-size:.9rem;font-weight:300;line-height:1.95;color:rgba(255,255,255,.6);margin-bottom:1.2rem; }
+.about-content p strong { color:var(--white);font-weight:500; }
+.about-pillars { display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-top:2rem; }
+.pillar { background:var(--glass);border:1px solid var(--glass-border);padding:1.2rem;border-radius:4px;transition:border-color .3s,background .3s; }
+.pillar:hover { border-color:var(--blue-accent);background:rgba(59,110,248,.07); }
+.pillar-icon { width:32px;height:32px;background:rgba(59,110,248,.15);border-radius:3px;display:flex;align-items:center;justify-content:center;margin-bottom:.8rem; }
+.pillar-title { font-size:.8rem;font-weight:500;color:var(--white);margin-bottom:.3rem; }
+.pillar-desc { font-size:.75rem;font-weight:300;color:var(--muted);line-height:1.7; }
+.about-visual { position:relative; }
+.about-img-stack { position:relative;height:500px; }
+.about-img-main { position:absolute;top:0;left:0;right:15%;bottom:80px;overflow:hidden;border-radius:4px;border:1px solid var(--glass-border); }
+.about-img-main img { width:100%;height:100%;object-fit:cover;opacity:.8; }
+.about-img-secondary { position:absolute;bottom:0;right:0;width:55%;height:200px;overflow:hidden;border-radius:4px;border:1px solid var(--glass-border); }
+.about-img-secondary img { width:100%;height:100%;object-fit:cover;opacity:.8; }
+.about-floating-card { position:absolute;top:50%;left:-10%;transform:translateY(-50%);background:rgba(10,15,46,.95);backdrop-filter:blur(20px);border:1px solid var(--glass-border);padding:1.5rem;border-radius:4px;min-width:160px;z-index:2; }
+.afc-num { font-family:var(--serif);font-size:2.5rem;font-weight:400;color:var(--gold);line-height:1;display:block; }
+.afc-label { font-size:.65rem;font-weight:300;letter-spacing:.15em;text-transform:uppercase;color:var(--muted);display:block;margin-top:.3rem; }
+.sv-link { display:inline-flex;align-items:center;gap:.5rem;color:var(--blue-glow);font-size:.8rem;text-decoration:none;border-bottom:1px solid rgba(77,130,255,.3);padding-bottom:2px;transition:all .3s;margin-top:1.5rem; }
+.sv-link:hover { border-color:var(--blue-glow); }
+
+/* CAPABILITIES */
+.capabilities { padding:7rem 5rem;background:var(--blue-dark); }
+.cap-head { text-align:center;margin-bottom:4rem; }
+.cap-grid { display:grid;grid-template-columns:repeat(3,1fr);gap:1.5px;background:var(--glass-border); }
+.cap-card { background:var(--blue-dark);padding:3rem 2.5rem;position:relative;overflow:hidden;transition:background .4s; }
+.cap-card:hover { background:rgba(13,21,69,.9); }
+.cap-card::before { content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,var(--blue-accent),transparent);transform:scaleX(0);transition:transform .4s; }
+.cap-card:hover::before { transform:scaleX(1); }
+.cap-num { font-family:var(--serif);font-size:3.5rem;font-weight:400;color:rgba(59,110,248,.12);line-height:1;margin-bottom:1.5rem;transition:color .4s; }
+.cap-card:hover .cap-num { color:rgba(59,110,248,.2); }
+.cap-title { font-size:1rem;font-weight:500;color:var(--white);margin-bottom:.8rem;letter-spacing:.03em; }
+.cap-desc { font-size:.82rem;font-weight:300;color:rgba(255,255,255,.55);line-height:1.8; }
+.cap-tag { display:inline-block;margin-top:1.2rem;background:rgba(59,110,248,.12);color:var(--blue-pale);font-size:.6rem;font-weight:400;letter-spacing:.2em;text-transform:uppercase;padding:.3rem .7rem;border-radius:2px; }
+
+/* GLOBAL ASSOCIATES */
+.associates { padding:7rem 5rem; }
+.associates-head { margin-bottom:4rem; }
+.associates-intro { max-width:600px;font-size:.9rem;font-weight:300;line-height:1.9;color:rgba(255,255,255,.55);margin-top:1rem; }
+.globe-section { display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:center; }
+.globe-visual { position:relative;height:400px;display:flex;align-items:center;justify-content:center; }
+.globe-svg { width:350px;height:350px;opacity:.9; }
+.associates-list { display:flex;flex-direction:column;gap:1rem; }
+.assoc-item { display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:1.2rem;padding:1.2rem 1.5rem;background:var(--glass);border:1px solid var(--glass-border);border-radius:4px;transition:border-color .3s,background .3s;cursor:none; }
+.assoc-item:hover { border-color:var(--blue-accent);background:rgba(59,110,248,.07); }
+.assoc-flag { font-size:1.4rem;width:36px;text-align:center; }
+.assoc-info { }
+.assoc-name { font-size:.85rem;font-weight:500;color:var(--white);margin-bottom:.2rem; }
+.assoc-entity { font-size:.72rem;font-weight:300;color:var(--muted);letter-spacing:.05em; }
+.assoc-badge { font-size:.6rem;font-weight:400;letter-spacing:.15em;text-transform:uppercase;padding:.25rem .6rem;border-radius:2px;white-space:nowrap; }
+.badge-export { background:rgba(59,110,248,.15);color:var(--blue-pale); }
+.badge-sales { background:rgba(201,168,76,.12);color:var(--gold-light); }
+.badge-domestic { background:rgba(46,204,113,.1);color:#6ee7b7; }
+
+/* FACTORIES */
+.factories { padding:7rem 5rem;background:var(--blue-dark); }
+.factories-head { text-align:center;margin-bottom:4rem; }
+.factories-tabs { display:flex;justify-content:center;gap:.5rem;margin-bottom:3rem; }
+.ftab { background:var(--glass);border:1px solid var(--glass-border);padding:.55rem 1.5rem;font-family:var(--sans);font-size:.72rem;font-weight:400;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.5);cursor:none;border-radius:2px;transition:all .3s; }
+.ftab.active, .ftab:hover { background:var(--blue-accent);color:var(--white);border-color:var(--blue-accent); }
+.factory-panels { }
+.factory-panel { display:none; }
+.factory-panel.active { display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center; }
+.factory-img { position:relative;aspect-ratio:4/3;overflow:hidden;border-radius:4px;border:1px solid var(--glass-border); }
+.factory-img img { width:100%;height:100%;object-fit:cover;opacity:.8; }
+.factory-img-overlay { position:absolute;inset:0;background:linear-gradient(to top,rgba(10,15,46,.6),transparent); }
+.factory-specs { display:grid;grid-template-columns:1fr 1fr;gap:1rem;position:absolute;bottom:1.5rem;left:1.5rem;right:1.5rem; }
+.fspec { background:rgba(10,15,46,.85);backdrop-filter:blur(10px);border:1px solid var(--glass-border);padding:.8rem 1rem;border-radius:3px; }
+.fspec-val { font-family:var(--serif);font-size:1.4rem;font-weight:400;color:var(--white);line-height:1;display:block; }
+.fspec-key { font-size:.6rem;font-weight:300;letter-spacing:.15em;text-transform:uppercase;color:var(--muted);display:block;margin-top:.2rem; }
+.factory-info h3 { font-family:var(--serif);font-size:1.8rem;font-weight:400;color:var(--white);margin-bottom:.5rem; }
+.factory-location { font-size:.72rem;font-weight:300;letter-spacing:.2em;text-transform:uppercase;color:var(--blue-glow);margin-bottom:1.2rem;display:flex;align-items:center;gap:.5rem; }
+.factory-desc { font-size:.88rem;font-weight:300;line-height:1.9;color:rgba(255,255,255,.55);margin-bottom:1.5rem; }
+.factory-features { list-style:none;display:flex;flex-direction:column;gap:.6rem; }
+.factory-features li { display:flex;align-items:flex-start;gap:.8rem;font-size:.82rem;font-weight:300;color:rgba(255,255,255,.65); }
+.ff-dot { width:4px;height:4px;background:var(--blue-glow);border-radius:50%;flex-shrink:0;margin-top:.45rem; }
+
+/* LEADERSHIP */
+.leadership { padding:7rem 5rem; }
+.leadership-head { margin-bottom:4rem; }
+.leadership-grid { display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem; }
+.leader-card { background:var(--glass);border:1px solid var(--glass-border);padding:2rem;border-radius:4px;transition:border-color .3s,transform .3s; }
+.leader-card:hover { border-color:var(--blue-accent);transform:translateY(-5px); }
+.leader-avatar { width:72px;height:72px;border-radius:50%;background:var(--blue-mid);border:2px solid var(--glass-border);display:flex;align-items:center;justify-content:center;font-family:var(--serif);font-size:1.8rem;font-weight:400;color:var(--blue-pale);margin-bottom:1.2rem; }
+.leader-name { font-size:.95rem;font-weight:500;color:var(--white);margin-bottom:.2rem; }
+.leader-title { font-size:.72rem;font-weight:300;letter-spacing:.1em;text-transform:uppercase;color:var(--blue-glow);margin-bottom:1rem; }
+.leader-bio { font-size:.8rem;font-weight:300;line-height:1.8;color:rgba(255,255,255,.5); }
+.leader-quote { margin-top:1rem;padding-top:1rem;border-top:1px solid var(--glass-border);font-family:var(--serif);font-size:.85rem;font-style:italic;color:rgba(255,255,255,.6);line-height:1.6; }
+
+/* PRODUCTS */
+.products-sec { padding:7rem 5rem;background:var(--blue-dark); }
+.products-head { text-align:center;margin-bottom:3rem; }
+.products-grid { display:grid;grid-template-columns:repeat(4,1fr);gap:1.5rem; }
+.prod-card { background:var(--glass);border:1px solid var(--glass-border);border-radius:4px;overflow:hidden;transition:border-color .3s,transform .3s;cursor:none; }
+.prod-card:hover { border-color:var(--blue-accent);transform:translateY(-5px); }
+.prod-img { aspect-ratio:1;overflow:hidden;position:relative; }
+.prod-img img { width:100%;height:100%;object-fit:cover;transition:transform .6s;filter:saturate(.8); }
+.prod-card:hover .prod-img img { transform:scale(1.05); }
+.prod-overlay { position:absolute;inset:0;background:linear-gradient(to top,rgba(10,15,46,.7),transparent);opacity:0;transition:opacity .4s; }
+.prod-card:hover .prod-overlay { opacity:1; }
+.prod-info { padding:1.2rem; }
+.prod-cat { font-size:.62rem;font-weight:400;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-bottom:.4rem; }
+.prod-name { font-family:var(--serif);font-size:1rem;font-weight:400;color:var(--white);line-height:1.3; }
+.prod-desc { font-size:.75rem;font-weight:300;color:var(--muted);margin-top:.4rem;line-height:1.6; }
+
+/* CERTIFICATIONS */
+.certs { padding:5rem 5rem;border-top:1px solid var(--glass-border); }
+.certs-inner { display:flex;align-items:center;justify-content:space-between;gap:3rem;flex-wrap:wrap; }
+.cert-label { font-size:.7rem;font-weight:300;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);white-space:nowrap; }
+.cert-badges { display:flex;gap:1.5rem;flex-wrap:wrap;align-items:center; }
+.cert-badge { background:var(--glass);border:1px solid var(--glass-border);padding:.8rem 1.4rem;border-radius:3px;font-size:.72rem;font-weight:400;color:var(--blue-pale);letter-spacing:.05em;display:flex;align-items:center;gap:.6rem;transition:border-color .3s; }
+.cert-badge:hover { border-color:var(--gold); }
+.cert-ico { color:var(--gold);font-size:.9rem; }
+
+/* CONTACT CTA */
+.contact-cta { padding:8rem 5rem;text-align:center;position:relative;overflow:hidden; }
+.contact-cta::before { content:'';position:absolute;width:600px;height:600px;background:radial-gradient(circle,rgba(59,110,248,.12),transparent 70%);top:50%;left:50%;transform:translate(-50%,-50%);pointer-events:none; }
+.cta-title { font-family:var(--serif);font-size:clamp(2.5rem,4vw,4rem);font-weight:400;margin-bottom:1rem;color:var(--white);position:relative; }
+.cta-sub { font-size:.9rem;font-weight:300;color:rgba(255,255,255,.5);max-width:500px;margin:0 auto 3rem;line-height:1.9;position:relative; }
+.cta-actions { display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;position:relative; }
+
+/* CONTACT FORM PAGE */
+.contact-page { padding:9rem 5rem 5rem; }
+.contact-grid { display:grid;grid-template-columns:1fr 1.5fr;gap:6rem; }
+.contact-info h2 { font-family:var(--serif);font-size:2.5rem;font-weight:400;margin-bottom:1rem; }
+.contact-info p { font-size:.88rem;font-weight:300;line-height:1.9;color:rgba(255,255,255,.55);margin-bottom:2rem; }
+.contact-offices { display:flex;flex-direction:column;gap:1rem;margin-top:2rem; }
+.office-item { background:var(--glass);border:1px solid var(--glass-border);padding:1.2rem 1.4rem;border-radius:4px; }
+.office-city { font-size:.7rem;font-weight:500;letter-spacing:.2em;text-transform:uppercase;color:var(--blue-glow);margin-bottom:.4rem; }
+.office-addr { font-size:.78rem;font-weight:300;color:rgba(255,255,255,.55);line-height:1.7; }
+.office-contact { font-size:.75rem;color:var(--blue-pale);margin-top:.4rem; }
+.form-group { margin-bottom:1.4rem; }
+.form-label { display:block;font-size:.7rem;font-weight:400;letter-spacing:.15em;text-transform:uppercase;color:rgba(255,255,255,.5);margin-bottom:.5rem; }
+.form-input, .form-select, .form-textarea { width:100%;background:var(--glass);border:1px solid var(--glass-border);color:var(--white);padding:.8rem 1rem;font-family:var(--sans);font-size:.85rem;font-weight:300;outline:none;border-radius:2px;transition:border-color .3s;resize:none; }
+.form-input:focus, .form-select:focus, .form-textarea:focus { border-color:var(--blue-accent); }
+.form-input::placeholder, .form-textarea::placeholder { color:rgba(255,255,255,.25); }
+.form-select option { background:var(--blue-dark); }
+.form-row { display:grid;grid-template-columns:1fr 1fr;gap:1rem; }
+
+/* FOOTER */
+footer { background:var(--ink);border-top:1px solid var(--glass-border);padding:4rem 5rem 2rem; }
+.footer-top { display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:4rem;margin-bottom:3rem;padding-bottom:3rem;border-bottom:1px solid var(--glass-border); }
+.footer-brand .logo-text { font-size:1.2rem; }
+.footer-brand p { font-size:.8rem;font-weight:300;line-height:1.9;color:rgba(255,255,255,.35);margin-top:1rem;max-width:260px; }
+.footer-col h4 { font-size:.65rem;font-weight:500;letter-spacing:.25em;text-transform:uppercase;color:rgba(255,255,255,.6);margin-bottom:1.2rem; }
+.footer-col ul { list-style:none; }
+.footer-col li { margin-bottom:.6rem; }
+.footer-col a { font-size:.8rem;font-weight:300;color:rgba(255,255,255,.35);text-decoration:none;transition:color .3s;letter-spacing:.03em;cursor:none; }
+.footer-col a:hover { color:var(--blue-glow); }
+.footer-bottom { display:flex;justify-content:space-between;align-items:center;font-size:.7rem;font-weight:300;color:rgba(255,255,255,.2);flex-wrap:wrap;gap:1rem; }
+.footer-bottom a { color:rgba(255,255,255,.25);text-decoration:none;cursor:none;transition:color .3s; }
+.footer-bottom a:hover { color:var(--blue-glow); }
+.sv-group-link { display:inline-flex;align-items:center;gap:.4rem;color:var(--gold)!important;font-weight:400; }
+
+/* REVEAL */
+.reveal { opacity:0;transform:translateY(28px);transition:opacity .7s,transform .7s; }
+.reveal.visible { opacity:1;transform:translateY(0); }
+.reveal-delay-1 { transition-delay:.1s; }
+.reveal-delay-2 { transition-delay:.2s; }
+.reveal-delay-3 { transition-delay:.3s; }
+.reveal-delay-4 { transition-delay:.4s; }
+
+/* ANIMATIONS */
+@keyframes fadeUp { from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)} }
+@keyframes marquee { from{transform:translateX(0)}to{transform:translateX(-50%)} }
+@keyframes pulse { 0%,100%{opacity:1}50%{opacity:.4} }
+@keyframes floatOrb { 0%,100%{transform:translateY(0) rotate(0deg)}50%{transform:translateY(-20px) rotate(5deg)} }
+@keyframes floatCard { 0%,100%{transform:translateY(0)}50%{transform:translateY(-12px)} }
+@keyframes spinGlobe { from{transform:rotateY(0)}to{transform:rotateY(360deg)} }
+
+/* ACTIVE NAV LINK */
+.nav-links a.active-page { color:var(--white); }
+.nav-links a.active-page::after { width:100%; }
+
+/* LINE ACCENT */
+.line-accent { display:inline-block;width:40px;height:1px;background:var(--blue-glow);margin-right:.8rem;vertical-align:middle; }
+</style>
+</head>
+<body>
+<div id="cur"></div>
+<div id="cur-ring"></div>
+
+<!-- NAV -->
+<nav id="mainNav">
+  <a class="nav-logo" href="#" onclick="showPage('home')">
+    <div class="logo-mark">
+      <svg viewBox="0 0 34 34" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <polygon points="17,2 32,12 32,22 17,32 2,22 2,12" fill="rgba(59,110,248,0.15)" stroke="#3b6ef8" stroke-width="1"/>
+        <polygon points="17,7 27,14 27,20 17,27 7,20 7,14" fill="rgba(59,110,248,0.12)" stroke="#4d82ff" stroke-width="0.5"/>
+        <circle cx="17" cy="17" r="3" fill="#4d82ff"/>
+      </svg>
+    </div>
+    <div>
+      <span class="logo-text">Indigo Jewellery</span>
+      <span class="logo-sub">An SV Group Company</span>
+    </div>
+  </a>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="#" onclick="showPage('home')" id="nav-home" class="active-page">Home</a></li>
+    <li><a href="#" onclick="showPage('about')" id="nav-about">About Us</a></li>
+    <li><a href="#" onclick="showPage('manufacturing')" id="nav-manufacturing">Manufacturing</a></li>
+    <li><a href="#" onclick="showPage('associates')" id="nav-associates">Global Network</a></li>
+    <li><a href="#" onclick="showPage('products')" id="nav-products">Products</a></li>
+    <li><a href="#" onclick="showPage('sustainability')" id="nav-sustainability">Sustainability</a></li>
+    <li><a href="#" onclick="showPage('contact')" id="nav-contact" class="nav-btn">Partner With Us</a></li>
+  </ul>
+</nav>
+
+<!-- ===================== HOME PAGE ===================== -->
+<div id="page-home" class="page active">
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="grid-bg"></div>
+    <div class="hero-left">
+      <div class="hero-tag"><span class="hero-tag-dot"></span><span>B2B Fine Diamond Jewellery Manufacturer</span></div>
+      <h1 class="hero-h1">Where precision<br>meets <em>brilliance</em><br>at scale.</h1>
+      <p class="hero-desc">Indigo Jewellery is the jewellery division of the SV Group — a vertically integrated manufacturer serving premium retailers, chain stores, and boutiques across the USA, Europe, Australia, and the Middle East.</p>
+      <div class="hero-ctas">
+        <a href="#" onclick="showPage('manufacturing')" class="btn-primary">Explore Manufacturing</a>
+        <a href="#" onclick="showPage('contact')" class="btn-outline">Partner With Us →</a>
+      </div>
+      <div class="hero-stats">
+        <div><span class="hero-stat-num">45+</span><span class="hero-stat-label">Years Group Legacy</span></div>
+        <div><span class="hero-stat-num">80,000+</span><span class="hero-stat-label">Pieces / Month</span></div>
+        <div><span class="hero-stat-num">7</span><span class="hero-stat-label">Global Offices</span></div>
+        <div><span class="hero-stat-num">300+</span><span class="hero-stat-label">New Designs / Month</span></div>
+      </div>
+    </div>
+    <div class="hero-right" style="position:relative;display:flex;align-items:center;justify-content:center;overflow:hidden">
+      <!-- 3D Ring Canvas -->
+      <canvas id="ringCanvas" style="width:100%;height:100%;display:block;cursor:grab"></canvas>
+      <!-- Drag hint only -->
+      <div id="dragHint" style="position:absolute;bottom:2rem;left:50%;transform:translateX(-50%);display:flex;align-items:center;gap:.6rem;opacity:.45;transition:opacity .6s;pointer-events:none">
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="7" stroke="rgba(200,213,255,.5)" stroke-width="1"/><path d="M5.5 8h5M8 5.5v5" stroke="rgba(200,213,255,.5)" stroke-width="1" stroke-linecap="round"/></svg>
+        <span style="font-size:.58rem;font-weight:300;letter-spacing:.2em;text-transform:uppercase;color:rgba(200,213,255,.5)">Drag to rotate</span>
+      </div>
+    </div>
+  </section>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <script>
+  (function() {
+    const canvas = document.getElementById('ringCanvas');
+    if (!canvas) return;
+
+    // ── RENDERER ────────────────────────────────────────────────
+    const renderer = new THREE.WebGLRenderer({ canvas, antialias: true, alpha: true, powerPreference: 'high-performance' });
+    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+    renderer.shadowMap.enabled = true;
+    renderer.shadowMap.type = THREE.PCFSoftShadowMap;
+    renderer.toneMapping = THREE.ACESFilmicToneMapping;
+    renderer.toneMappingExposure = 1.6;
+    renderer.outputEncoding = THREE.sRGBEncoding;
+
+    const scene = new THREE.Scene();
+
+    // Subtle background gradient via a large sphere
+    const bgMesh = new THREE.Mesh(
+      new THREE.SphereGeometry(30, 16, 16),
+      new THREE.ShaderMaterial({
+        side: THREE.BackSide,
+        uniforms: { uTop: { value: new THREE.Color(0x060d28) }, uBot: { value: new THREE.Color(0x0a1545) } },
+        vertexShader: `varying vec3 vPos; void main(){ vPos = position; gl_Position = projectionMatrix*modelViewMatrix*vec4(position,1.); }`,
+        fragmentShader: `varying vec3 vPos; uniform vec3 uTop; uniform vec3 uBot; void main(){ float t=clamp((vPos.y+30.)/60.,0.,1.); gl_FragColor=vec4(mix(uBot,uTop,t),1.); }`
+      })
+    );
+    scene.add(bgMesh);
+
+    const camera = new THREE.PerspectiveCamera(34, 1, 0.1, 100);
+    camera.position.set(0, 0.9, 6.8);
+    camera.lookAt(0, 0.25, 0);
+
+    function resize() {
+      const w = canvas.parentElement ? canvas.parentElement.offsetWidth : 600;
+      const h = canvas.parentElement ? (canvas.parentElement.offsetHeight || 620) : 620;
+      renderer.setSize(w, h);
+      camera.aspect = w / h;
+      camera.updateProjectionMatrix();
+    }
+    resize();
+    window.addEventListener('resize', () => { setTimeout(resize, 60); });
+
+    // ── ENVIRONMENT MAP (CubeCamera for live reflections) ───────
+    const cubeRenderTarget = new THREE.WebGLCubeRenderTarget(256, {
+      format: THREE.RGBFormat,
+      generateMipmaps: true,
+      minFilter: THREE.LinearMipmapLinearFilter
+    });
+    const cubeCamera = new THREE.CubeCamera(0.1, 50, cubeRenderTarget);
+    scene.add(cubeCamera);
+
+    // ── PBR MATERIALS ────────────────────────────────────────────
+
+    // Polished silver/white-gold — mirror-like metal
+    function makeSilverMat(roughness) {
+      return new THREE.MeshPhysicalMaterial({
+        color: 0xdce5f0,
+        metalness: 1.0,
+        roughness: roughness,
+        reflectivity: 1.0,
+        clearcoat: 0.4,
+        clearcoatRoughness: 0.05,
+        envMap: cubeRenderTarget.texture,
+        envMapIntensity: 3.0
+      });
+    }
+    const bandMat   = makeSilverMat(0.04);   // band — near-mirror
+    const prongMat  = makeSilverMat(0.06);   // prongs — slightly softer
+    const settingMat = makeSilverMat(0.08);  // basket
+
+    // Diamond centre — glass/crystal with high IOR
+    const diamMat = new THREE.MeshPhysicalMaterial({
+      color: 0xffffff,
+      metalness: 0.0,
+      roughness: 0.0,
+      transmission: 0.95,       // see-through like glass
+      thickness: 0.5,
+      ior: 2.42,                 // diamond IOR
+      reflectivity: 1.0,
+      specularIntensity: 1.0,
+      specularColor: new THREE.Color(0xffffff),
+      transparent: true,
+      opacity: 0.92,
+      clearcoat: 1.0,
+      clearcoatRoughness: 0.0,
+      envMap: cubeRenderTarget.texture,
+      envMapIntensity: 5.0
+    });
+
+    // Pavé stones — tiny glassy gems
+    const paveMat = new THREE.MeshPhysicalMaterial({
+      color: 0xffffff,
+      metalness: 0.0,
+      roughness: 0.0,
+      transmission: 0.7,
+      thickness: 0.08,
+      ior: 2.2,
+      reflectivity: 1.0,
+      transparent: true,
+      opacity: 0.96,
+      clearcoat: 1.0,
+      clearcoatRoughness: 0.0,
+      envMap: cubeRenderTarget.texture,
+      envMapIntensity: 4.5
+    });
+
+    // ── RING GROUP ───────────────────────────────────────────────
+    const ringGroup = new THREE.Group();
+    scene.add(ringGroup);
+
+    // ── BAND — high-segment torus ────────────────────────────────
+    const bandGeo = new THREE.TorusGeometry(1.12, 0.11, 96, 256);
+    const band = new THREE.Mesh(bandGeo, bandMat);
+    band.castShadow = true;
+    band.receiveShadow = true;
+    ringGroup.add(band);
+
+    // Thin inner rim for depth
+    const innerRimGeo = new THREE.TorusGeometry(1.12, 0.085, 48, 256);
+    const innerRim = new THREE.Mesh(innerRimGeo, makeSilverMat(0.1));
+    ringGroup.add(innerRim);
+
+    // ── PAVÉ SHOULDER DIAMONDS ───────────────────────────────────
+    // Two rows of channel-set stones running from 30° to 150° (each side)
+    function addPaveRow(aStart, aEnd, zOffset, rowR, stoneR) {
+      const N = Math.round(Math.abs(aEnd - aStart) / 0.22);
+      for (let i = 0; i < N; i++) {
+        const a = aStart + (aEnd - aStart) * (i / (N - 1));
+        const cx = Math.cos(a) * rowR;
+        const cy = Math.sin(a) * rowR;
+        const nx = Math.cos(a), ny = Math.sin(a);
+        const geo = new THREE.SphereGeometry(stoneR, 12, 10);
+        const m = new THREE.Mesh(geo, paveMat);
+        m.position.set(cx + nx * 0.112, cy + ny * 0.112, zOffset);
+        ringGroup.add(m);
+        // Tiny metal bezel ring around each stone
+        const bezelGeo = new THREE.TorusGeometry(stoneR * 1.18, stoneR * 0.22, 8, 16);
+        const bezel = new THREE.Mesh(bezelGeo, prongMat);
+        bezel.position.copy(m.position);
+        bezel.lookAt(bezel.position.x + nx, bezel.position.y + ny, bezel.position.z);
+        ringGroup.add(bezel);
+      }
+    }
+    addPaveRow(Math.PI * 0.12, Math.PI * 0.88,  0.04, 1.12, 0.042);
+    addPaveRow(Math.PI * 0.12, Math.PI * 0.88, -0.04, 1.12, 0.042);
+
+    // ── BASKET SETTING ───────────────────────────────────────────
+    const basket = new THREE.Group();
+    ringGroup.add(basket);
+    basket.position.set(0, 1.24, 0);
+
+    // Tapered cone base
+    const coneGeo = new THREE.CylinderGeometry(0.22, 0.16, 0.28, 32, 1, true);
+    basket.add(new THREE.Mesh(coneGeo, settingMat));
+
+    // Basket rim (top edge of the cone)
+    const rimGeo = new THREE.TorusGeometry(0.22, 0.018, 16, 64);
+    const rim = new THREE.Mesh(rimGeo, settingMat);
+    rim.position.y = 0.14;
+    basket.add(rim);
+
+    // ── 6 PRONGS ─────────────────────────────────────────────────
+    for (let i = 0; i < 6; i++) {
+      const a = (i / 6) * Math.PI * 2;
+      const pr = 0.205;
+      const pGeo = new THREE.CylinderGeometry(0.022, 0.016, 0.46, 12);
+      const p = new THREE.Mesh(pGeo, prongMat);
+      p.position.set(Math.cos(a) * pr, 0.3, Math.sin(a) * pr);
+      // Tilt each prong outward toward its angle
+      const outward = new THREE.Vector3(Math.cos(a), 0.15, Math.sin(a)).normalize();
+      const up = new THREE.Vector3(0, 1, 0);
+      const axis = new THREE.Vector3().crossVectors(up, outward).normalize();
+      const angle = up.angleTo(outward);
+      p.quaternion.setFromAxisAngle(axis, angle * 0.35);
+      basket.add(p);
+      // Round prong tip
+      const tGeo = new THREE.SphereGeometry(0.026, 10, 10);
+      const t2 = new THREE.Mesh(tGeo, prongMat);
+      t2.position.set(Math.cos(a) * pr * 1.06, 0.54, Math.sin(a) * pr * 1.06);
+      basket.add(t2);
+    }
+
+    // ── GIRDLE BAND (where stone seats in prongs) ────────────────
+    const girdleGeo = new THREE.TorusGeometry(0.21, 0.014, 12, 64);
+    const girdle = new THREE.Mesh(girdleGeo, prongMat);
+    girdle.position.y = 0.18;
+    basket.add(girdle);
+
+    // ── CENTRE DIAMOND — round brilliant illusion ────────────────
+    // We build a proper brilliant shape: wide octagon (crown) + pavilion
+    // Crown — truncated octahedron approximation
+    const crownGeo = new THREE.CylinderGeometry(0.27, 0.28, 0.18, 32, 1);
+    const crown = new THREE.Mesh(crownGeo, diamMat);
+    crown.position.y = 0.39;
+    basket.add(crown);
+
+    // Table (flat top disc)
+    const tableGeo = new THREE.CylinderGeometry(0.185, 0.185, 0.012, 32);
+    const table = new THREE.Mesh(tableGeo, new THREE.MeshPhysicalMaterial({
+      color: 0xffffff, metalness: 0, roughness: 0, transmission: 0.8,
+      transparent: true, opacity: 0.95, clearcoat: 1, clearcoatRoughness: 0,
+      envMap: cubeRenderTarget.texture, envMapIntensity: 5
+    }));
+    table.position.y = 0.5;
+    basket.add(table);
+
+    // Pavilion — inverted cone below crown
+    const pavGeo = new THREE.ConeGeometry(0.28, 0.32, 32, 1);
+    const pavilion = new THREE.Mesh(pavGeo, diamMat);
+    pavilion.position.y = 0.22;
+    pavilion.rotation.x = Math.PI; // point down
+    basket.add(pavilion);
+
+    // Star facets (8 triangular wedges on crown for sparkle)
+    for (let i = 0; i < 8; i++) {
+      const a = (i / 8) * Math.PI * 2;
+      const facetGeo = new THREE.BoxGeometry(0.055, 0.14, 0.008);
+      const facet = new THREE.Mesh(facetGeo, new THREE.MeshPhysicalMaterial({
+        color: 0xe8f0ff,
+        metalness: 0, roughness: 0, transmission: 0.5,
+        transparent: true, opacity: 0.7, clearcoat: 1, clearcoatRoughness: 0,
+        envMap: cubeRenderTarget.texture, envMapIntensity: 6,
+        side: THREE.DoubleSide
+      }));
+      facet.position.set(Math.cos(a) * 0.18, 0.45, Math.sin(a) * 0.18);
+      facet.rotation.y = -a;
+      facet.rotation.z = 0.42;
+      basket.add(facet);
+    }
+
+    // ── SPARKLE PARTICLES ────────────────────────────────────────
+    // Small point sprites that flicker — simulating diamond fire
+    const sparkPositions = [];
+    const sparkPhases = [];
+    for (let i = 0; i < 28; i++) {
+      const a = Math.random() * Math.PI * 2;
+      const r = 0.05 + Math.random() * 0.24;
+      const yy = 0.18 + Math.random() * 0.38;
+      sparkPositions.push(Math.cos(a) * r, yy, Math.sin(a) * r);
+      sparkPhases.push(Math.random() * Math.PI * 2);
+    }
+    const sparkGeo = new THREE.BufferGeometry();
+    sparkGeo.setAttribute('position', new THREE.Float32BufferAttribute(sparkPositions, 3));
+    const sparkMat = new THREE.PointsMaterial({ color: 0xffffff, size: 0.025, transparent: true, opacity: 0.9, sizeAttenuation: true });
+    const sparks = new THREE.Points(sparkGeo, sparkMat);
+    basket.add(sparks);
+
+    // ── LIGHTING ─────────────────────────────────────────────────
+
+    // Ambient — low cool fill
+    scene.add(new THREE.AmbientLight(0x9aadce, 0.5));
+
+    // Primary key — bright white from top-left front
+    const key = new THREE.DirectionalLight(0xffffff, 3.5);
+    key.position.set(-4, 8, 5);
+    key.castShadow = true;
+    key.shadow.mapSize.set(1024, 1024);
+    key.shadow.camera.near = 0.1;
+    key.shadow.camera.far = 30;
+    key.shadow.camera.left = key.shadow.camera.bottom = -4;
+    key.shadow.camera.right = key.shadow.camera.top = 4;
+    key.shadow.bias = -0.001;
+    scene.add(key);
+
+    // Secondary key — right side, slightly warm
+    const key2 = new THREE.DirectionalLight(0xdde8ff, 2.0);
+    key2.position.set(5, 5, 3);
+    scene.add(key2);
+
+    // Rim — from behind, makes the band edge glow
+    const rim2 = new THREE.DirectionalLight(0xffffff, 2.2);
+    rim2.position.set(0, -2, -8);
+    scene.add(rim2);
+
+    // Under fill — catches inner band
+    const under = new THREE.DirectionalLight(0xc8d8ff, 1.0);
+    under.position.set(0, -6, 2);
+    scene.add(under);
+
+    // Indigo environment glow — matches page colour
+    const envGlow = new THREE.PointLight(0x3b6ef8, 2.5, 18);
+    envGlow.position.set(-5, 3, 4);
+    scene.add(envGlow);
+
+    // Moving diamond sparkle — orbits above the stone
+    const sparkLight1 = new THREE.PointLight(0xffffff, 8.0, 5);
+    scene.add(sparkLight1);
+    const sparkLight2 = new THREE.PointLight(0xb8d0ff, 5.0, 4);
+    scene.add(sparkLight2);
+
+    // ── INTERACTION ───────────────────────────────────────────────
+    let isDragging = false, prevX = 0, prevY = 0;
+    let targetRotX = -0.18, targetRotY = 0.3;
+    let curRotX = -0.18, curRotY = 0.3;
+    let lastDrag = 0;
+    const hint = document.getElementById('dragHint');
+
+    canvas.addEventListener('mousedown', e => {
+      isDragging = true; prevX = e.clientX; prevY = e.clientY;
+      canvas.style.cursor = 'grabbing';
+      if (hint) hint.style.opacity = '0';
+    });
+    window.addEventListener('mousemove', e => {
+      if (!isDragging) return;
+      targetRotY += (e.clientX - prevX) * 0.007;
+      targetRotX += (e.clientY - prevY) * 0.004;
+      targetRotX = Math.max(-0.55, Math.min(0.55, targetRotX));
+      prevX = e.clientX; prevY = e.clientY;
+      lastDrag = Date.now();
+    });
+    window.addEventListener('mouseup', () => { isDragging = false; canvas.style.cursor = 'grab'; });
+
+    canvas.addEventListener('touchstart', e => {
+      isDragging = true; prevX = e.touches[0].clientX; prevY = e.touches[0].clientY;
+      if (hint) hint.style.opacity = '0';
+    }, { passive: true });
+    canvas.addEventListener('touchmove', e => {
+      if (!isDragging) return;
+      targetRotY += (e.touches[0].clientX - prevX) * 0.007;
+      targetRotX += (e.touches[0].clientY - prevY) * 0.004;
+      targetRotX = Math.max(-0.55, Math.min(0.55, targetRotX));
+      prevX = e.touches[0].clientX; prevY = e.touches[0].clientY;
+      lastDrag = Date.now();
+    }, { passive: true });
+    canvas.addEventListener('touchend', () => { isDragging = false; });
+
+    // ── ANIMATE ───────────────────────────────────────────────────
+    let t = 0, frameCount = 0;
+    function animate() {
+      requestAnimationFrame(animate);
+      t += 0.010;
+      frameCount++;
+
+      // Slow auto-rotate when idle
+      if (!isDragging && Date.now() - lastDrag > 1800) targetRotY += 0.0025;
+
+      // Smooth damp
+      curRotY += (targetRotY - curRotY) * 0.055;
+      curRotX += (targetRotX - curRotX) * 0.055;
+      ringGroup.rotation.y = curRotY;
+      ringGroup.rotation.x = curRotX;
+
+      // Very subtle float — nearly still, just alive
+      ringGroup.position.y = Math.sin(t * 0.38) * 0.04;
+
+      // Diamond sparkle lights orbit — creates scintillation
+      const orbitR = 1.4;
+      sparkLight1.position.set(
+        Math.cos(t * 1.1) * orbitR,
+        1.35 + Math.sin(t * 0.9) * 0.5,
+        Math.sin(t * 1.1) * orbitR
+      );
+      sparkLight1.intensity = 6.0 + Math.sin(t * 4.3) * 2.5;
+
+      sparkLight2.position.set(
+        Math.cos(t * 0.7 + 2.1) * orbitR * 0.8,
+        1.25 + Math.cos(t * 1.3) * 0.4,
+        Math.sin(t * 0.7 + 2.1) * orbitR * 0.8
+      );
+      sparkLight2.intensity = 4.0 + Math.cos(t * 5.7) * 2.0;
+
+      // Sparkle particle twinkle
+      if (sparks.material) {
+        sparks.material.opacity = 0.6 + Math.sin(t * 7.1) * 0.4;
+        sparks.material.size = 0.022 + Math.sin(t * 9.3) * 0.008;
+      }
+
+      // Update cube camera every 6 frames (performance)
+      if (frameCount % 6 === 0) {
+        ringGroup.visible = false;
+        cubeCamera.position.copy(basket.getWorldPosition(new THREE.Vector3()));
+        cubeCamera.update(renderer, scene);
+        ringGroup.visible = true;
+      }
+
+      renderer.render(scene, camera);
+    }
+    animate();
+  })();
+  </script>
+
+  <!-- TICKER -->
+  <div class="ticker">
+    <div class="ticker-inner">
+      <span class="ticker-item"><span class="ticker-sep"></span>B2B Diamond Jewellery Manufacturing</span>
+      <span class="ticker-item"><span class="ticker-sep"></span>SEEPZ · MIDC · China · Thailand</span>
+      <span class="ticker-item"><span class="ticker-sep"></span>30,000 sq ft Flagship Factory</span>
+      <span class="ticker-item"><span class="ticker-sep"></span>USA · Europe · Dubai · Hong Kong · Australia</span>
+      <span class="ticker-item"><span class="ticker-sep"></span>RJC Certified · De Beers Sightholder</span>
+      <span class="ticker-item"><span class="ticker-sep"></span>700 Skilled Craftspeople</span>
+      <span class="ticker-item"><span class="ticker-sep"></span>B2B Diamond Jewellery Manufacturing</span>
+      <span class="ticker-item"><span class="ticker-sep"></span>SEEPZ · MIDC · China · Thailand</span>
+      <span class="ticker-item"><span class="ticker-sep"></span>30,000 sq ft Flagship Factory</span>
+      <span class="ticker-item"><span class="ticker-sep"></span>USA · Europe · Dubai · Hong Kong · Australia</span>
+      <span class="ticker-item"><span class="ticker-sep"></span>RJC Certified · De Beers Sightholder</span>
+      <span class="ticker-item"><span class="ticker-sep"></span>700 Skilled Craftspeople</span>
+    </div>
+  </div>
+
+  <!-- ABOUT SNIPPET -->
+  <section class="about-section">
+    <div class="grid-bg" style="opacity:.3"></div>
+    <div class="about-grid">
+      <div class="about-content">
+        <p class="sec-label reveal">Who We Are</p>
+        <h2 class="sec-title reveal reveal-delay-1">The jewellery arm of<br>a <em>45-year legacy</em></h2>
+        <p class="reveal reveal-delay-2" style="margin-top:1.5rem">Indigo Jewellery is the fine jewellery division of <strong>S. Vinodkumar Diamonds Pvt. Ltd. (SV Group)</strong> — one of India's most respected names in diamond manufacturing. Founded in 1978 by Mr. Sumatilal Shah and Mr. Vinod Shah, the group has become synonymous with quality, integrity, and global reach.</p>
+        <p class="reveal reveal-delay-2">Our jewellery operations commenced in 1999 with a unit in SEEPZ, Mumbai, and have grown into a multi-factory, multi-continent operation serving top-tier retailers worldwide. We are not a consumer brand — we are a <strong>manufacturing and wholesale partner</strong> to the world's finest jewellery retailers.</p>
+        <div class="about-pillars reveal reveal-delay-3">
+          <div class="pillar">
+            <div class="pillar-icon"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><polygon points="8,1 15,5 15,11 8,15 1,11 1,5" stroke="#3b6ef8" stroke-width="1.2" fill="none"/></svg></div>
+            <p class="pillar-title">Vertically Integrated</p>
+            <p class="pillar-desc">Rough sourcing to finished jewellery — one seamless pipeline</p>
+          </div>
+          <div class="pillar">
+            <div class="pillar-icon"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="6" stroke="#3b6ef8" stroke-width="1.2"/><path d="M5 8h6M8 5v6" stroke="#3b6ef8" stroke-width="1.2"/></svg></div>
+            <p class="pillar-title">CAD-Driven Design</p>
+            <p class="pillar-desc">300+ new designs monthly with in-house CAD/CAM capabilities</p>
+          </div>
+          <div class="pillar">
+            <div class="pillar-icon"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><rect x="2" y="2" width="12" height="12" rx="2" stroke="#3b6ef8" stroke-width="1.2" fill="none"/><path d="M5 8l2 2 4-4" stroke="#3b6ef8" stroke-width="1.2"/></svg></div>
+            <p class="pillar-title">RJC Certified</p>
+            <p class="pillar-desc">Responsible Jewellery Council certified, De Beers Sightholder</p>
+          </div>
+          <div class="pillar">
+            <div class="pillar-icon"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M2 4h12M2 8h8M2 12h10" stroke="#3b6ef8" stroke-width="1.2" stroke-linecap="round"/></svg></div>
+            <p class="pillar-title">Global Intelligence</p>
+            <p class="pillar-desc">Team travels to US, Australia, Europe monitoring consumer trends</p>
+          </div>
+        </div>
+        <a href="#" onclick="showPage('about')" class="sv-link reveal reveal-delay-4">Full company story →</a>
+      </div>
+      <div class="about-visual reveal reveal-delay-2">
+        <div class="about-img-stack">
+          <div class="about-img-main">
+            <img src="https://images.unsplash.com/photo-1624913503273-5f9c4e980dba?w=700&q=80" alt="Jewellery manufacturing">
+          </div>
+          <div class="about-img-secondary">
+            <img src="https://images.unsplash.com/photo-1573408301185-9519eb23f88f?w=500&q=80" alt="Gold jewellery">
+          </div>
+          <div class="about-floating-card">
+            <span class="afc-num">1978</span>
+            <span class="afc-label">Group founded</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CAPABILITIES STRIP -->
+  <section class="capabilities">
+    <div class="cap-head reveal">
+      <p class="sec-label" style="justify-content:center">Our Edge</p>
+      <h2 class="sec-title">What we bring to your business</h2>
+    </div>
+    <div class="cap-grid">
+      <div class="cap-card reveal">
+        <div class="cap-num">01</div>
+        <h3 class="cap-title">Design & Product Development</h3>
+        <p class="cap-desc">Our in-house team of designers, model makers, CAD designers and CAM machines produce 300 new designs every month, drawing from consumer research across the US, Europe, Australia, Russia and Middle East.</p>
+        <span class="cap-tag">300 designs / month</span>
+      </div>
+      <div class="cap-card reveal reveal-delay-1">
+        <div class="cap-num">02</div>
+        <h3 class="cap-title">Manufacturing at Scale</h3>
+        <p class="cap-desc">With factories in SEEPZ Mumbai (30,000 sq ft), MIDC Mumbai (10,000 sq ft), China and Thailand, we deliver exceptional scale without compromising craft. Up to 700 skilled workers across our jewellery operations.</p>
+        <span class="cap-tag">80,000+ pieces / month</span>
+      </div>
+      <div class="cap-card reveal reveal-delay-2">
+        <div class="cap-num">03</div>
+        <h3 class="cap-title">Global Distribution Network</h3>
+        <p class="cap-desc">Sales offices in New York, Antwerp, Dubai, and Hong Kong, plus manufacturing partnerships in China, give our B2B clients seamless market access in the world's most valuable jewellery retail corridors.</p>
+        <span class="cap-tag">7 countries</span>
+      </div>
+      <div class="cap-card reveal">
+        <div class="cap-num">04</div>
+        <h3 class="cap-title">Vertically Integrated Supply</h3>
+        <p class="cap-desc">As a De Beers Group Sightholder, SV Group procures rough diamonds directly from mines. Every stone in an Indigo piece is traced, conflict-free, and compliant with international standards from source to setting.</p>
+        <span class="cap-tag">Mine to market</span>
+      </div>
+      <div class="cap-card reveal reveal-delay-1">
+        <div class="cap-num">05</div>
+        <h3 class="cap-title">Custom Collections</h3>
+        <p class="cap-desc">We collaborate closely with retail clients to develop specialized lines built to their specifications. Whether chain stores or prestigious boutiques, we translate your brand vision into sellable, margin-healthy products.</p>
+        <span class="cap-tag">White-label ready</span>
+      </div>
+      <div class="cap-card reveal reveal-delay-2">
+        <div class="cap-num">06</div>
+        <h3 class="cap-title">Technology-First Quality</h3>
+        <p class="cap-desc">Our factories are equipped with the latest tools and technology — from 3D printing and casting to precision laser cutting and automated quality control — ensuring every piece meets the highest standards.</p>
+        <span class="cap-tag">ISO compliant</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- CERTS -->
+  <div class="certs reveal">
+    <div class="certs-inner">
+      <span class="cert-label">Certifications & Memberships</span>
+      <div class="cert-badges">
+        <div class="cert-badge"><span class="cert-ico">✦</span> RJC Certified — Feb 2026–2029</div>
+        <div class="cert-badge"><span class="cert-ico">✦</span> De Beers Group Sightholder</div>
+        <div class="cert-badge"><span class="cert-ico">✦</span> The Plumb Club Member</div>
+        <div class="cert-badge"><span class="cert-ico">✦</span> Conflict-Free Diamonds</div>
+        <div class="cert-badge"><span class="cert-ico">✦</span> SEEPZ SEZ Certified Unit</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CONTACT CTA -->
+  <section class="contact-cta">
+    <div class="grid-bg" style="opacity:.2"></div>
+    <h2 class="cta-title reveal">Ready to build your<br><em>next collection?</em></h2>
+    <p class="cta-sub reveal reveal-delay-1">Join the network of premium retailers across 15+ countries who rely on Indigo Jewellery for quality, reliability, and design excellence.</p>
+    <div class="cta-actions reveal reveal-delay-2">
+      <a href="#" onclick="showPage('contact')" class="btn-primary">Get in Touch</a>
+      <a href="#" onclick="showPage('products')" class="btn-outline">View Product Range</a>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-top">
+      <div class="footer-brand">
+        <div class="nav-logo" style="cursor:default">
+          <div class="logo-mark" style="width:28px;height:28px">
+            <svg viewBox="0 0 34 34" fill="none"><polygon points="17,2 32,12 32,22 17,32 2,22 2,12" fill="rgba(59,110,248,0.15)" stroke="#3b6ef8" stroke-width="1"/><circle cx="17" cy="17" r="3" fill="#4d82ff"/></svg>
+          </div>
+          <div><span class="logo-text">Indigo Jewellery</span><span class="logo-sub">An SV Group Company</span></div>
+        </div>
+        <p>Leading B2B diamond jewellery manufacturer. Serving premium retailers across the globe since 1999.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Company</h4>
+        <ul>
+          <li><a href="#" onclick="showPage('about')">About Us</a></li>
+          <li><a href="#" onclick="showPage('manufacturing')">Manufacturing</a></li>
+          <li><a href="#" onclick="showPage('associates')">Global Network</a></li>
+          <li><a href="https://svinodkumar.com" target="_blank">SV Group ↗</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Products</h4>
+        <ul>
+          <li><a href="#" onclick="showPage('products')">Diamond Rings</a></li>
+          <li><a href="#" onclick="showPage('products')">Necklaces & Pendants</a></li>
+          <li><a href="#" onclick="showPage('products')">Earrings</a></li>
+          <li><a href="#" onclick="showPage('products')">Bracelets</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <ul>
+          <li><a href="#" onclick="showPage('contact')">Partner Enquiry</a></li>
+          <li><a href="mailto:info@svinodkumar.com">info@svinodkumar.com</a></li>
+          <li><a href="tel:+912240328080">+91 22 4032 8080</a></li>
+          <li><a href="#" onclick="showPage('contact')">Visit Our Factories</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2025 Indigo Jewellery (I) Mfg. Pvt. Ltd. All rights reserved.</span>
+      <span>A division of <a href="https://svinodkumar.com" target="_blank" class="sv-group-link">✦ SV Group</a></span>
+      <div style="display:flex;gap:1.5rem"><a href="#">Privacy</a><a href="#">Terms</a></div>
+    </div>
+  </footer>
+</div>
+
+<!-- ===================== ABOUT PAGE ===================== -->
+<div id="page-about" class="page">
+  <section style="padding:9rem 5rem 5rem;position:relative">
+    <div class="grid-bg"></div>
+    <div style="max-width:720px;margin-bottom:5rem">
+      <p class="sec-label" style="margin-bottom:.8rem">Our Story</p>
+      <h1 class="sec-title" style="font-size:clamp(2.5rem,4vw,4.5rem);margin-bottom:1.5rem">Crafting brilliance<br>since <em>1978</em></h1>
+      <p style="font-size:.95rem;font-weight:300;line-height:1.9;color:rgba(255,255,255,.55)">Indigo Jewellery is the jewellery company of SV Group, and an associate of S. Vinodkumar Diamonds Pvt. Ltd. — a global leader in diamond trading, manufacturing, and jewellery creation with over 45 years of experience.</p>
+    </div>
+
+    <!-- Timeline -->
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:start;margin-bottom:6rem">
+      <div>
+        <h2 style="font-family:var(--serif);font-size:2rem;font-weight:400;margin-bottom:2rem;color:var(--white)">The <em>SV Group</em> Story</h2>
+        <p style="font-size:.88rem;font-weight:300;line-height:1.95;color:rgba(255,255,255,.55);margin-bottom:1rem">S. Vinodkumar Diamonds is one of India's leading manufacturers and distributors of polished diamonds. Co-founded by <strong style="color:var(--white)">Mr. Sumatilal Shah</strong> and <strong style="color:var(--white)">Mr. Vinod Shah</strong>, the company was established in 1978 with humble beginnings and has grown through family unity, unwavering work ethics, and a relentless pursuit of quality.</p>
+        <p style="font-size:.88rem;font-weight:300;line-height:1.95;color:rgba(255,255,255,.55);margin-bottom:1rem">Today, SV Group employs <strong style="color:var(--white)">over 5,000 people in 7 countries</strong>, and its name is synonymous with the finest manufactured diamonds globally. The group engages in direct procurement of rough diamonds from mines, diamond manufacturing, and diamond-studded jewellery — from mine to market.</p>
+        <p style="font-size:.88rem;font-weight:300;line-height:1.95;color:rgba(255,255,255,.55)">As a longtime <strong style="color:var(--white)">De Beers Sightholder</strong>, SV Group is not just a trusted advisor but a genuine partner in its customers' success. The Responsible Jewellery Council certification (renewed through 2029) reflects the group's commitment to ethics, safety, and sustainability.</p>
+        <a href="https://svinodkumar.com" target="_blank" class="sv-link" style="margin-top:1.5rem;display:inline-flex">Visit SV Group website ↗</a>
+      </div>
+      <div>
+        <div style="display:flex;flex-direction:column;gap:0">
+          <div style="display:grid;grid-template-columns:80px 1fr;gap:1.5rem;padding-bottom:2rem;border-left:1px solid var(--glass-border);padding-left:2rem;position:relative">
+            <div style="position:absolute;left:-6px;top:4px;width:11px;height:11px;border-radius:50%;background:var(--blue-accent);border:2px solid var(--blue-deep)"></div>
+            <span style="font-family:var(--serif);font-size:1.3rem;color:var(--gold);padding-top:.1rem">1978</span>
+            <div><p style="font-size:.82rem;font-weight:500;color:var(--white);margin-bottom:.3rem">Foundation</p><p style="font-size:.78rem;font-weight:300;color:rgba(255,255,255,.45);line-height:1.7">Mr. Sumatilal Shah & Mr. Vinod Shah establish S. Vinodkumar Diamonds in Mumbai</p></div>
+          </div>
+          <div style="display:grid;grid-template-columns:80px 1fr;gap:1.5rem;padding-bottom:2rem;border-left:1px solid var(--glass-border);padding-left:2rem;position:relative">
+            <div style="position:absolute;left:-6px;top:4px;width:11px;height:11px;border-radius:50%;background:var(--blue-accent);border:2px solid var(--blue-deep)"></div>
+            <span style="font-family:var(--serif);font-size:1.3rem;color:var(--gold);padding-top:.1rem">1999</span>
+            <div><p style="font-size:.82rem;font-weight:500;color:var(--white);margin-bottom:.3rem">Indigo is Born</p><p style="font-size:.78rem;font-weight:300;color:rgba(255,255,255,.45);line-height:1.7">SV Group commissions its first jewellery unit in SEEPZ, Mumbai — the Indigo Jewellery division launches</p></div>
+          </div>
+          <div style="display:grid;grid-template-columns:80px 1fr;gap:1.5rem;padding-bottom:2rem;border-left:1px solid var(--glass-border);padding-left:2rem;position:relative">
+            <div style="position:absolute;left:-6px;top:4px;width:11px;height:11px;border-radius:50%;background:var(--blue-accent);border:2px solid var(--blue-deep)"></div>
+            <span style="font-family:var(--serif);font-size:1.3rem;color:var(--gold);padding-top:.1rem">2006</span>
+            <div><p style="font-size:.82rem;font-weight:500;color:var(--white);margin-bottom:.3rem">Flagship Factory</p><p style="font-size:.78rem;font-weight:300;color:rgba(255,255,255,.45);line-height:1.7">30,000 sq ft independent factory opens at SEEPZ++, Andheri — India's most advanced export zone</p></div>
+          </div>
+          <div style="display:grid;grid-template-columns:80px 1fr;gap:1.5rem;padding-bottom:2rem;border-left:1px solid var(--glass-border);padding-left:2rem;position:relative">
+            <div style="position:absolute;left:-6px;top:4px;width:11px;height:11px;border-radius:50%;background:var(--blue-accent);border:2px solid var(--blue-deep)"></div>
+            <span style="font-family:var(--serif);font-size:1.3rem;color:var(--gold);padding-top:.1rem">2007</span>
+            <div><p style="font-size:.82rem;font-weight:500;color:var(--white);margin-bottom:.3rem">Domestic Market Entry</p><p style="font-size:.78rem;font-weight:300;color:rgba(255,255,255,.45);line-height:1.7">10,000 sq ft factory at MIDC Mumbai established to serve India's top domestic retailers</p></div>
+          </div>
+          <div style="display:grid;grid-template-columns:80px 1fr;gap:1.5rem;padding-bottom:2rem;border-left:1px solid var(--glass-border);padding-left:2rem;position:relative">
+            <div style="position:absolute;left:-6px;top:4px;width:11px;height:11px;border-radius:50%;background:var(--blue-accent);border:2px solid var(--blue-deep)"></div>
+            <span style="font-family:var(--serif);font-size:1.3rem;color:var(--gold);padding-top:.1rem">2016</span>
+            <div><p style="font-size:.82rem;font-weight:500;color:var(--white);margin-bottom:.3rem">RJC Certification</p><p style="font-size:.78rem;font-weight:300;color:rgba(255,255,255,.45);line-height:1.7">First Responsible Jewellery Council certification achieved — renewed continuously through 2029</p></div>
+          </div>
+          <div style="display:grid;grid-template-columns:80px 1fr;gap:1.5rem;padding-left:2rem;position:relative">
+            <div style="position:absolute;left:-6px;top:4px;width:11px;height:11px;border-radius:50%;background:var(--gold);border:2px solid var(--blue-deep)"></div>
+            <span style="font-family:var(--serif);font-size:1.3rem;color:var(--gold);padding-top:.1rem">Today</span>
+            <div><p style="font-size:.82rem;font-weight:500;color:var(--white);margin-bottom:.3rem">Global Leader</p><p style="font-size:.78rem;font-weight:300;color:rgba(255,255,255,.45);line-height:1.7">80,000+ pieces monthly · 7 countries · 700 craftspeople · markets in USA, Europe, Australia, UAE, South Africa</p></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Leadership -->
+    <div class="leadership">
+      <div class="leadership-head">
+        <p class="sec-label">Management</p>
+        <h2 class="sec-title">The minds behind <em>Indigo</em></h2>
+      </div>
+      <div class="leadership-grid">
+        <div class="leader-card">
+          <div class="leader-avatar">VS</div>
+          <p class="leader-name">Mr. Vinod Shah</p>
+          <p class="leader-title">Chairman, SV Group</p>
+          <p class="leader-bio">Co-founder of SV Group, Mr. Vinod Shah believes "marketing is the main strength of our company." He has embedded the culture of unity, strength and efficiency across generations of the business.</p>
+          <p class="leader-quote">"We established our Company in 1978. With unity of family in business we have grown over the years. Our reputation and work ethics are our two main assets."</p>
+        </div>
+        <div class="leader-card">
+          <div class="leader-avatar">SS</div>
+          <p class="leader-name">Mr. Samir Shah</p>
+          <p class="leader-title">Head of Jewellery Division — Indigo</p>
+          <p class="leader-bio">Mr. Samir Shah leads the Indigo Jewellery business globally, overseeing both marketing and manufacturing for Indian and international markets including the US, Europe and Australia.</p>
+          <p class="leader-quote">"Indigo is the name of our jewellery operations globally. We wish to carry forward the legacy of S. Vinodkumar in fine diamond jewellery."</p>
+        </div>
+        <div class="leader-card">
+          <div class="leader-avatar">AS</div>
+          <p class="leader-name">Mr. Amish Shah</p>
+          <p class="leader-title">Managing Director — Polished Diamonds</p>
+          <p class="leader-bio">The eldest of the second generation, Mr. Amish Shah manages the polished diamond business with a focus on quality, technology and experience — the three pillars that define SV Group's buying experience.</p>
+          <p class="leader-quote">"The highest degree of importance is given towards product quality. Quality, technology, experience — these transform into a unique buying experience for our customers."</p>
+        </div>
+        <div class="leader-card">
+          <div class="leader-avatar">MS</div>
+          <p class="leader-name">Mr. Manish Shah</p>
+          <p class="leader-title">Co-Director — Polished Diamonds</p>
+          <p class="leader-bio">Mr. Manish Shah jointly manages the polished diamond business from Mumbai — the hub of SV Group's global loose diamond operations. He focuses on manufacturing, procurement, and customer delivery timelines.</p>
+          <p class="leader-quote">A leader known for his sharp operational focus, ensuring customer demands are met with precision and speed.</p>
+        </div>
+        <div class="leader-card">
+          <div class="leader-avatar">KS</div>
+          <p class="leader-name">Mr. Kamlesh Shah</p>
+          <p class="leader-title">Director — Diamond Manufacturing, Surat</p>
+          <p class="leader-bio">Mr. Kamlesh Shah oversees the vast diamond cutting and polishing infrastructure in Surat, employing more than 2,500 workers. He is committed to elevating the volume and quality of the group's diamond manufacturing.</p>
+          <p class="leader-quote">"We manufacture only natural and conflict free rough diamonds. Our state of the art units employ more than 2500 workers who cut & polish top quality diamonds."</p>
+        </div>
+        <div class="leader-card" style="display:flex;align-items:center;justify-content:center;background:rgba(59,110,248,.05);border-style:dashed">
+          <div style="text-align:center">
+            <div style="font-size:2rem;margin-bottom:.8rem;opacity:.4">+</div>
+            <p style="font-size:.85rem;font-weight:300;color:rgba(255,255,255,.4)">Second generation leadership across all divisions driving SV Group into the future</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="footer-bottom" style="padding:2rem 0">
+      <span>© 2025 Indigo Jewellery (I) Mfg. Pvt. Ltd.</span>
+      <span>A division of <a href="https://svinodkumar.com" target="_blank" class="sv-group-link">✦ SV Group</a></span>
+    </div>
+  </footer>
+</div>
+
+<!-- ===================== MANUFACTURING PAGE ===================== -->
+<div id="page-manufacturing" class="page">
+  <section style="padding:9rem 5rem 5rem;position:relative">
+    <div class="grid-bg"></div>
+    <div style="text-align:center;max-width:700px;margin:0 auto 5rem">
+      <p class="sec-label" style="justify-content:center">State of the Art</p>
+      <h1 class="sec-title" style="font-size:clamp(2.5rem,4vw,4rem);margin-bottom:1rem">Our Factories.<br><em>Built for scale.</em></h1>
+      <p style="font-size:.9rem;font-weight:300;line-height:1.9;color:rgba(255,255,255,.5)">Across three continents, our manufacturing footprint is purpose-built to deliver precision jewellery at volume — from CAD concept to finished piece.</p>
+    </div>
+
+    <section class="factories" style="padding:0 0 5rem;background:transparent">
+      <div class="factories-tabs">
+        <button class="ftab active" onclick="showFactory(this,'seepz')">SEEPZ Mumbai</button>
+        <button class="ftab" onclick="showFactory(this,'midc')">MIDC Mumbai</button>
+        <button class="ftab" onclick="showFactory(this,'china')">China & Asia</button>
+        <button class="ftab" onclick="showFactory(this,'newyork')">New York</button>
+      </div>
+      <div class="factory-panels">
+        <div class="factory-panel active" id="fp-seepz">
+          <div class="factory-img">
+            <img src="https://images.unsplash.com/photo-1581091226033-d5c48150dbaa?w=800&q=80" alt="SEEPZ Factory">
+            <div class="factory-img-overlay"></div>
+            <div class="factory-specs">
+              <div class="fspec"><span class="fspec-val">30,000</span><span class="fspec-key">Sq Ft Area</span></div>
+              <div class="fspec"><span class="fspec-val">700</span><span class="fspec-key">Workers</span></div>
+              <div class="fspec"><span class="fspec-val">1999</span><span class="fspec-key">Established</span></div>
+              <div class="fspec"><span class="fspec-val">Export</span><span class="fspec-key">Zone Certified</span></div>
+            </div>
+          </div>
+          <div class="factory-info">
+            <h3>Indigo Jewellery Flagship Factory</h3>
+            <p class="factory-location">📍 Plot No. GJ 008, SEEPZ++, Andheri (E), Mumbai 400096</p>
+            <p class="factory-desc">Our flagship export facility — the heart of Indigo's global manufacturing operations. Established in 1999 and expanded significantly in 2006, this 30,000 sq ft state-of-the-art facility sits within SEEPZ++, India's premier special economic zone for gem and jewellery exports.</p>
+            <p class="factory-desc">SEEPZ alone accounts for over 50% of India's studded jewellery exports and supplies approximately 18% of total US studded jewellery imports. Being here means being at the centre of the industry.</p>
+            <ul class="factory-features">
+              <li><span class="ff-dot"></span>In-house CAD/CAM design centre with model makers & designers</li>
+              <li><span class="ff-dot"></span>Advanced casting, setting, polishing and quality control departments</li>
+              <li><span class="ff-dot"></span>Exports to USA, Australia, Dubai, Europe and South Africa</li>
+              <li><span class="ff-dot"></span>300+ new designs developed per month</li>
+              <li><span class="ff-dot"></span>Fully compliant with SEEPZ SEZ export regulations</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="factory-panel" id="fp-midc">
+          <div class="factory-img">
+            <img src="https://images.unsplash.com/photo-1598300042247-d088f8ab3a91?w=800&q=80" alt="MIDC Factory">
+            <div class="factory-img-overlay"></div>
+            <div class="factory-specs">
+              <div class="fspec"><span class="fspec-val">10,000</span><span class="fspec-key">Sq Ft Area</span></div>
+              <div class="fspec"><span class="fspec-val">2007</span><span class="fspec-key">Established</span></div>
+              <div class="fspec"><span class="fspec-val">India</span><span class="fspec-key">Market Focus</span></div>
+              <div class="fspec"><span class="fspec-val">Top</span><span class="fspec-key">Tier Retailers</span></div>
+            </div>
+          </div>
+          <div class="factory-info">
+            <h3>Indigo Jewellery Pvt. Ltd.</h3>
+            <p class="factory-location">📍 C5, Plot No. 11 & 12, WICEL, MIDC Road, Andheri East, Mumbai</p>
+            <p class="factory-desc">Established in 2007 to serve the rapidly growing Indian domestic jewellery market, this completely independent 10,000 sq ft factory designs and manufactures fine diamond jewellery for India's top retail clients.</p>
+            <p class="factory-desc">The MIDC unit is a separate, dedicated operation — ensuring that our domestic clients receive the same level of attention, quality and bespoke design service as our international partners.</p>
+            <ul class="factory-features">
+              <li><span class="ff-dot"></span>Fully independent jewellery design and manufacturing unit</li>
+              <li><span class="ff-dot"></span>Dedicated to serving TOP retailers across India</li>
+              <li><span class="ff-dot"></span>Fine diamond jewellery tailored to Indian consumer preferences</li>
+              <li><span class="ff-dot"></span>Separate product development and design team</li>
+              <li><span class="ff-dot"></span>Rapid turnaround capability for domestic market</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="factory-panel" id="fp-china">
+          <div class="factory-img">
+            <img src="https://images.unsplash.com/photo-1565035010268-a3816f98589a?w=800&q=80" alt="Asia Manufacturing">
+            <div class="factory-img-overlay"></div>
+            <div class="factory-specs">
+              <div class="fspec"><span class="fspec-val">China</span><span class="fspec-key">Primary Hub</span></div>
+              <div class="fspec"><span class="fspec-val">Thailand</span><span class="fspec-key">Secondary Hub</span></div>
+              <div class="fspec"><span class="fspec-val">Global</span><span class="fspec-key">Supply Chain</span></div>
+              <div class="fspec"><span class="fspec-val">Scale</span><span class="fspec-key">Production</span></div>
+            </div>
+          </div>
+          <div class="factory-info">
+            <h3>China & Thailand Manufacturing</h3>
+            <p class="factory-location">📍 China · Thailand · Sourced through RA Gem Centre, Hong Kong</p>
+            <p class="factory-desc">Our Asian manufacturing network complements our Indian operations with volume-scale production capabilities and competitive cost structures. The New York sales team sources product from China, Bangkok and India to offer clients maximum flexibility.</p>
+            <p class="factory-desc">With manufacturing intelligence gathered from consumer markets in the US, Australia, Europe, Russia and the Middle East, our Asian facilities produce collections that are commercially optimised for each market's preferences.</p>
+            <ul class="factory-features">
+              <li><span class="ff-dot"></span>High-volume capacity for large chain store programmes</li>
+              <li><span class="ff-dot"></span>Cost-competitive options without quality compromise</li>
+              <li><span class="ff-dot"></span>Coordinated through Hong Kong hub — RA Gem Centre</li>
+              <li><span class="ff-dot"></span>Experienced merchandising and production team</li>
+              <li><span class="ff-dot"></span>All stones conflict-free and traceable</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="factory-panel" id="fp-newyork">
+          <div class="factory-img">
+            <img src="https://images.unsplash.com/photo-1499092346302-b8d01c1f1a3a?w=800&q=80" alt="New York Office">
+            <div class="factory-img-overlay"></div>
+            <div class="factory-specs">
+              <div class="fspec"><span class="fspec-val">7,000</span><span class="fspec-key">Sq Ft Office</span></div>
+              <div class="fspec"><span class="fspec-val">Madison</span><span class="fspec-key">Avenue</span></div>
+              <div class="fspec"><span class="fspec-val">USA</span><span class="fspec-key">Primary Market</span></div>
+              <div class="fspec"><span class="fspec-val">Chain+</span><span class="fspec-key">Independents</span></div>
+            </div>
+          </div>
+          <div class="factory-info">
+            <h3>Indigo Jewelry Inc. — New York</h3>
+            <p class="factory-location">📍 521 5th Avenue, Suite 820, New York, NY 10175, USA</p>
+            <p class="factory-desc">Our 7,000 sq ft New York showroom and sales office is strategically located on Madison Avenue — the heart of the American jewellery trade. From here, our experienced merchandising and sales team services both independent boutiques and major chain stores with diamond jewellery sourced from China, Bangkok and India.</p>
+            <p class="factory-desc">The US team brings intimate market intelligence to our design teams in India and Asia, ensuring every collection we produce resonates with American consumers.</p>
+            <ul class="factory-features">
+              <li><span class="ff-dot"></span>Services Mom & Pop stores as well as major Chain retailers</li>
+              <li><span class="ff-dot"></span>Professional merchandising and sales team on the ground</li>
+              <li><span class="ff-dot"></span>Trunk show and exhibition capabilities</li>
+              <li><span class="ff-dot"></span>Member of The Plumb Club</li>
+              <li><span class="ff-dot"></span>Direct liaison with India and China manufacturing</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Manufacturing process -->
+    <div style="margin-top:4rem">
+      <h2 style="font-family:var(--serif);font-size:2rem;font-weight:400;text-align:center;margin-bottom:3rem;color:var(--white)">From <em>concept to collection</em></h2>
+      <div style="display:grid;grid-template-columns:repeat(6,1fr);gap:0;position:relative">
+        <div style="position:absolute;top:24px;left:calc(100%/12);right:calc(100%/12);height:1px;background:linear-gradient(90deg,transparent,var(--blue-accent),transparent)"></div>
+        <div style="text-align:center;padding:0 1rem" class="reveal">
+          <div style="width:48px;height:48px;background:var(--glass);border:1px solid var(--blue-accent);border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 1rem;font-family:var(--serif);font-size:1rem;color:var(--blue-glow);position:relative;background:var(--blue-dark)">01</div>
+          <p style="font-size:.78rem;font-weight:500;color:var(--white);margin-bottom:.4rem">Trend Analysis</p>
+          <p style="font-size:.7rem;font-weight:300;color:var(--muted);line-height:1.6">Market research across US, EU, AU, RU</p>
+        </div>
+        <div style="text-align:center;padding:0 1rem" class="reveal reveal-delay-1">
+          <div style="width:48px;height:48px;background:var(--glass);border:1px solid var(--blue-accent);border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 1rem;font-family:var(--serif);font-size:1rem;color:var(--blue-glow);position:relative;background:var(--blue-dark)">02</div>
+          <p style="font-size:.78rem;font-weight:500;color:var(--white);margin-bottom:.4rem">CAD Design</p>
+          <p style="font-size:.7rem;font-weight:300;color:var(--muted);line-height:1.6">In-house 3D modelling & rendering</p>
+        </div>
+        <div style="text-align:center;padding:0 1rem" class="reveal reveal-delay-2">
+          <div style="width:48px;height:48px;background:var(--glass);border:1px solid var(--blue-accent);border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 1rem;font-family:var(--serif);font-size:1rem;color:var(--blue-glow);position:relative;background:var(--blue-dark)">03</div>
+          <p style="font-size:.78rem;font-weight:500;color:var(--white);margin-bottom:.4rem">Prototyping</p>
+          <p style="font-size:.7rem;font-weight:300;color:var(--muted);line-height:1.6">CAM machining & model approval</p>
+        </div>
+        <div style="text-align:center;padding:0 1rem" class="reveal reveal-delay-3">
+          <div style="width:48px;height:48px;background:var(--glass);border:1px solid var(--blue-accent);border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 1rem;font-family:var(--serif);font-size:1rem;color:var(--blue-glow);position:relative;background:var(--blue-dark)">04</div>
+          <p style="font-size:.78rem;font-weight:500;color:var(--white);margin-bottom:.4rem">Manufacturing</p>
+          <p style="font-size:.7rem;font-weight:300;color:var(--muted);line-height:1.6">Setting, polishing, filing by skilled craftspeople</p>
+        </div>
+        <div style="text-align:center;padding:0 1rem" class="reveal reveal-delay-4">
+          <div style="width:48px;height:48px;background:var(--glass);border:1px solid var(--blue-accent);border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 1rem;font-family:var(--serif);font-size:1rem;color:var(--blue-glow);position:relative;background:var(--blue-dark)">05</div>
+          <p style="font-size:.78rem;font-weight:500;color:var(--white);margin-bottom:.4rem">QC & Certification</p>
+          <p style="font-size:.7rem;font-weight:300;color:var(--muted);line-height:1.6">RJC-compliant quality inspection</p>
+        </div>
+        <div style="text-align:center;padding:0 1rem" class="reveal reveal-delay-4">
+          <div style="width:48px;height:48px;background:rgba(201,168,76,.15);border:1px solid var(--gold);border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 1rem;font-family:var(--serif);font-size:1rem;color:var(--gold);position:relative;background:var(--blue-dark)">06</div>
+          <p style="font-size:.78rem;font-weight:500;color:var(--white);margin-bottom:.4rem">Global Delivery</p>
+          <p style="font-size:.7rem;font-weight:300;color:var(--muted);line-height:1.6">Dispatched to retailers worldwide</p>
+        </div>
+      </div>
+    </div>
+  </section>
+  <footer><div class="footer-bottom" style="padding:2rem 0"><span>© 2025 Indigo Jewellery (I) Mfg. Pvt. Ltd.</span><span>A division of <a href="https://svinodkumar.com" target="_blank" class="sv-group-link">✦ SV Group</a></span></div></footer>
+</div>
+
+<!-- ===================== ASSOCIATES PAGE ===================== -->
+<div id="page-associates" class="page">
+  <section class="associates" style="padding-top:9rem">
+    <div class="grid-bg"></div>
+    <div class="associates-head">
+      <p class="sec-label">Global Reach</p>
+      <h1 class="sec-title" style="font-size:clamp(2.5rem,4vw,4rem)">Our associates,<br><em>your advantage</em></h1>
+      <p class="associates-intro">With a rich history spanning over 45 years, our global network of marketing associates — strategically located in major diamond hubs — delivers exceptional service to our esteemed and loyal clientele worldwide.</p>
+    </div>
+    <div class="globe-section">
+      <div class="globe-visual">
+        <svg class="globe-svg" viewBox="0 0 350 350" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="175" cy="175" r="150" stroke="rgba(59,110,248,0.2)" stroke-width="1" fill="rgba(10,15,46,0.5)"/>
+          <ellipse cx="175" cy="175" rx="80" ry="150" stroke="rgba(59,110,248,0.12)" stroke-width="0.5"/>
+          <ellipse cx="175" cy="175" rx="150" ry="60" stroke="rgba(59,110,248,0.12)" stroke-width="0.5"/>
+          <ellipse cx="175" cy="175" rx="150" ry="100" stroke="rgba(59,110,248,0.08)" stroke-width="0.5"/>
+          <line x1="25" y1="175" x2="325" y2="175" stroke="rgba(59,110,248,0.1)" stroke-width="0.5"/>
+          <line x1="175" y1="25" x2="175" y2="325" stroke="rgba(59,110,248,0.1)" stroke-width="0.5"/>
+          <!-- Mumbai -->
+          <circle cx="230" cy="168" r="5" fill="#3b6ef8" opacity="0.9"/>
+          <circle cx="230" cy="168" r="10" fill="rgba(59,110,248,0.2)"/>
+          <text x="243" y="172" fill="#c8d5ff" font-size="9" font-family="sans-serif">Mumbai</text>
+          <!-- New York -->
+          <circle cx="88" cy="140" r="5" fill="#4d82ff" opacity="0.9"/>
+          <circle cx="88" cy="140" r="10" fill="rgba(77,130,255,0.2)"/>
+          <text x="50" y="133" fill="#c8d5ff" font-size="9" font-family="sans-serif">New York</text>
+          <!-- Antwerp -->
+          <circle cx="168" cy="108" r="4" fill="#c9a84c" opacity="0.9"/>
+          <circle cx="168" cy="108" r="8" fill="rgba(201,168,76,0.15)"/>
+          <text x="175" y="103" fill="#e8c97a" font-size="9" font-family="sans-serif">Antwerp</text>
+          <!-- Dubai -->
+          <circle cx="208" cy="158" r="4" fill="#4d82ff" opacity="0.9"/>
+          <text x="215" y="153" fill="#c8d5ff" font-size="9" font-family="sans-serif">Dubai</text>
+          <!-- Hong Kong -->
+          <circle cx="265" cy="155" r="4" fill="#c9a84c" opacity="0.9"/>
+          <text x="270" y="150" fill="#e8c97a" font-size="9" font-family="sans-serif">Hong Kong</text>
+          <!-- Surat -->
+          <circle cx="222" cy="155" r="3" fill="#4d82ff" opacity="0.7"/>
+          <text x="225" y="150" fill="#c8d5ff" font-size="8" font-family="sans-serif">Surat</text>
+          <!-- Botswana -->
+          <circle cx="182" cy="210" r="3" fill="#4d82ff" opacity="0.7"/>
+          <text x="188" y="210" fill="#c8d5ff" font-size="8" font-family="sans-serif">Gaborone</text>
+          <!-- Connecting lines -->
+          <line x1="230" y1="168" x2="88" y2="140" stroke="rgba(59,110,248,0.2)" stroke-width="0.5" stroke-dasharray="4,3"/>
+          <line x1="230" y1="168" x2="168" y2="108" stroke="rgba(201,168,76,0.2)" stroke-width="0.5" stroke-dasharray="4,3"/>
+          <line x1="230" y1="168" x2="208" y2="158" stroke="rgba(59,110,248,0.2)" stroke-width="0.5"/>
+          <line x1="230" y1="168" x2="265" y2="155" stroke="rgba(201,168,76,0.2)" stroke-width="0.5"/>
+          <line x1="230" y1="168" x2="182" y2="210" stroke="rgba(59,110,248,0.15)" stroke-width="0.5" stroke-dasharray="4,3"/>
+        </svg>
+      </div>
+      <div class="associates-list">
+        <div class="assoc-item">
+          <span class="assoc-flag">🇮🇳</span>
+          <div class="assoc-info">
+            <p class="assoc-name">Indigo Jewellery (I) Mfg. Pvt. Ltd.</p>
+            <p class="assoc-entity">Plot No. GJ 008, SEEPZ++, Andheri (E), Mumbai 400096 · Tel: +91-22-40696969</p>
+          </div>
+          <span class="assoc-badge badge-export">Export HQ</span>
+        </div>
+        <div class="assoc-item">
+          <span class="assoc-flag">🇮🇳</span>
+          <div class="assoc-info">
+            <p class="assoc-name">Indigo Jewellery Pvt. Ltd. — MIDC</p>
+            <p class="assoc-entity">C5, Plot No. 11 & 12, WICEL, MIDC Road, Andheri East, Mumbai</p>
+          </div>
+          <span class="assoc-badge badge-domestic">Domestic</span>
+        </div>
+        <div class="assoc-item">
+          <span class="assoc-flag">🇺🇸</span>
+          <div class="assoc-info">
+            <p class="assoc-name">Indigo Jewelry, Inc.</p>
+            <p class="assoc-entity">521 5th Avenue, Suite 820, New York, NY 10175 · Tel: +1-212-921-0056</p>
+          </div>
+          <span class="assoc-badge badge-sales">Sales Office</span>
+        </div>
+        <div class="assoc-item">
+          <span class="assoc-flag">🇧🇪</span>
+          <div class="assoc-info">
+            <p class="assoc-name">Indigo Jewellery (Belgium) BVBA</p>
+            <p class="assoc-entity">Hoveniersstraat 30, Box 227, Office 1026, 2018 Antwerpen · Tel: +32 3.232.02.84</p>
+          </div>
+          <span class="assoc-badge badge-sales">Sales Office</span>
+        </div>
+        <div class="assoc-item">
+          <span class="assoc-flag">🇭🇰</span>
+          <div class="assoc-info">
+            <p class="assoc-name">Indigo Jewels Ltd. / R.A. Gem Centre Ltd.</p>
+            <p class="assoc-entity">Unit 12-13, 9F, Tower 1, Harbour Centre, 1 Hok Cheung St, Hung Hom, Kowloon · Tel: +852 27218360</p>
+          </div>
+          <span class="assoc-badge badge-export">Asia Hub</span>
+        </div>
+        <div class="assoc-item">
+          <span class="assoc-flag">🇦🇪</span>
+          <div class="assoc-info">
+            <p class="assoc-name">S. Vinodkumar DMCC</p>
+            <p class="assoc-entity">27th Floor, Office 27J, Almas Tower, Jumeirah Lakes Tower, Dubai, UAE · Tel: +971-4-2354566</p>
+          </div>
+          <span class="assoc-badge badge-sales">Sales Office</span>
+        </div>
+        <div class="assoc-item">
+          <span class="assoc-flag">🇧🇼</span>
+          <div class="assoc-info">
+            <p class="assoc-name">S. Vinodkumar Botswana (Pty) Ltd.</p>
+            <p class="assoc-entity">Plot 64260, Unit B2 & B3, Pharathe Road, Block 3 Industrial, Gaborone, Botswana</p>
+          </div>
+          <span class="assoc-badge badge-export">Sourcing</span>
+        </div>
+      </div>
+    </div>
+
+    <div style="margin-top:5rem;background:var(--glass);border:1px solid var(--glass-border);padding:3rem;border-radius:4px">
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center">
+        <div>
+          <h3 style="font-family:var(--serif);font-size:1.8rem;font-weight:400;margin-bottom:1rem;color:var(--white)">Markets we <em>serve</em></h3>
+          <p style="font-size:.88rem;font-weight:300;line-height:1.9;color:rgba(255,255,255,.55);margin-bottom:1rem">Our products are designed keeping in mind consumer preferences in retail markets across the globe. Our product development and design teams travel regularly to consumer markets to study ever-changing consumer choices.</p>
+          <p style="font-size:.88rem;font-weight:300;line-height:1.9;color:rgba(255,255,255,.55)">Whether you are a specialty jeweller or one of the world's most prestigious brands, Indigo's global presence provides the market intelligence and manufacturing reach to serve you effectively.</p>
+        </div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem">
+          <div style="background:rgba(59,110,248,.08);border:1px solid var(--glass-border);padding:1.2rem;border-radius:3px;text-align:center">
+            <div style="font-size:1.5rem;margin-bottom:.5rem">🇺🇸</div>
+            <p style="font-size:.75rem;font-weight:500;color:var(--white)">United States</p>
+            <p style="font-size:.68rem;font-weight:300;color:var(--muted)">Primary market</p>
+          </div>
+          <div style="background:rgba(59,110,248,.08);border:1px solid var(--glass-border);padding:1.2rem;border-radius:3px;text-align:center">
+            <div style="font-size:1.5rem;margin-bottom:.5rem">🇦🇺</div>
+            <p style="font-size:.75rem;font-weight:500;color:var(--white)">Australia</p>
+            <p style="font-size:.68rem;font-weight:300;color:var(--muted)">Key export market</p>
+          </div>
+          <div style="background:rgba(59,110,248,.08);border:1px solid var(--glass-border);padding:1.2rem;border-radius:3px;text-align:center">
+            <div style="font-size:1.5rem;margin-bottom:.5rem">🇪🇺</div>
+            <p style="font-size:.75rem;font-weight:500;color:var(--white)">Europe</p>
+            <p style="font-size:.68rem;font-weight:300;color:var(--muted)">Via Antwerp hub</p>
+          </div>
+          <div style="background:rgba(59,110,248,.08);border:1px solid var(--glass-border);padding:1.2rem;border-radius:3px;text-align:center">
+            <div style="font-size:1.5rem;margin-bottom:.5rem">🇿🇦</div>
+            <p style="font-size:.75rem;font-weight:500;color:var(--white)">South Africa</p>
+            <p style="font-size:.68rem;font-weight:300;color:var(--muted)">Served from Mumbai</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <footer><div class="footer-bottom" style="padding:2rem 0"><span>© 2025 Indigo Jewellery (I) Mfg. Pvt. Ltd.</span><span>A division of <a href="https://svinodkumar.com" target="_blank" class="sv-group-link">✦ SV Group</a></span></div></footer>
+</div>
+
+<!-- ===================== PRODUCTS PAGE ===================== -->
+<div id="page-products" class="page">
+  <section style="padding:9rem 5rem 5rem;position:relative">
+    <div class="grid-bg"></div>
+    <div style="text-align:center;margin-bottom:3rem">
+      <p class="sec-label" style="justify-content:center">B2B Product Range</p>
+      <h1 class="sec-title" style="font-size:clamp(2.5rem,4vw,4rem);margin-bottom:1rem">Diamond jewellery,<br><em>built for retail.</em></h1>
+      <p style="font-size:.9rem;font-weight:300;color:rgba(255,255,255,.5);max-width:560px;margin:0 auto;line-height:1.9">We manufacture fine diamond jewellery for retail partners worldwide. All product is exclusively B2B — available to qualified retailers, chain stores, and branded partners. No direct consumer sales.</p>
+    </div>
+    <div style="display:inline-flex;background:var(--glass);border:1px solid var(--glass-border);padding:.4rem;border-radius:3px;margin-bottom:2.5rem;display:flex;justify-content:center;gap:.3rem;flex-wrap:wrap">
+      <button class="ftab active" onclick="filterProds(this,'all')" style="padding:.45rem 1.2rem">All Categories</button>
+      <button class="ftab" onclick="filterProds(this,'rings')" style="padding:.45rem 1.2rem">Rings</button>
+      <button class="ftab" onclick="filterProds(this,'necklaces')" style="padding:.45rem 1.2rem">Necklaces</button>
+      <button class="ftab" onclick="filterProds(this,'earrings')" style="padding:.45rem 1.2rem">Earrings</button>
+      <button class="ftab" onclick="filterProds(this,'bracelets')" style="padding:.45rem 1.2rem">Bracelets</button>
+    </div>
+    <div class="products-grid" id="prodsGrid">
+      <div class="prod-card" data-cat="rings">
+        <div class="prod-img"><img src="https://images.unsplash.com/photo-1605100804763-247f67b3557e?w=400&q=80" alt="Solitaire Ring"><div class="prod-overlay"></div></div>
+        <div class="prod-info"><p class="prod-cat">Rings · Signature</p><p class="prod-name">Solitaire Diamond Rings</p><p class="prod-desc">Classic prong-set rounds in 14K & 18K gold. Available in certified & non-certified options across all sizes.</p></div>
+      </div>
+      <div class="prod-card" data-cat="necklaces">
+        <div class="prod-img"><img src="https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?w=400&q=80" alt="Diamond Pendant"><div class="prod-overlay"></div></div>
+        <div class="prod-info"><p class="prod-cat">Necklaces · Core</p><p class="prod-name">Diamond Pendants & Necklaces</p><p class="prod-desc">Everyday wear to special occasion. Cross, heart, teardrop, and custom shapes in white and yellow gold.</p></div>
+      </div>
+      <div class="prod-card" data-cat="earrings">
+        <div class="prod-img"><img src="https://images.unsplash.com/photo-1630019852942-f89202989a59?w=400&q=80" alt="Diamond Earrings"><div class="prod-overlay"></div></div>
+        <div class="prod-info"><p class="prod-cat">Earrings · Bestseller</p><p class="prod-name">Diamond Stud & Drop Earrings</p><p class="prod-desc">From simple studs to intricate drop designs. Our most requested category for US and Australian retailers.</p></div>
+      </div>
+      <div class="prod-card" data-cat="bracelets">
+        <div class="prod-img"><img src="https://images.unsplash.com/photo-1611591437281-460bfbe1220a?w=400&q=80" alt="Diamond Bracelet"><div class="prod-overlay"></div></div>
+        <div class="prod-info"><p class="prod-cat">Bracelets · Heritage</p><p class="prod-name">Diamond Tennis & Chain Bracelets</p><p class="prod-desc">Tennis bracelets, station bracelets and bangles in 14K, 18K and 22K gold with natural diamond melee.</p></div>
+      </div>
+      <div class="prod-card" data-cat="rings">
+        <div class="prod-img"><img src="https://images.unsplash.com/photo-1573408301185-9519eb23f88f?w=400&q=80" alt="Bridal Ring"><div class="prod-overlay"></div></div>
+        <div class="prod-info"><p class="prod-cat">Rings · Bridal</p><p class="prod-name">Bridal & Engagement Rings</p><p class="prod-desc">Halo, pavé, and three-stone styles. Available for programme selling or custom design for retail brands.</p></div>
+      </div>
+      <div class="prod-card" data-cat="necklaces">
+        <div class="prod-img"><img src="https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?w=400&q=80" alt="Layered Necklaces"><div class="prod-overlay"></div></div>
+        <div class="prod-info"><p class="prod-cat">Necklaces · Modern</p><p class="prod-name">Layered & Station Necklaces</p><p class="prod-desc">On-trend layering designs for chain store programmes. High commercial value with strong margin architecture.</p></div>
+      </div>
+      <div class="prod-card" data-cat="earrings">
+        <div class="prod-img"><img src="https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?w=400&q=80" alt="Hoop Earrings"><div class="prod-overlay"></div></div>
+        <div class="prod-info"><p class="prod-cat">Earrings · Trend</p><p class="prod-name">Diamond Huggies & Hoops</p><p class="prod-desc">Huggie hoops with inside-out diamond setting and classic hoops with pavé. Consistent bestsellers in the US market.</p></div>
+      </div>
+      <div class="prod-card" data-cat="rings">
+        <div class="prod-img"><img src="https://images.unsplash.com/photo-1602173574767-37ac01994b2a?w=400&q=80" alt="Fashion Rings"><div class="prod-overlay"></div></div>
+        <div class="prod-info"><p class="prod-cat">Rings · Fashion</p><p class="prod-name">Fashion & Stackable Rings</p><p class="prod-desc">Stackable bands, eternity rings and fashion cocktail styles. High-volume production capability for major chains.</p></div>
+      </div>
+    </div>
+
+    <div style="margin-top:4rem;background:var(--blue-dark);border:1px solid var(--glass-border);padding:3rem;border-radius:4px;text-align:center">
+      <h3 style="font-family:var(--serif);font-size:1.6rem;font-weight:400;margin-bottom:.8rem;color:var(--white)">Custom Collection Development</h3>
+      <p style="font-size:.88rem;font-weight:300;color:rgba(255,255,255,.5);max-width:560px;margin:0 auto 2rem;line-height:1.9">We collaborate closely with retail clients to develop specialised lines built around their brand, their customer, and their margin targets. Private label and exclusive collections available for qualifying partners.</p>
+      <a href="#" onclick="showPage('contact')" class="btn-primary">Enquire About Custom Programmes</a>
+    </div>
+  </section>
+  <footer><div class="footer-bottom" style="padding:2rem 0"><span>© 2025 Indigo Jewellery (I) Mfg. Pvt. Ltd.</span><span>A division of <a href="https://svinodkumar.com" target="_blank" class="sv-group-link">✦ SV Group</a></span></div></footer>
+</div>
+
+<!-- ===================== CONTACT PAGE ===================== -->
+<div id="page-contact" class="page">
+  <section class="contact-page">
+    <div class="grid-bg"></div>
+    <div class="contact-grid">
+      <div class="contact-info">
+        <p class="sec-label">Get In Touch</p>
+        <h2>Partner with <em>Indigo</em></h2>
+        <p style="margin-top:1rem">We work exclusively with qualified B2B partners — retailers, chain stores, and branded jewellery companies. If you're looking for a reliable, design-forward manufacturing partner, we'd love to talk.</p>
+        <div class="contact-offices">
+          <div class="office-item">
+            <p class="office-city">🇮🇳 Corporate Office — Mumbai</p>
+            <p class="office-addr">1205, The Capital, 12th Floor, A-Wing, Plot C/70, G Block, BKC, Bandra (E), Mumbai 400051</p>
+            <p class="office-contact">Tel: +91-22-40328080 · info@svinodkumar.com</p>
+          </div>
+          <div class="office-item">
+            <p class="office-city">🇮🇳 Flagship Factory — SEEPZ</p>
+            <p class="office-addr">Plot No. GJ 008, SEEPZ++, Andheri (E), Mumbai 400096</p>
+            <p class="office-contact">Tel: +91-22-40696969</p>
+          </div>
+          <div class="office-item">
+            <p class="office-city">🇺🇸 New York</p>
+            <p class="office-addr">521 5th Avenue, Suite 820, New York, NY 10175</p>
+            <p class="office-contact">Tel: +1-212-921-0056 · infousa@svinodkumar.com</p>
+          </div>
+          <div class="office-item">
+            <p class="office-city">🇧🇪 Antwerp</p>
+            <p class="office-addr">Hoveniersstraat 30, Box 227, Office 1026, 2018 Antwerpen, Belgium</p>
+            <p class="office-contact">Tel: +32 3.232.02.84 · info@svgems.com</p>
+          </div>
+        </div>
+      </div>
+      <div>
+        <div style="background:var(--glass);border:1px solid var(--glass-border);padding:2.5rem;border-radius:4px">
+          <h3 style="font-family:var(--serif);font-size:1.4rem;font-weight:400;margin-bottom:1.5rem;color:var(--white)">Partner Enquiry Form</h3>
+          <div class="form-row">
+            <div class="form-group"><label class="form-label">First Name</label><input class="form-input" type="text" placeholder="John"></div>
+            <div class="form-group"><label class="form-label">Last Name</label><input class="form-input" type="text" placeholder="Smith"></div>
+          </div>
+          <div class="form-group"><label class="form-label">Company Name</label><input class="form-input" type="text" placeholder="Your company"></div>
+          <div class="form-group"><label class="form-label">Email Address</label><input class="form-input" type="email" placeholder="you@company.com"></div>
+          <div class="form-row">
+            <div class="form-group"><label class="form-label">Country</label><input class="form-input" type="text" placeholder="Country"></div>
+            <div class="form-group"><label class="form-label">Business Type</label>
+              <select class="form-select">
+                <option value="">Select type...</option>
+                <option>Independent Jewellery Retailer</option>
+                <option>Chain Store / Group</option>
+                <option>Luxury Brand</option>
+                <option>Wholesale / Distributor</option>
+                <option>Other</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-group"><label class="form-label">Product Interest</label>
+            <select class="form-select">
+              <option value="">Select category...</option>
+              <option>Diamond Rings</option>
+              <option>Necklaces & Pendants</option>
+              <option>Earrings</option>
+              <option>Bracelets</option>
+              <option>Custom / Full Collection</option>
+              <option>Multiple Categories</option>
+            </select>
+          </div>
+          <div class="form-group"><label class="form-label">Message</label><textarea class="form-textarea" rows="4" placeholder="Tell us about your business and what you're looking for..."></textarea></div>
+          <button class="btn-primary" style="width:100%;justify-content:center" onclick="handleSubmit(this)">Send Enquiry</button>
+          <p style="font-size:.72rem;font-weight:300;color:rgba(255,255,255,.3);text-align:center;margin-top:1rem;line-height:1.7">By submitting this form you agree to be contacted by the Indigo Jewellery team. We respond to all genuine enquiries within 2 business days.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+  <footer><div class="footer-bottom" style="padding:2rem 0"><span>© 2025 Indigo Jewellery (I) Mfg. Pvt. Ltd.</span><span>A division of <a href="https://svinodkumar.com" target="_blank" class="sv-group-link">✦ SV Group</a></span></div></footer>
+</div>
+
+<!-- ===================== SUSTAINABILITY PAGE ===================== -->
+<div id="page-sustainability" class="page">
+
+  <!-- HERO -->
+  <section style="min-height:92vh;display:grid;grid-template-columns:1fr 1fr;position:relative;overflow:hidden;padding-top:90px;align-items:center;">
+    <div class="grid-bg" style="opacity:.5"></div>
+    <!-- green glow -->
+    <div style="position:absolute;width:700px;height:700px;background:radial-gradient(circle,rgba(34,197,94,.07),transparent 65%);top:50%;right:0;transform:translateY(-50%);pointer-events:none"></div>
+
+    <div style="padding:5rem 4rem 5rem 5rem;position:relative;z-index:2">
+      <div style="display:inline-flex;align-items:center;gap:.6rem;background:rgba(34,197,94,.08);border:1px solid rgba(34,197,94,.2);padding:.4rem 1rem;border-radius:2px;margin-bottom:2rem;opacity:0;animation:fadeUp .7s .2s forwards">
+        <span style="width:6px;height:6px;background:#22c55e;border-radius:50%;animation:pulse 2s infinite;flex-shrink:0"></span>
+        <span style="font-size:.65rem;font-weight:400;letter-spacing:.2em;text-transform:uppercase;color:#86efac">Responsibility & Impact</span>
+      </div>
+      <h1 style="font-family:var(--serif);font-size:clamp(2.8rem,4.5vw,5rem);font-weight:400;line-height:1.05;margin-bottom:1.5rem;opacity:0;animation:fadeUp .7s .4s forwards;color:var(--white)">
+        Diamonds forged<br>by nature. <em style="color:#4ade80">Returned</em><br>to it with care.
+      </h1>
+      <p style="font-size:.95rem;font-weight:300;line-height:1.9;color:rgba(255,255,255,.58);max-width:430px;margin-bottom:2.5rem;opacity:0;animation:fadeUp .7s .6s forwards">
+        The jewellery industry has a profound relationship with the earth. At Indigo and across the SV Group, we believe that relationship demands accountability — to the planet, to the communities near our mines and factories, and to the people we employ.
+      </p>
+      <div style="display:flex;gap:2.5rem;padding-top:2rem;border-top:1px solid var(--glass-border);opacity:0;animation:fadeUp .7s .9s forwards">
+        <div><span style="font-family:var(--serif);font-size:2.2rem;font-weight:400;color:#4ade80;display:block;line-height:1">500+</span><span style="font-size:.62rem;font-weight:300;letter-spacing:.15em;text-transform:uppercase;color:var(--muted);display:block;margin-top:.3rem">Students benefited yearly</span></div>
+        <div><span style="font-family:var(--serif);font-size:2.2rem;font-weight:400;color:#4ade80;display:block;line-height:1">RJC</span><span style="font-size:.62rem;font-weight:300;letter-spacing:.15em;text-transform:uppercase;color:var(--muted);display:block;margin-top:.3rem">Certified since 2016</span></div>
+        <div><span style="font-family:var(--serif);font-size:2.2rem;font-weight:400;color:#4ade80;display:block;line-height:1">100%</span><span style="font-size:.62rem;font-weight:300;letter-spacing:.15em;text-transform:uppercase;color:var(--muted);display:block;margin-top:.3rem">Conflict-free diamonds</span></div>
+        <div><span style="font-family:var(--serif);font-size:2.2rem;font-weight:400;color:#4ade80;display:block;line-height:1">5,000+</span><span style="font-size:.62rem;font-weight:300;letter-spacing:.15em;text-transform:uppercase;color:var(--muted);display:block;margin-top:.3rem">Livelihoods supported</span></div>
+      </div>
+    </div>
+    <div style="height:100%;min-height:580px;position:relative;overflow:hidden">
+      <img src="https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=900&q=85" alt="Lush green forest" style="width:100%;height:100%;object-fit:cover;filter:saturate(1.1)">
+      <div style="position:absolute;inset:0;background:linear-gradient(to right,rgba(10,15,46,.6) 0%,rgba(10,15,46,.1) 60%,transparent 100%)"></div>
+      <div style="position:absolute;bottom:2.5rem;right:2.5rem;background:rgba(10,15,46,.88);backdrop-filter:blur(16px);border:1px solid rgba(34,197,94,.25);padding:1.2rem 1.6rem;border-radius:4px">
+        <span style="font-size:.6rem;font-weight:300;letter-spacing:.2em;text-transform:uppercase;color:#86efac;display:block;margin-bottom:.3rem">Our commitment</span>
+        <span style="font-family:var(--serif);font-size:1.3rem;color:var(--white);display:block;line-height:1.2">People. Planet.<br>Purpose.</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHY IT MATTERS - INDUSTRY CONTEXT -->
+  <section style="padding:7rem 5rem;background:var(--blue-dark);position:relative;overflow:hidden">
+    <div style="position:absolute;inset:0;background-image:radial-gradient(rgba(34,197,94,.04) 1px,transparent 1px);background-size:40px 40px;pointer-events:none"></div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:6rem;align-items:center">
+      <div>
+        <p class="sec-label reveal" style="color:#4ade80">The Industry Context</p>
+        <h2 class="sec-title reveal reveal-delay-1" style="margin-bottom:1.5rem">Why sustainability<br>is not <em>optional</em></h2>
+        <p class="reveal reveal-delay-2" style="font-size:.9rem;font-weight:300;line-height:1.95;color:rgba(255,255,255,.58);margin-bottom:1.2rem">The jewellery industry sits at a unique intersection of nature, craft, and commerce. Diamonds and precious metals are gifts of the earth — and their extraction carries a real environmental and human cost. As a responsible player in this industry, we take that seriously.</p>
+        <p class="reveal reveal-delay-2" style="font-size:.9rem;font-weight:300;line-height:1.95;color:rgba(255,255,255,.58);margin-bottom:1.2rem">Retail buyers, end consumers, and institutional partners increasingly require — and deserve — transparency. ESG credentials are no longer a "nice to have"; they are a prerequisite for doing business with the world's leading retailers, brands, and investors.</p>
+        <p class="reveal reveal-delay-3" style="font-size:.9rem;font-weight:300;line-height:1.95;color:rgba(255,255,255,.58)">At Indigo and across the SV Group, we do not treat sustainability as a compliance exercise. It is embedded in how we source, how we manufacture, how we employ, and how we give back — reflecting values that our founders instilled from day one in 1978.</p>
+      </div>
+      <div class="reveal reveal-delay-2" style="display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--glass-border)">
+        <div style="background:var(--blue-dark);padding:2rem;text-align:center">
+          <div style="font-size:2.5rem;margin-bottom:.8rem">🌍</div>
+          <p style="font-size:.82rem;font-weight:500;color:var(--white);margin-bottom:.4rem">Environmental Stewardship</p>
+          <p style="font-size:.75rem;font-weight:300;color:var(--muted);line-height:1.7">Minimising our footprint across every stage of the supply chain</p>
+        </div>
+        <div style="background:var(--blue-dark);padding:2rem;text-align:center">
+          <div style="font-size:2.5rem;margin-bottom:.8rem">🤝</div>
+          <p style="font-size:.82rem;font-weight:500;color:var(--white);margin-bottom:.4rem">Ethical Sourcing</p>
+          <p style="font-size:.75rem;font-weight:300;color:var(--muted);line-height:1.7">100% conflict-free, traceable diamonds from responsible mines</p>
+        </div>
+        <div style="background:var(--blue-dark);padding:2rem;text-align:center">
+          <div style="font-size:2.5rem;margin-bottom:.8rem">👩‍💼</div>
+          <p style="font-size:.82rem;font-weight:500;color:var(--white);margin-bottom:.4rem">Worker Welfare</p>
+          <p style="font-size:.75rem;font-weight:300;color:var(--muted);line-height:1.7">5,000+ people employed with dignity, safety, and fair wages</p>
+        </div>
+        <div style="background:var(--blue-dark);padding:2rem;text-align:center">
+          <div style="font-size:2.5rem;margin-bottom:.8rem">🌱</div>
+          <p style="font-size:.82rem;font-weight:500;color:var(--white);margin-bottom:.4rem">Community Investment</p>
+          <p style="font-size:.75rem;font-weight:300;color:var(--muted);line-height:1.7">Education, healthcare, and animal welfare programmes across India</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- RESPONSIBLE SOURCING -->
+  <section style="padding:7rem 5rem;position:relative;overflow:hidden">
+    <div class="grid-bg" style="opacity:.3"></div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:center">
+      <div style="position:relative;aspect-ratio:4/5;overflow:hidden;border-radius:4px;border:1px solid var(--glass-border)" class="reveal">
+        <img src="https://images.unsplash.com/photo-1500534314209-a25ddb2bd429?w=700&q=85" alt="Responsible mining landscape" style="width:100%;height:100%;object-fit:cover;filter:saturate(.9)">
+        <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(10,15,46,.7),transparent 55%)"></div>
+        <div style="position:absolute;bottom:2rem;left:2rem;right:2rem">
+          <div style="background:rgba(10,15,46,.9);backdrop-filter:blur(12px);border:1px solid rgba(34,197,94,.2);padding:1.2rem;border-radius:3px">
+            <p style="font-size:.62rem;letter-spacing:.2em;text-transform:uppercase;color:#86efac;margin-bottom:.5rem">De Beers Sightholder</p>
+            <p style="font-size:.82rem;font-weight:300;color:rgba(255,255,255,.7);line-height:1.7">Direct procurement from De Beers ensures every rough diamond meets the Best Practice Principles — the industry's gold standard for responsible mining.</p>
+          </div>
+        </div>
+      </div>
+      <div class="reveal reveal-delay-1">
+        <p class="sec-label" style="color:#4ade80">Responsible Sourcing</p>
+        <h2 class="sec-title" style="margin-bottom:1.5rem">From mine to market —<br><em>transparently</em></h2>
+        <p style="font-size:.9rem;font-weight:300;line-height:1.95;color:rgba(255,255,255,.58);margin-bottom:1.2rem">As a longstanding De Beers Group Sightholder, SV Group procures rough diamonds directly from mining operations that comply with the Kimberley Process and the De Beers Best Practice Principles. Every stone that enters our supply chain is natural, conflict-free, and traceable.</p>
+        <p style="font-size:.9rem;font-weight:300;line-height:1.95;color:rgba(255,255,255,.58);margin-bottom:2rem">We believe the provenance of a gemstone is as important as its brilliance. Our clients — and their customers — deserve to know that the beauty they purchase was created without exploiting people or the planet.</p>
+        <div style="display:flex;flex-direction:column;gap:.8rem">
+          <div style="display:flex;align-items:flex-start;gap:1rem;padding:1rem 1.2rem;background:rgba(34,197,94,.06);border:1px solid rgba(34,197,94,.15);border-radius:3px">
+            <span style="color:#4ade80;font-size:1rem;flex-shrink:0;margin-top:.05rem">✦</span>
+            <div><p style="font-size:.82rem;font-weight:500;color:var(--white);margin-bottom:.2rem">Kimberley Process Certified</p><p style="font-size:.75rem;font-weight:300;color:var(--muted);line-height:1.6">All rough diamonds are KP certified — guaranteeing they are free from conflict origin</p></div>
+          </div>
+          <div style="display:flex;align-items:flex-start;gap:1rem;padding:1rem 1.2rem;background:rgba(34,197,94,.06);border:1px solid rgba(34,197,94,.15);border-radius:3px">
+            <span style="color:#4ade80;font-size:1rem;flex-shrink:0;margin-top:.05rem">✦</span>
+            <div><p style="font-size:.82rem;font-weight:500;color:var(--white);margin-bottom:.2rem">RJC Certified — Renewed Through 2029</p><p style="font-size:.75rem;font-weight:300;color:var(--muted);line-height:1.6">The Responsible Jewellery Council independently audits our practices — ethics, human rights, labour, environment, and business integrity</p></div>
+          </div>
+          <div style="display:flex;align-items:flex-start;gap:1rem;padding:1rem 1.2rem;background:rgba(34,197,94,.06);border:1px solid rgba(34,197,94,.15);border-radius:3px">
+            <span style="color:#4ade80;font-size:1rem;flex-shrink:0;margin-top:.05rem">✦</span>
+            <div><p style="font-size:.82rem;font-weight:500;color:var(--white);margin-bottom:.2rem">WEPs Signatory — Women's Empowerment Principles</p><p style="font-size:.75rem;font-weight:300;color:var(--muted);line-height:1.6">Committed to gender equality, creating equal opportunities, and fostering women leaders across our operations</p></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- COMMUNITY - SPLIT FEATURE -->
+  <section style="padding:7rem 5rem;background:var(--blue-dark);position:relative;overflow:hidden">
+    <div style="position:absolute;inset:0;background:radial-gradient(ellipse 60% 50% at 50% 100%,rgba(34,197,94,.06),transparent);pointer-events:none"></div>
+    <div style="text-align:center;margin-bottom:5rem" class="reveal">
+      <p class="sec-label" style="justify-content:center;color:#4ade80">Community & Giving Back</p>
+      <h2 class="sec-title" style="margin-bottom:1rem">Profits that <em>give back</em></h2>
+      <p style="font-size:.9rem;font-weight:300;color:rgba(255,255,255,.5);max-width:600px;margin:0 auto;line-height:1.9">"Profits earned from the business are futile, unless a substantial part of it is reinvested to uplift the underprivileged and marginalised segment of society." — <em style="color:rgba(255,255,255,.7)">Mr. Vinod Shah, Chairman, SV Group</em></p>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:1.5px;background:var(--glass-border)" class="reveal reveal-delay-1">
+      <!-- Education -->
+      <div style="position:relative;overflow:hidden;aspect-ratio:3/4;cursor:none;group:true">
+        <img src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?w=600&q=80" alt="Education initiative" style="width:100%;height:100%;object-fit:cover;filter:saturate(.85);transition:transform .7s">
+        <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(10,15,46,.88) 0%,rgba(10,15,46,.2) 60%,transparent 100%)"></div>
+        <div style="position:absolute;inset:0;background:rgba(34,197,94,.07);opacity:0;transition:opacity .4s"></div>
+        <div style="position:absolute;bottom:0;left:0;right:0;padding:2rem">
+          <div style="width:40px;height:40px;background:rgba(34,197,94,.15);border:1px solid rgba(34,197,94,.3);border-radius:3px;display:flex;align-items:center;justify-content:center;font-size:1.1rem;margin-bottom:1rem">📚</div>
+          <p style="font-size:.65rem;font-weight:300;letter-spacing:.25em;text-transform:uppercase;color:#86efac;margin-bottom:.4rem">Education</p>
+          <h3 style="font-family:var(--serif);font-size:1.5rem;font-weight:400;color:var(--white);margin-bottom:.7rem">Shaping Futures</h3>
+          <p style="font-size:.8rem;font-weight:300;color:rgba(255,255,255,.6);line-height:1.7">SV Group's educational schemes enable children from underprivileged backgrounds to access quality education and build successful careers. Computer classes in Surat and school sponsorships benefit over 500 students every year.</p>
+        </div>
+      </div>
+      <!-- Healthcare -->
+      <div style="position:relative;overflow:hidden;aspect-ratio:3/4;cursor:none">
+        <img src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=600&q=80" alt="Healthcare initiative" style="width:100%;height:100%;object-fit:cover;filter:saturate(.85)">
+        <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(10,15,46,.88) 0%,rgba(10,15,46,.2) 60%,transparent 100%)"></div>
+        <div style="position:absolute;bottom:0;left:0;right:0;padding:2rem">
+          <div style="width:40px;height:40px;background:rgba(59,130,246,.15);border:1px solid rgba(59,130,246,.3);border-radius:3px;display:flex;align-items:center;justify-content:center;font-size:1.1rem;margin-bottom:1rem">🏥</div>
+          <p style="font-size:.65rem;font-weight:300;letter-spacing:.25em;text-transform:uppercase;color:var(--blue-pale);margin-bottom:.4rem">Healthcare</p>
+          <h3 style="font-family:var(--serif);font-size:1.5rem;font-weight:400;color:var(--white);margin-bottom:.7rem">Healing Communities</h3>
+          <p style="font-size:.8rem;font-weight:300;color:rgba(255,255,255,.6);line-height:1.7">The group sponsors charitable clinics at Mahidharpura and Katargam, Surat — providing medical services to thousands of patients. Medicines are supplied at concessional rates so that cost is never a barrier to care.</p>
+        </div>
+      </div>
+      <!-- Animal & Environment -->
+      <div style="position:relative;overflow:hidden;aspect-ratio:3/4;cursor:none">
+        <img src="https://images.unsplash.com/photo-1470770903676-69b98201ea1c?w=600&q=80" alt="Nature and animal welfare" style="width:100%;height:100%;object-fit:cover;filter:saturate(.9)">
+        <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(10,15,46,.88) 0%,rgba(10,15,46,.2) 60%,transparent 100%)"></div>
+        <div style="position:absolute;bottom:0;left:0;right:0;padding:2rem">
+          <div style="width:40px;height:40px;background:rgba(251,191,36,.1);border:1px solid rgba(251,191,36,.25);border-radius:3px;display:flex;align-items:center;justify-content:center;font-size:1.1rem;margin-bottom:1rem">🐄</div>
+          <p style="font-size:.65rem;font-weight:300;letter-spacing:.25em;text-transform:uppercase;color:var(--gold-light);margin-bottom:.4rem">Animal Welfare</p>
+          <h3 style="font-family:var(--serif);font-size:1.5rem;font-weight:400;color:var(--white);margin-bottom:.7rem">Caring for All Life</h3>
+          <p style="font-size:.8rem;font-weight:300;color:rgba(255,255,255,.6);line-height:1.7">A dedicated cattle camp at Deesa, Gujarat, provides shelter, food and medical treatment for sick and elderly cattle. Buildings and shade structures have been constructed to offer dignified care for animals that can no longer fend for themselves.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Dharamshala / Pilgrimage -->
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center;margin-top:5rem;padding-top:5rem;border-top:1px solid var(--glass-border)" class="reveal">
+      <div>
+        <p class="sec-label" style="color:#4ade80">Cultural Heritage</p>
+        <h3 style="font-family:var(--serif);font-size:2rem;font-weight:400;margin-bottom:1rem;color:var(--white)">Preserving places of <em>peace</em></h3>
+        <p style="font-size:.88rem;font-weight:300;line-height:1.95;color:rgba(255,255,255,.55);margin-bottom:1rem">The SV Group has funded the construction of a dharamshala — a Jain pilgrimage rest house — at Palitana, Gujarat. The facility houses 34 rooms and four halls with a canteen, providing safe and comfortable accommodation for thousands of pilgrims every year.</p>
+        <p style="font-size:.88rem;font-weight:300;line-height:1.95;color:rgba(255,255,255,.55)">This reflects the founders' deep-rooted belief that business success carries with it a duty to support cultural, spiritual and community infrastructure — particularly for those who have the least.</p>
+        <div style="display:flex;gap:2rem;margin-top:2rem">
+          <div style="border-top:1px solid rgba(34,197,94,.3);padding-top:1rem"><span style="font-family:var(--serif);font-size:1.8rem;color:#4ade80;display:block">34</span><span style="font-size:.62rem;letter-spacing:.15em;text-transform:uppercase;color:var(--muted)">Rooms built</span></div>
+          <div style="border-top:1px solid rgba(34,197,94,.3);padding-top:1rem"><span style="font-family:var(--serif);font-size:1.8rem;color:#4ade80;display:block">4</span><span style="font-size:.62rem;letter-spacing:.15em;text-transform:uppercase;color:var(--muted)">Community halls</span></div>
+          <div style="border-top:1px solid rgba(34,197,94,.3);padding-top:1rem"><span style="font-family:var(--serif);font-size:1.8rem;color:#4ade80;display:block">1978</span><span style="font-size:.62rem;letter-spacing:.15em;text-transform:uppercase;color:var(--muted)">Community ethos since</span></div>
+        </div>
+      </div>
+      <div style="position:relative;overflow:hidden;border-radius:4px;border:1px solid var(--glass-border);aspect-ratio:16/10">
+        <img src="https://images.unsplash.com/photo-1545854020-7a6cfabfe4b0?w=700&q=80" alt="Palitana Gujarat temple" style="width:100%;height:100%;object-fit:cover;filter:saturate(.9)">
+        <div style="position:absolute;inset:0;background:linear-gradient(135deg,rgba(10,15,46,.3),transparent)"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ENVIRONMENTAL COMMITMENTS -->
+  <section style="padding:7rem 5rem;position:relative;overflow:hidden">
+    <div class="grid-bg" style="opacity:.3"></div>
+    <div style="text-align:center;margin-bottom:4rem" class="reveal">
+      <p class="sec-label" style="justify-content:center;color:#4ade80">Environmental Commitments</p>
+      <h2 class="sec-title" style="margin-bottom:1rem">Manufacturing that <em>respects</em> the earth</h2>
+      <p style="font-size:.88rem;font-weight:300;color:rgba(255,255,255,.5);max-width:560px;margin:0 auto;line-height:1.9">Our factories are built to the standards of the international diamond industry — minimising environmental impact at every stage of the manufacturing process.</p>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:1.5rem" class="reveal reveal-delay-1">
+      <div style="background:var(--glass);border:1px solid var(--glass-border);padding:2rem;border-radius:4px;position:relative;overflow:hidden;transition:border-color .3s" onmouseover="this.style.borderColor='rgba(34,197,94,.4)'" onmouseout="this.style.borderColor='var(--glass-border)'">
+        <div style="position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,#22c55e,transparent);transform:scaleX(0);transition:transform .4s" class="green-bar"></div>
+        <div style="font-size:2.2rem;margin-bottom:1.2rem">♻️</div>
+        <h4 style="font-size:.9rem;font-weight:500;color:var(--white);margin-bottom:.7rem">Responsible Waste Management</h4>
+        <p style="font-size:.78rem;font-weight:300;color:var(--muted);line-height:1.8">Metal filings, swarf and polishing residues are carefully collected, segregated and recycled through certified processes — ensuring precious metals never enter landfill.</p>
+      </div>
+      <div style="background:var(--glass);border:1px solid var(--glass-border);padding:2rem;border-radius:4px;transition:border-color .3s" onmouseover="this.style.borderColor='rgba(34,197,94,.4)'" onmouseout="this.style.borderColor='var(--glass-border)'">
+        <div style="font-size:2.2rem;margin-bottom:1.2rem">💧</div>
+        <h4 style="font-size:.9rem;font-weight:500;color:var(--white);margin-bottom:.7rem">Water Conservation</h4>
+        <p style="font-size:.78rem;font-weight:300;color:var(--muted);line-height:1.8">Chemical treatment baths and water-intensive polishing processes are managed with closed-loop systems where possible, reducing consumption and preventing contamination of local water sources.</p>
+      </div>
+      <div style="background:var(--glass);border:1px solid var(--glass-border);padding:2rem;border-radius:4px;transition:border-color .3s" onmouseover="this.style.borderColor='rgba(34,197,94,.4)'" onmouseout="this.style.borderColor='var(--glass-border)'">
+        <div style="font-size:2.2rem;margin-bottom:1.2rem">⚡</div>
+        <h4 style="font-size:.9rem;font-weight:500;color:var(--white);margin-bottom:.7rem">Energy Efficiency</h4>
+        <p style="font-size:.78rem;font-weight:300;color:var(--muted);line-height:1.8">Our SEEPZ factory is built to the standards of India's Special Economic Zones, which mandate modern, energy-efficient infrastructure. LED lighting, smart HVAC systems and efficient machinery reduce our operational carbon footprint.</p>
+      </div>
+      <div style="background:var(--glass);border:1px solid var(--glass-border);padding:2rem;border-radius:4px;transition:border-color .3s" onmouseover="this.style.borderColor='rgba(34,197,94,.4)'" onmouseout="this.style.borderColor='var(--glass-border)'">
+        <div style="font-size:2.2rem;margin-bottom:1.2rem">📦</div>
+        <h4 style="font-size:.9rem;font-weight:500;color:var(--white);margin-bottom:.7rem">Sustainable Packaging</h4>
+        <p style="font-size:.78rem;font-weight:300;color:var(--muted);line-height:1.8">We work with our B2B partners to develop packaging that minimises plastic use and maximises recyclable materials — an increasingly important factor in the US and European retail markets we serve.</p>
+      </div>
+    </div>
+
+    <!-- Nature feature image -->
+    <div style="margin-top:4rem;position:relative;height:380px;overflow:hidden;border-radius:4px;border:1px solid var(--glass-border)" class="reveal reveal-delay-1">
+      <img src="https://images.unsplash.com/photo-1518531933037-91b2f5f229cc?w=1400&q=85" alt="Nature landscape India" style="width:100%;height:100%;object-fit:cover;filter:saturate(1.05)">
+      <div style="position:absolute;inset:0;background:linear-gradient(to right,rgba(10,15,46,.75) 0%,rgba(10,15,46,.3) 50%,transparent 100%)"></div>
+      <div style="position:absolute;top:50%;left:5rem;transform:translateY(-50%);max-width:520px">
+        <p style="font-family:var(--serif);font-size:clamp(1.4rem,2.5vw,2.2rem);font-weight:400;line-height:1.2;color:var(--white);margin-bottom:1rem">"Our industry takes from the earth. It is our responsibility — and our privilege — to give something meaningful back."</p>
+        <p style="font-size:.75rem;font-weight:300;letter-spacing:.1em;color:rgba(255,255,255,.5)">— The founding philosophy of SV Group, carried through to Indigo Jewellery today</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- WORKER WELFARE -->
+  <section style="padding:7rem 5rem;background:var(--blue-dark);position:relative">
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:6rem;align-items:center">
+      <div class="reveal">
+        <p class="sec-label" style="color:#4ade80">People at the Centre</p>
+        <h2 class="sec-title" style="margin-bottom:1.5rem">5,000 livelihoods,<br><em>one responsibility</em></h2>
+        <p style="font-size:.9rem;font-weight:300;line-height:1.95;color:rgba(255,255,255,.58);margin-bottom:1.2rem">Across our diamond manufacturing units in Surat, our jewellery factories in Mumbai, and our sales offices around the world, SV Group employs over 5,000 people. For many of them, particularly our 2,500+ craftspeople in Surat, this is more than a job — it is a livelihood that supports entire families and communities.</p>
+        <p style="font-size:.9rem;font-weight:300;line-height:1.95;color:rgba(255,255,255,.58);margin-bottom:1.2rem">We are signatories to the Women's Empowerment Principles — reflecting our commitment to gender equality and equal opportunity across all levels of our organisation. We believe the brilliance of our industry comes not just from our diamonds, but from the people who shape them.</p>
+        <p style="font-size:.9rem;font-weight:300;line-height:1.95;color:rgba(255,255,255,.58)">Our factories are built, certified and operated to international labour and safety standards — audited independently by the Responsible Jewellery Council and compliant with the De Beers Best Practice Principles.</p>
+        <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:1rem;margin-top:2.5rem">
+          <div style="text-align:center;padding:1.2rem;background:var(--glass);border:1px solid var(--glass-border);border-radius:3px"><span style="font-family:var(--serif);font-size:1.8rem;color:#4ade80;display:block">5,000+</span><span style="font-size:.62rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)">Total employees</span></div>
+          <div style="text-align:center;padding:1.2rem;background:var(--glass);border:1px solid var(--glass-border);border-radius:3px"><span style="font-family:var(--serif);font-size:1.8rem;color:#4ade80;display:block">2,500+</span><span style="font-size:.62rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)">Diamond craftspeople</span></div>
+          <div style="text-align:center;padding:1.2rem;background:var(--glass);border:1px solid var(--glass-border);border-radius:3px"><span style="font-family:var(--serif);font-size:1.8rem;color:#4ade80;display:block">7</span><span style="font-size:.62rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)">Countries represented</span></div>
+        </div>
+      </div>
+      <div style="position:relative" class="reveal reveal-delay-1">
+        <div style="position:relative;aspect-ratio:4/5;overflow:hidden;border-radius:4px;border:1px solid var(--glass-border);margin-bottom:1.5rem">
+          <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=600&q=80" alt="Diverse team at work" style="width:100%;height:100%;object-fit:cover;filter:saturate(.85)">
+          <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(13,21,69,.5),transparent 50%)"></div>
+        </div>
+        <div style="background:rgba(34,197,94,.07);border:1px solid rgba(34,197,94,.2);padding:1.4rem;border-radius:3px">
+          <p style="font-size:.68rem;font-weight:400;letter-spacing:.18em;text-transform:uppercase;color:#86efac;margin-bottom:.5rem">WEPs Signatory</p>
+          <p style="font-size:.82rem;font-weight:300;color:rgba(255,255,255,.65);line-height:1.7">SV Group is committed to the UN Women's Empowerment Principles — because we believe gender equality is essential for innovation, integrity, and sustainable growth. Every individual deserves the opportunity to shine to their fullest potential.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section style="padding:7rem 5rem;text-align:center;position:relative;overflow:hidden">
+    <div style="position:absolute;inset:0;background:radial-gradient(ellipse 50% 60% at 50% 50%,rgba(34,197,94,.06),transparent 70%);pointer-events:none"></div>
+    <div class="grid-bg" style="opacity:.2"></div>
+    <h2 class="cta-title reveal" style="color:var(--white)">Sustainability is our<br><em style="color:#4ade80">shared responsibility</em></h2>
+    <p class="cta-sub reveal reveal-delay-1">We welcome partnerships with retailers and brands who share our commitment to responsible sourcing, ethical manufacturing, and community investment. Together, we can make this industry better.</p>
+    <div class="cta-actions reveal reveal-delay-2">
+      <a href="#" onclick="showPage('contact')" class="btn-primary" style="background:#16a34a">Talk to Our Team</a>
+      <a href="https://www.responsiblejewellery.com/member/s-vinodkumar-diamonds-pvt-ltd/" target="_blank" class="btn-outline" style="border-color:rgba(34,197,94,.3);color:#86efac">View RJC Certification ↗</a>
+    </div>
+  </section>
+
+  <footer>
+    <div class="footer-bottom" style="padding:2rem 0">
+      <span>© 2025 Indigo Jewellery (I) Mfg. Pvt. Ltd.</span>
+      <span>A division of <a href="https://svinodkumar.com" target="_blank" class="sv-group-link">✦ SV Group</a></span>
+    </div>
+  </footer>
+</div>
+
+<script>
+// Cursor
+const cur = document.getElementById('cur');
+const ring = document.getElementById('cur-ring');
+let cx=0,cy=0,rx=0,ry=0;
+document.addEventListener('mousemove',e=>{cx=e.clientX;cy=e.clientY;cur.style.left=cx+'px';cur.style.top=cy+'px';});
+(function tick(){rx+=(cx-rx)*.1;ry+=(cy-ry)*.1;ring.style.left=rx+'px';ring.style.top=ry+'px';requestAnimationFrame(tick);})();
+
+// Nav scroll
+window.addEventListener('scroll',()=>document.getElementById('mainNav').classList.toggle('scrolled',scrollY>60));
+
+// Page system
+function showPage(id) {
+  document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
+  document.getElementById('page-'+id).classList.add('active');
+  document.querySelectorAll('.nav-links a').forEach(a=>a.classList.remove('active-page'));
+  const navEl = document.getElementById('nav-'+id);
+  if(navEl) navEl.classList.add('active-page');
+  window.scrollTo(0,0);
+  triggerReveal();
+  return false;
+}
+
+// Reveal on scroll
+function triggerReveal(){
+  const obs = new IntersectionObserver(entries=>{
+    entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target);}});
+  },{threshold:.12});
+  document.querySelectorAll('.page.active .reveal:not(.visible)').forEach(el=>obs.observe(el));
+}
+triggerReveal();
+window.addEventListener('scroll',triggerReveal);
+
+// Factory tabs
+function showFactory(btn, id){
+  document.querySelectorAll('.ftab').forEach(b=>b.classList.remove('active'));
+  btn.classList.add('active');
+  document.querySelectorAll('.factory-panel').forEach(p=>p.classList.remove('active'));
+  document.getElementById('fp-'+id).classList.add('active');
+}
+
+// Product filter
+function filterProds(btn, cat){
+  document.querySelectorAll('#prodsGrid .ftab, .ftab').forEach(b=>b.classList.remove('active'));
+  btn.classList.add('active');
+  document.querySelectorAll('.prod-card').forEach(c=>{
+    const show = cat==='all'||c.dataset.cat===cat;
+    c.style.opacity=show?'1':'0.2';
+    c.style.transform=show?'':'scale(.97)';
+    c.style.transition='opacity .4s,transform .4s';
+  });
+}
+
+// Form submit
+function handleSubmit(btn){
+  btn.textContent='Message Sent ✓';
+  btn.style.background='rgba(46,204,113,.3)';
+  btn.style.border='1px solid rgba(46,204,113,.5)';
+  btn.style.cursor='default';
+}
+</script>
+</body>
+</html>
