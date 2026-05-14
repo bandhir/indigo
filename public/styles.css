@@ -602,46 +602,73 @@ section {
 .about-pillars {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 1rem;
-  margin-top: 2rem;
+  gap: 1.2rem;
+  margin-top: 2.5rem;
 }
 
 .pillar {
-  background: var(--glass);
-  border: 1px solid var(--glass-border);
-  padding: 1.5rem;
-  transition: border-color .3s, background .3s;
+  background: rgba(212, 175, 55, .03);
+  border: 1px solid rgba(212, 175, 55, .15);
+  padding: 1.8rem;
+  transition: border-color .3s, background .3s, transform .3s, box-shadow .3s;
+  position: relative;
+  overflow: hidden;
+}
+
+.pillar::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--gold), transparent);
+  transform: scaleX(0);
+  transition: transform .4s;
 }
 
 .pillar:hover {
   border-color: var(--gold);
-  background: rgba(212, 175, 55, .05);
+  background: rgba(212, 175, 55, .07);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 30px rgba(212, 175, 55, .08);
+}
+
+.pillar:hover::before {
+  transform: scaleX(1);
 }
 
 .pillar-icon {
-  width: 36px;
-  height: 36px;
-  background: rgba(212, 175, 55, .1);
+  width: 48px;
+  height: 48px;
+  background: rgba(212, 175, 55, .08);
+  border: 1px solid rgba(212, 175, 55, .2);
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-bottom: 1rem;
+  margin-bottom: 1.2rem;
   color: var(--gold);
+  transition: background .3s, border-color .3s;
+}
+
+.pillar:hover .pillar-icon {
+  background: rgba(212, 175, 55, .15);
+  border-color: rgba(212, 175, 55, .4);
 }
 
 .pillar-title {
   font-family: var(--serif);
-  font-size: 1.2rem;
+  font-size: 1.3rem;
   font-weight: 500;
-  color: var(--white);
-  margin-bottom: .4rem;
+  color: var(--gold);
+  margin-bottom: .5rem;
 }
 
 .pillar-desc {
-  font-size: .8rem;
+  font-size: .82rem;
   font-weight: 300;
-  color: var(--muted);
-  line-height: 1.7;
+  color: rgba(255, 255, 255, .6);
+  line-height: 1.75;
 }
 
 .about-visual {
