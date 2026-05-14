@@ -658,7 +658,7 @@ section {
 
 .pillar-title {
   font-family: var(--serif);
-  font-size: 1.3rem;
+  font-size: 1.5rem;
   font-weight: 500;
   color: var(--gold);
   margin-bottom: .5rem;
@@ -1982,6 +1982,11 @@ footer {
 
   .pillar {
     padding: 1.25rem;
+  }
+
+  .pillar-title {
+    font-size: 1.3rem;
+    color: var(--gold);
   }
 
   .about-img-stack {
