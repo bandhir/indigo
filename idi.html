@@ -198,45 +198,94 @@
         </p>
       </div>
       
+      <div
+        style="display:inline-flex;background:var(--glass);border:1px solid var(--glass-border);padding:.4rem;border-radius:3px;margin-bottom:2.5rem;display:flex;justify-content:center;gap:.3rem;flex-wrap:wrap">
+        <button class="ftab active" onclick="filterProds(this,'all')" style="padding:.45rem 1.2rem">All Categories</button>
+        <button class="ftab" onclick="filterProds(this,'rings')" style="padding:.45rem 1.2rem">Rings</button>
+        <button class="ftab" onclick="filterProds(this,'pandent')" style="padding:.45rem 1.2rem">Pendant</button>
+        <button class="ftab" onclick="filterProds(this,'necklace')" style="padding:.45rem 1.2rem">Necklace</button>
+        <button class="ftab" onclick="filterProds(this,'earrings')" style="padding:.45rem 1.2rem">Earrings</button>
+        <button class="ftab" onclick="filterProds(this,'bracelet')" style="padding:.45rem 1.2rem">Bracelet</button>
+      </div>
       <div class="products-grid" id="prodsGrid">
-        <div class="prod-card reveal">
-          <div class="prod-img"><img src="public/collection/idi_bridal_ring_ai.png" alt="Bridal">
+        <div class="prod-card reveal" data-cat="rings">
+          <div class="prod-img"><img src="public/product/ring1.jpeg" alt="Solitaire Ring">
             <div class="prod-overlay"></div>
           </div>
           <div class="prod-info">
-            <p class="prod-cat" style="color:#86efac;">LGD · Bridal</p>
-            <p class="prod-name">Engagement & Bridal Rings</p>
-            <p class="prod-desc">Offering consumers 30-50% larger center stones for their budget. Available in classic and modern halo designs.</p>
+            <p class="prod-cat" style="color:#86efac;">Rings</p>
+            <p class="prod-name">Diamond Rings</p>
+            <p class="prod-desc">Classic prong-set rounds in 14K & 18K gold. Available in certified & non-certified options.</p>
           </div>
         </div>
-        <div class="prod-card reveal reveal-delay-1">
-          <div class="prod-img"><img src="public/collection/idi_studs_ai.png" alt="Earrings">
+        <div class="prod-card reveal reveal-delay-1" data-cat="pandent">
+          <div class="prod-img"><img src="public/product/pandent.jpeg" alt="Diamond Pendant">
             <div class="prod-overlay"></div>
           </div>
           <div class="prod-info">
-            <p class="prod-cat" style="color:#86efac;">LGD · Core</p>
-            <p class="prod-name">Oversized Diamond Studs</p>
-            <p class="prod-desc">The ultimate lab-grown opportunity. High-clarity, large carat weight studs that command attention and drive volume sales.</p>
+            <p class="prod-cat" style="color:#86efac;">Pendant</p>
+            <p class="prod-name">Diamond Pendants</p>
+            <p class="prod-desc">Everyday wear to special occasion. Stunning designs in white and yellow gold.</p>
           </div>
         </div>
-        <div class="prod-card reveal reveal-delay-2">
-          <div class="prod-img"><img src="public/collection/idi_tennis_bracelet_ai.png" alt="Bracelets">
+        <div class="prod-card reveal reveal-delay-2" data-cat="necklace">
+          <div class="prod-img"><img src="public/product/necklace.jpeg" alt="Diamond Necklace">
             <div class="prod-overlay"></div>
           </div>
           <div class="prod-info">
-            <p class="prod-cat" style="color:#86efac;">LGD · Heritage</p>
-            <p class="prod-name">High-Carat Tennis Bracelets</p>
-            <p class="prod-desc">Perfectly matched, high-colour lab grown stones set in 14K and 18K gold. An essential for any modern jewelry retailer.</p>
+            <p class="prod-cat" style="color:#86efac;">Necklace</p>
+            <p class="prod-name">Diamond Necklaces</p>
+            <p class="prod-desc">On-trend designs for chain store programmes. High commercial value with strong margin architecture.</p>
           </div>
         </div>
-        <div class="prod-card reveal">
-          <div class="prod-img"><img src="public/collection/idi_fashion_ai.png" alt="Fashion">
+        <div class="prod-card reveal" data-cat="earrings">
+          <div class="prod-img"><img src="public/product/earrings.jpg" alt="Diamond Earrings">
             <div class="prod-overlay"></div>
           </div>
           <div class="prod-info">
-            <p class="prod-cat" style="color:#86efac;">LGD · Fashion</p>
-            <p class="prod-name">Fashion & Heavy Gold</p>
-            <p class="prod-desc">Trend-forward pieces combining substantial gold weight with dazzling lab-grown pavé and cluster settings.</p>
+            <p class="prod-cat" style="color:#86efac;">Earrings</p>
+            <p class="prod-name">Diamond Stud & Drop Earrings</p>
+            <p class="prod-desc">From simple studs to intricate drop designs. Consistent bestsellers in the market.</p>
+          </div>
+        </div>
+        <div class="prod-card reveal reveal-delay-1" data-cat="bracelet">
+          <div class="prod-img"><img src="public/product/bracelet1.jpeg" alt="Diamond Bracelet">
+            <div class="prod-overlay"></div>
+          </div>
+          <div class="prod-info">
+            <p class="prod-cat" style="color:#86efac;">Bracelet</p>
+            <p class="prod-name">Diamond Tennis Bracelets</p>
+            <p class="prod-desc">Tennis bracelets, station bracelets and bangles in 14K and 18K gold.</p>
+          </div>
+        </div>
+        <div class="prod-card reveal reveal-delay-2" data-cat="rings">
+          <div class="prod-img"><img src="public/product/rings5.jpg" alt="Bridal Ring">
+            <div class="prod-overlay"></div>
+          </div>
+          <div class="prod-info">
+            <p class="prod-cat" style="color:#86efac;">Rings</p>
+            <p class="prod-name">Bridal & Engagement Rings</p>
+            <p class="prod-desc">Halo, pavé, and three-stone styles. Available for programme selling.</p>
+          </div>
+        </div>
+        <div class="prod-card reveal" data-cat="pandent">
+          <div class="prod-img"><img src="public/product/pandent1.jpeg" alt="Fashion Pendant">
+            <div class="prod-overlay"></div>
+          </div>
+          <div class="prod-info">
+            <p class="prod-cat" style="color:#86efac;">Pendant</p>
+            <p class="prod-name">Fashion Pendants</p>
+            <p class="prod-desc">Trend-forward pieces combining substantial gold weight with dazzling pavé.</p>
+          </div>
+        </div>
+        <div class="prod-card reveal reveal-delay-1" data-cat="bracelet">
+          <div class="prod-img"><img src="public/product/bracelate2.jpeg" alt="Chain Bracelets">
+            <div class="prod-overlay"></div>
+          </div>
+          <div class="prod-info">
+            <p class="prod-cat" style="color:#86efac;">Bracelet</p>
+            <p class="prod-name">Chain & Station Bracelets</p>
+            <p class="prod-desc">High-volume production capability for major chains.</p>
           </div>
         </div>
       </div>
@@ -422,6 +471,18 @@
     }
     triggerReveal();
     window.addEventListener('scroll', triggerReveal);
+
+    // Product filter
+    function filterProds(btn, cat) {
+      document.querySelectorAll('#prodsGrid .ftab, .ftab').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      document.querySelectorAll('.prod-card').forEach(c => {
+        const show = cat === 'all' || c.dataset.cat === cat;
+        c.style.opacity = show ? '1' : '0.2';
+        c.style.transform = show ? '' : 'scale(.97)';
+        c.style.transition = 'opacity .4s,transform .4s';
+      });
+    }
 
     // Form submit
     function handleSubmit(btn) {
