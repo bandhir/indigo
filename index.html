@@ -827,6 +827,51 @@
           We manufacture fine diamond jewelry for retail partners worldwide. All product is exclusively B2B —
           available to qualified retailers, chain stores, and branded partners. No direct consumer sales.</p>
       </div>
+
+      <!-- BRAND PORTFOLIO: 3 BRANDS -->
+      <div class="brand-portfolio-wrap reveal">
+        <div class="brand-portfolio-header">
+          <span class="brand-portfolio-tag">Brand Portfolio</span>
+          <h2 class="brand-portfolio-title">Three Signature Brands Under Indigo</h2>
+          <p class="brand-portfolio-desc">Distinct diamond jewelry collections curated for varied retail market segments and consumer preferences. Click any brand logo to view collection details.</p>
+        </div>
+
+        <div class="brands-grid">
+          <!-- 1) INDIGO CLASSIC -->
+          <div class="brand-card" onclick="openBrandDrawer('classic')" role="button" tabindex="0" aria-label="Explore Indigo Classic - Diamond Jewelry">
+            <div class="brand-card-logo-wrap">
+              <img src="public/logo/indigo_classic_logo_white.png" alt="Indigo Classic Logo" class="brand-card-logo">
+            </div>
+            <span class="brand-card-tag">Diamond Jewelry</span>
+            <h3 class="brand-card-name">Indigo Classic</h3>
+            <p class="brand-card-snippet">Timeless natural diamond essentials engineered for volume retail success, bridal foundations, and essential daily wear.</p>
+            <span class="brand-card-btn">Explore Brand <span style="font-size:1.1em;line-height:1">➔</span></span>
+          </div>
+
+          <!-- 2) INDIGO SELECT -->
+          <div class="brand-card" onclick="openBrandDrawer('select')" role="button" tabindex="0" aria-label="Explore Indigo Select - Premium Exclusive Diamond Jewelry">
+            <div class="brand-card-logo-wrap">
+              <img src="public/logo/indigo_select_logo_white.png" alt="Indigo Select Logo" class="brand-card-logo">
+            </div>
+            <span class="brand-card-tag">Premium Exclusive Diamond Jewelry</span>
+            <h3 class="brand-card-name">Indigo Select</h3>
+            <p class="brand-card-snippet">Haute joaillerie and bespoke master-craftsmanship featuring exceptional diamond clarity, intricate pave, and design exclusivity.</p>
+            <span class="brand-card-btn">Explore Brand <span style="font-size:1.1em;line-height:1">➔</span></span>
+          </div>
+
+          <!-- 3) INDIGO EVOLVE -->
+          <div class="brand-card" onclick="openBrandDrawer('evolve')" role="button" tabindex="0" aria-label="Explore Indigo Evolve - Lab Grown Diamond Jewelry">
+            <div class="brand-card-logo-wrap">
+              <img src="public/logo/indigo_evolve_logo_white.png" alt="Indigo Evolve Logo" class="brand-card-logo">
+            </div>
+            <span class="brand-card-tag">Lab Grown Diamond Jewelry</span>
+            <h3 class="brand-card-name">Indigo Evolve</h3>
+            <p class="brand-card-snippet">Modern precision science meeting sustainable fine luxury with Type IIa optical purity, expansive carat profiles, and verified traceability.</p>
+            <span class="brand-card-btn">Explore Brand <span style="font-size:1.1em;line-height:1">➔</span></span>
+          </div>
+        </div>
+      </div>
+
       <div
         style="display:inline-flex;background:var(--glass);border:1px solid var(--glass-border);padding:.4rem;border-radius:3px;margin-bottom:2.5rem;display:flex;justify-content:center;gap:.3rem;flex-wrap:wrap">
         <button class="ftab active" onclick="filterProds(this,'all')" style="padding:.45rem 1.2rem">All
@@ -1617,6 +1662,33 @@
     </div>
   </footer>
 
+  <!-- RIGHT-SIDE BRAND DRAWER POPUP -->
+  <div id="brandDrawerOverlay" class="brand-drawer-overlay" onclick="closeBrandDrawer()" aria-hidden="true"></div>
+  <aside id="brandDrawer" class="brand-drawer" role="dialog" aria-modal="true" aria-labelledby="drawerBrandTitle" aria-hidden="true">
+    <div class="brand-drawer-header">
+      <div class="brand-drawer-logo-wrap">
+        <img id="drawerLogo" src="public/logo/indigo_classic_logo_white.png" alt="Brand Logo" class="brand-drawer-logo">
+      </div>
+      <button class="brand-drawer-close" onclick="closeBrandDrawer()" aria-label="Close brand drawer">✕</button>
+    </div>
+    <div class="brand-drawer-body">
+      <span id="drawerBadge" class="brand-drawer-badge">Diamond Jewelry</span>
+      <h3 id="drawerBrandTitle" class="brand-drawer-title">Indigo Classic</h3>
+      <p id="drawerDescription" class="brand-drawer-desc"></p>
+      
+      <div class="brand-drawer-subhead">Key Collection Highlights</div>
+      <div id="drawerHighlights" class="brand-highlights-list"></div>
+    </div>
+    <div class="brand-drawer-footer">
+      <a href="#partner" onclick="closeBrandDrawer(); showPage('partner');" class="btn-primary" style="display:inline-flex;justify-content:center;align-items:center;text-decoration:none;padding:.9rem 1.4rem;font-size:.82rem;letter-spacing:.12em;text-transform:uppercase;font-weight:600;border-radius:3px;cursor:pointer;">
+        Inquire About This Brand ➔
+      </a>
+      <a id="drawerExtraBtn" href="indigo_evolve.html" class="btn-outline" style="display:none;justify-content:center;align-items:center;text-decoration:none;padding:.85rem 1.4rem;font-size:.8rem;letter-spacing:.1em;text-transform:uppercase;border-radius:3px;">
+        Visit Dedicated Indigo Evolve Site ↗
+      </a>
+    </div>
+  </aside>
+
   <script>
     // Cursor
     const cur = document.getElementById('cur');
@@ -1690,6 +1762,105 @@
         c.style.transition = 'opacity .4s,transform .4s';
       });
     }
+
+    // Brand Portfolio Drawer System
+    const brandData = {
+      classic: {
+        logo: 'public/logo/indigo_classic_logo_white.png',
+        badge: 'Diamond Jewelry',
+        title: 'Indigo Classic',
+        description: 'Indigo Classic embodies the timeless artistry of natural diamond jewelry, designed specifically for high-volume commercial retail success. Encompassing quintessential bridal silhouettes, enduring solitaire mountings, and sophisticated daily essentials, every creation delivers certified quality, uncompromising manufacturing consistency, and competitive wholesale pricing tailored to maximize profitability for global retail jewelers and department store partners.',
+        highlights: [
+          { title: '100% Conflict-Free Natural Diamonds', text: 'Ethically procured rough diamonds cut and set under strict Kimberley Process and RJC certification.' },
+          { title: 'High-Turnover Retail Essentials', text: 'Proven bestselling silhouettes across classic bridal rings, tennis bracelets, studs, and pendant designs.' },
+          { title: 'High-Volume Production Precision', text: 'Manufactured at scale in our SEEPZ facilities with multi-tier quality control and rapid restocking.' },
+          { title: 'Versatile Metal Specifications', text: 'Cast in 10K, 14K, and 18K yellow, white, and rose gold, as well as 950 platinum.' }
+        ],
+        extraBtn: null
+      },
+      select: {
+        logo: 'public/logo/indigo_select_logo_white.png',
+        badge: 'Premium Exclusive Diamond Jewelry',
+        title: 'Indigo Select',
+        description: 'Indigo Select is our premier haute joaillerie atelier, created for luxury boutiques and prestigious retail brands demanding rare design exclusivity. Featuring superior diamond clarity, micro-pave mastery, and architectural aesthetics, this distinguished collection blends bespoke master-craftsmanship with avant-garde elegance to deliver museum-quality diamond masterpieces that command extraordinary retail margins and captivate discerning jewelry connoisseurs.',
+        highlights: [
+          { title: 'Haute Joaillerie Master Craftsmanship', text: 'Intricate hand-set micro-pave, invisible prong mountings, and bespoke hand-finishing.' },
+          { title: 'Curated Premium Diamonds', text: 'Meticulously selected high-color (DEF) and clarity (VVS-VS) stones engineered for extraordinary fire.' },
+          { title: 'Exclusive Boutique Programs', text: 'Limited-edition statement creations, gala necklaces, and high-margin bespoke bridal collections.' },
+          { title: 'Custom CAD & Prototype Development', text: 'Dedicated master jewelers bringing retail partners\' exclusive signature concepts to reality.' }
+        ],
+        extraBtn: null
+      },
+      evolve: {
+        logo: 'public/logo/indigo_evolve_logo_white.png',
+        badge: 'Lab Grown Diamond Jewelry',
+        title: 'Indigo Evolve',
+        description: 'Indigo Evolve leads the modern jewelry revolution, uniting scientific precision with eco-conscious sustainable luxury. Tailored for modern consumers, our CVD and HPHT lab-grown collections offer expansive carat sizes, superior Type IIa optical purity, and verifiable sustainability—providing progressive retailers with transformative value, high margins, and certified ethical provenance without ever compromising on fine jewelry craftsmanship.',
+        highlights: [
+          { title: 'Type IIa Purity & Exceptional Grading', text: 'Chemically and optically identical to mined diamonds, delivering DEF colors and exceptional VVS-VS clarity.' },
+          { title: 'Expansive Carat Scale & Value', text: 'Substantial carat weights and contemporary silhouettes at disruptive wholesale price points.' },
+          { title: '100% Certified Sustainability', text: 'Modern lab-grown diamonds produced with reduced environmental footprint and complete origin traceability.' },
+          { title: 'Dedicated Manufacturing Infrastructure', text: 'Specialized diamond-growing partnerships and cutting facilities separate from mined diamond operations.' }
+        ],
+        extraBtn: {
+          text: 'Visit Dedicated Indigo Evolve Site ↗',
+          url: 'indigo_evolve.html'
+        }
+      }
+    };
+
+    function openBrandDrawer(brandKey) {
+      const brand = brandData[brandKey];
+      if (!brand) return;
+
+      const logoEl = document.getElementById('drawerLogo');
+      logoEl.src = brand.logo;
+      logoEl.alt = brand.title + ' Logo';
+      document.getElementById('drawerBadge').textContent = brand.badge;
+      document.getElementById('drawerBrandTitle').textContent = brand.title;
+      document.getElementById('drawerDescription').textContent = brand.description;
+
+      const hlContainer = document.getElementById('drawerHighlights');
+      hlContainer.innerHTML = brand.highlights.map(h => `
+        <div class="brand-highlight-item">
+          <span class="brand-highlight-icon">✦</span>
+          <div>
+            <p class="brand-highlight-title">${h.title}</p>
+            <p class="brand-highlight-text">${h.text}</p>
+          </div>
+        </div>
+      `).join('');
+
+      const extraBtn = document.getElementById('drawerExtraBtn');
+      if (brand.extraBtn) {
+        extraBtn.textContent = brand.extraBtn.text;
+        extraBtn.href = brand.extraBtn.url;
+        extraBtn.style.display = 'inline-flex';
+      } else {
+        extraBtn.style.display = 'none';
+      }
+
+      document.getElementById('brandDrawerOverlay').classList.add('active');
+      document.getElementById('brandDrawer').classList.add('active');
+      document.getElementById('brandDrawerOverlay').setAttribute('aria-hidden', 'false');
+      document.getElementById('brandDrawer').setAttribute('aria-hidden', 'false');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeBrandDrawer() {
+      const overlay = document.getElementById('brandDrawerOverlay');
+      const drawer = document.getElementById('brandDrawer');
+      if (overlay) overlay.classList.remove('active');
+      if (drawer) drawer.classList.remove('active');
+      if (overlay) overlay.setAttribute('aria-hidden', 'true');
+      if (drawer) drawer.setAttribute('aria-hidden', 'true');
+      document.body.style.overflow = '';
+    }
+
+    // Close brand drawer on Escape key
+    document.addEventListener('keydown', e => {
+      if (e.key === 'Escape') closeBrandDrawer();
+    });
 
     // Form submit
     function handleSubmit(btn) {
