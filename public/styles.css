@@ -1039,6 +1039,15 @@ section {
   transform: scale(1.08);
 }
 
+.prod-img-necklace img {
+  transform: scale(1.55);
+  transform-origin: 30% 80%;
+}
+
+.prod-card:hover .prod-img-necklace img {
+  transform: scale(1.65);
+}
+
 .prod-overlay {
   position: absolute;
   inset: 0;
