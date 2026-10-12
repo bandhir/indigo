@@ -843,7 +843,6 @@
               <img src="public/logo/indigo_classic_logo_white.png" alt="Indigo Classic Logo" class="brand-card-logo">
             </div>
             <span class="brand-card-tag">Diamond Jewelry</span>
-            <h3 class="brand-card-name">Indigo Classic</h3>
             <p class="brand-card-snippet">Timeless natural diamond essentials engineered for volume retail success, bridal foundations, and essential daily wear.</p>
             <span class="brand-card-btn">Explore Brand <span style="font-size:1.1em;line-height:1">➔</span></span>
           </div>
@@ -854,7 +853,6 @@
               <img src="public/logo/indigo_select_logo_white.png" alt="Indigo Select Logo" class="brand-card-logo">
             </div>
             <span class="brand-card-tag">Premium Exclusive Diamond Jewelry</span>
-            <h3 class="brand-card-name">Indigo Select</h3>
             <p class="brand-card-snippet">Haute joaillerie and bespoke master-craftsmanship featuring exceptional diamond clarity, intricate pave, and design exclusivity.</p>
             <span class="brand-card-btn">Explore Brand <span style="font-size:1.1em;line-height:1">➔</span></span>
           </div>
@@ -865,7 +863,6 @@
               <img src="public/logo/indigo_evolve_logo_white.png" alt="Indigo Evolve Logo" class="brand-card-logo">
             </div>
             <span class="brand-card-tag">Lab Grown Diamond Jewelry</span>
-            <h3 class="brand-card-name">Indigo Evolve</h3>
             <p class="brand-card-snippet">Modern precision science meeting sustainable fine luxury with Type IIa optical purity, expansive carat profiles, and verified traceability.</p>
             <span class="brand-card-btn">Explore Brand <span style="font-size:1.1em;line-height:1">➔</span></span>
           </div>
@@ -1679,10 +1676,7 @@
       <div class="brand-drawer-subhead">Key Collection Highlights</div>
       <div id="drawerHighlights" class="brand-highlights-list"></div>
     </div>
-    <div class="brand-drawer-footer">
-      <a href="#partner" onclick="closeBrandDrawer(); showPage('partner');" class="btn-primary" style="display:inline-flex;justify-content:center;align-items:center;text-decoration:none;padding:.9rem 1.4rem;font-size:.82rem;letter-spacing:.12em;text-transform:uppercase;font-weight:600;border-radius:3px;cursor:pointer;">
-        Inquire About This Brand ➔
-      </a>
+    <div class="brand-drawer-footer" id="drawerFooter" style="display:none">
       <a id="drawerExtraBtn" href="indigo_evolve.html" class="btn-outline" style="display:none;justify-content:center;align-items:center;text-decoration:none;padding:.85rem 1.4rem;font-size:.8rem;letter-spacing:.1em;text-transform:uppercase;border-radius:3px;">
         Visit Dedicated Indigo Evolve Site ↗
       </a>
@@ -1831,13 +1825,16 @@
         </div>
       `).join('');
 
+      const footerEl = document.getElementById('drawerFooter');
       const extraBtn = document.getElementById('drawerExtraBtn');
       if (brand.extraBtn) {
         extraBtn.textContent = brand.extraBtn.text;
         extraBtn.href = brand.extraBtn.url;
         extraBtn.style.display = 'inline-flex';
+        footerEl.style.display = 'flex';
       } else {
         extraBtn.style.display = 'none';
+        footerEl.style.display = 'none';
       }
 
       document.getElementById('brandDrawerOverlay').classList.add('active');

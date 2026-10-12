@@ -2749,7 +2749,7 @@ footer {
   text-transform: uppercase;
   color: var(--gold);
   font-weight: 500;
-  margin-bottom: 0.75rem;
+  margin-bottom: 0.95rem;
 }
 
 .brand-card-name {
@@ -2816,7 +2816,7 @@ footer {
   right: 0;
   bottom: 0;
   width: 100%;
-  max-width: 520px;
+  max-width: 650px;
   background: linear-gradient(180deg, #0d1633 0%, #060a1a 100%);
   border-left: 1px solid rgba(212, 175, 55, 0.3);
   z-index: 9999;
@@ -2833,7 +2833,7 @@ footer {
 }
 
 .brand-drawer-header {
-  padding: 2.2rem 2.4rem 1.6rem;
+  padding: 2.2rem 2.8rem 1.6rem;
   border-bottom: 1px solid rgba(255, 255, 255, 0.08);
   display: flex;
   align-items: center;
@@ -2890,7 +2890,7 @@ footer {
 }
 
 .brand-drawer-body {
-  padding: 2.2rem 2.4rem;
+  padding: 2.2rem 2.8rem;
   overflow-y: auto;
   flex-grow: 1;
   -webkit-overflow-scrolling: touch;
@@ -2992,7 +2992,7 @@ footer {
 }
 
 .brand-drawer-footer {
-  padding: 1.5rem 2.4rem 2rem;
+  padding: 1.5rem 2.8rem 2rem;
   border-top: 1px solid rgba(255, 255, 255, 0.08);
   background: rgba(10, 17, 40, 0.7);
   display: flex;
