@@ -3,3 +3,4 @@ node_modules/
 .agent/
 .DS_Store
 Thumbs.db
+.playwright-mcp/

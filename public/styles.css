@@ -1003,8 +1003,8 @@ section {
 
 .products-grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 2rem;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2.2rem;
 }
 
 .prod-card {
@@ -2537,5 +2537,91 @@ footer {
   /* Event card images smaller */
   [style*="flex:1;min-width:300px;height:350px"] {
     height: 180px !important;
+  }
+}
+
+/* 4 Pillars of the SV Group */
+.sv-pillar-card {
+  background: linear-gradient(165deg, rgba(20, 32, 60, 0.88) 0%, rgba(9, 16, 34, 0.96) 100%);
+  border-radius: 12px;
+  padding: 3.2rem 2rem 2.8rem;
+  text-align: center;
+  border: 1px solid rgba(212, 175, 55, 0.24);
+  box-shadow: 0 20px 48px rgba(0, 0, 0, 0.7), 0 0 1px rgba(212, 175, 55, 0.35), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+.sv-pillar-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--gold), transparent);
+  opacity: 0.55;
+  transition: opacity 0.35s ease;
+}
+
+.sv-pillar-card:hover {
+  transform: translateY(-8px);
+  border-color: rgba(212, 175, 55, 0.55);
+  box-shadow: 0 30px 65px rgba(0, 0, 0, 0.85), 0 0 30px rgba(212, 175, 55, 0.16), inset 0 1px 0 rgba(255, 255, 255, 0.22) !important;
+}
+
+.sv-pillar-card:hover::before {
+  opacity: 1;
+}
+
+.sv-pillar-icon-wrap {
+  width: 62px;
+  height: 62px;
+  margin: 0 auto 1.6rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: rgba(212, 175, 55, 0.08);
+  border: 1px solid rgba(212, 175, 55, 0.28);
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.45);
+  transition: all 0.35s ease;
+}
+
+.sv-pillar-card:hover .sv-pillar-icon-wrap {
+  background: rgba(212, 175, 55, 0.16);
+  border-color: var(--gold);
+  box-shadow: 0 6px 22px rgba(212, 175, 55, 0.28);
+  transform: scale(1.05);
+}
+
+.sv-pillar-card h3 {
+  font-family: var(--sans);
+  font-size: 1.35rem;
+  font-weight: 600;
+  color: #ffffff;
+  margin-bottom: 1.1rem;
+  letter-spacing: 0.02em;
+}
+
+.sv-pillar-card p {
+  font-size: 0.9rem;
+  font-weight: 300;
+  color: rgba(255, 255, 255, 0.72);
+  line-height: 1.8;
+  margin: 0;
+}
+
+@media (max-width: 1024px) {
+  .sv-pillars-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+}
+
+@media (max-width: 640px) {
+  .sv-pillars-grid,
+  .sourcing-cards-grid {
+    grid-template-columns: 1fr !important;
   }
 }
