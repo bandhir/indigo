@@ -1193,9 +1193,9 @@ section {
 .world-map-bg {
   position: absolute;
   inset: 0;
-  background: url('worldmap.jpeg') center center no-repeat;
-  background-size: 100% 100%;
-  opacity: 0.5;
+  background: url('images/globalmarket.png') center center no-repeat;
+  background-size: contain;
+  opacity: 0.95;
   transform-origin: center center;
 }
 
