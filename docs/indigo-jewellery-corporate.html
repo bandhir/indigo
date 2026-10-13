@@ -1045,18 +1045,96 @@ footer { background:var(--ink);border-top:1px solid var(--glass-border);padding:
 
     <section class="factories" style="padding:0 0 5rem;background:transparent">
       <div class="factories-tabs">
-        <button class="ftab active" onclick="showFactory(this,'midc1')">MIDC – 1 – Mumbai</button>
+        <button class="ftab active" onclick="showFactory(this,'ghb-surat')">GHB – Surat</button>
+        <button class="ftab" onclick="showFactory(this,'seepz1')">SEEPZ – 1 – Mumbai</button>
+        <button class="ftab" onclick="showFactory(this,'seepz2')">SEEPZ – 2 – Mumbai</button>
+        <button class="ftab" onclick="showFactory(this,'midc1')">MIDC – 1 – Mumbai</button>
         <button class="ftab" onclick="showFactory(this,'midc2')">MIDC – 2 – Mumbai</button>
         <button class="ftab" onclick="showFactory(this,'midc3')">MIDC – 3 – Mumbai</button>
         <button class="ftab" onclick="showFactory(this,'midc4')">MIDC – 4 – Mumbai</button>
-        <button class="ftab" onclick="showFactory(this,'seepz1')">SEEPZ – 1 – Mumbai</button>
-        <button class="ftab" onclick="showFactory(this,'seepz2')">SEEPZ – 2 – Mumbai</button>
-        <button class="ftab" onclick="showFactory(this,'ghb-surat')">GHB – Surat</button>
       </div>
       <div class="factory-panels">
 
-        <!-- 1. MIDC 1 MUMBAI -->
-        <div class="factory-panel active" id="fp-midc1">
+        <!-- 1. GHB SURAT -->
+        <div class="factory-panel active" id="fp-ghb-surat">
+          <div class="factory-img">
+            <img src="../public/factory/ghb_surat.jpg" alt="GHB Surat">
+            <div class="factory-img-overlay"></div>
+            <div class="factory-specs">
+              <div class="fspec"><span class="fspec-val">GHB Surat</span><span class="fspec-key">Facility</span></div>
+              <div class="fspec"><span class="fspec-val">Ichhapor</span><span class="fspec-key">Surat</span></div>
+              <div class="fspec"><span class="fspec-val">Gem Park</span><span class="fspec-key">Gujarat</span></div>
+              <div class="fspec"><span class="fspec-val">Mega Hub</span><span class="fspec-key">Capacity</span></div>
+            </div>
+          </div>
+          <div class="factory-info">
+            <h3>S. Vinodkumar Diamonds Pvt. Ltd</h3>
+            <p class="factory-location">📍 Plot No.10,11&12, Ghb Gem & Jewellery Park Ichhapor, Gujarat Hira Bourse, Surat Gj 395003</p>
+            <p class="factory-desc">Expansive facility in the diamond capital of Surat, situated within the Gujarat Hira Bourse (GHB) Gem & Jewellery Park at Ichhapor.</p>
+            <p class="factory-desc">Combining Surat's world-renowned diamond cutting and polishing ecosystem with large-scale fine jewellery manufacturing capabilities.</p>
+            <ul class="factory-features">
+              <li><span class="ff-dot"></span>Prime location at Gujarat Hira Bourse Gem & Jewellery Park, Ichhapor</li>
+              <li><span class="ff-dot"></span>Direct synergy between diamond sourcing, precision cutting, and jewellery fabrication</li>
+              <li><span class="ff-dot"></span>Large-scale infrastructure built for high-volume diamond jewellery processing</li>
+              <li><span class="ff-dot"></span>State-of-the-art technology with sustainable and eco-friendly facility operations</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- 2. SEEPZ 1 MUMBAI -->
+        <div class="factory-panel" id="fp-seepz1">
+          <div class="factory-img">
+            <img src="../public/factory/seepz1.jpg" alt="SEEPZ 1 Mumbai">
+            <div class="factory-img-overlay"></div>
+            <div class="factory-specs">
+              <div class="fspec"><span class="fspec-val">SEEPZ 1</span><span class="fspec-key">Facility</span></div>
+              <div class="fspec"><span class="fspec-val">SEZ++</span><span class="fspec-key">Export Zone</span></div>
+              <div class="fspec"><span class="fspec-val">Global</span><span class="fspec-key">Supply</span></div>
+              <div class="fspec"><span class="fspec-val">Export</span><span class="fspec-key">Certified</span></div>
+            </div>
+          </div>
+          <div class="factory-info">
+            <h3>S. Vinodkumar Diamonds Pvt. Ltd</h3>
+            <p class="factory-location">📍 Plot No GJ 008, Seepz++, Andheri (E), Mumbai 400096, India.</p>
+            <p class="factory-desc">Flagship export-oriented manufacturing facility situated in the prestigious SEEPZ++ Special Economic Zone, the heart of India's gem and jewellery export industry.</p>
+            <p class="factory-desc">Serving premier jewellery retailers and brands across the USA, Europe, Australia, and the Middle East with high-volume, precision-crafted diamond jewellery.</p>
+            <ul class="factory-features">
+              <li><span class="ff-dot"></span>World-class export infrastructure operating under SEEPZ SEZ regulations</li>
+              <li><span class="ff-dot"></span>Full-scale mass manufacturing alongside bespoke fine jewellery lines</li>
+              <li><span class="ff-dot"></span>High-capacity casting, automatic setting, and robotic polishing units</li>
+              <li><span class="ff-dot"></span>100% compliant, audited, and certified international export facility</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- 3. SEEPZ 2 MUMBAI -->
+        <div class="factory-panel" id="fp-seepz2">
+          <div class="factory-img">
+            <img src="../public/factory/seepz2.jpg" alt="SEEPZ 2 Mumbai">
+            <div class="factory-img-overlay"></div>
+            <div class="factory-specs">
+              <div class="fspec"><span class="fspec-val">SEEPZ 2</span><span class="fspec-key">Facility</span></div>
+              <div class="fspec"><span class="fspec-val">NEST-2</span><span class="fspec-key">SEEPZ</span></div>
+              <div class="fspec"><span class="fspec-val">IDI Jewels</span><span class="fspec-key">Mfg Unit</span></div>
+              <div class="fspec"><span class="fspec-val">Export</span><span class="fspec-key">Excellence</span></div>
+            </div>
+          </div>
+          <div class="factory-info">
+            <h3>IDI JEWELS (INDIA) MFG PRIVATE LIMITED</h3>
+            <p class="factory-location">📍 Gala No: 301, NEST-2, SEEPZ, Andheri (East), Mumbai - 400096 · Tel: 022-28292901</p>
+            <p class="factory-desc">Specialized jewellery manufacturing and export division operating under IDI Jewels (India) Mfg Private Limited at NEST-2 SEEPZ.</p>
+            <p class="factory-desc">Purpose-engineered for intricate diamond jewellery programs, high-precision setting, and global export fulfillment.</p>
+            <ul class="factory-features">
+              <li><span class="ff-dot"></span>Dedicated manufacturing facility for specialized international retail programs</li>
+              <li><span class="ff-dot"></span>Advanced microscopic diamond setting and fine surface finishing</li>
+              <li><span class="ff-dot"></span>Full chain of custody, conflict-free diamond guarantee, and ethical sourcing</li>
+              <li><span class="ff-dot"></span>Seamless SEZ export customs clearance and global logistics integration</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- 4. MIDC 1 MUMBAI -->
+        <div class="factory-panel" id="fp-midc1">
           <div class="factory-img">
             <img src="../public/factory/midc1.jpg" alt="MIDC 1 Mumbai">
             <div class="factory-img-overlay"></div>
@@ -1159,83 +1237,7 @@ footer { background:var(--ink);border-top:1px solid var(--glass-border);padding:
           </div>
         </div>
 
-        <!-- 5. SEEPZ 1 MUMBAI -->
-        <div class="factory-panel" id="fp-seepz1">
-          <div class="factory-img">
-            <img src="../public/factory/seepz1.jpg" alt="SEEPZ 1 Mumbai">
-            <div class="factory-img-overlay"></div>
-            <div class="factory-specs">
-              <div class="fspec"><span class="fspec-val">SEEPZ 1</span><span class="fspec-key">Facility</span></div>
-              <div class="fspec"><span class="fspec-val">SEZ++</span><span class="fspec-key">Export Zone</span></div>
-              <div class="fspec"><span class="fspec-val">Global</span><span class="fspec-key">Supply</span></div>
-              <div class="fspec"><span class="fspec-val">Export</span><span class="fspec-key">Certified</span></div>
-            </div>
-          </div>
-          <div class="factory-info">
-            <h3>S. Vinodkumar Diamonds Pvt. Ltd</h3>
-            <p class="factory-location">📍 Plot No GJ 008, Seepz++, Andheri (E), Mumbai 400096, India.</p>
-            <p class="factory-desc">Flagship export-oriented manufacturing facility situated in the prestigious SEEPZ++ Special Economic Zone, the heart of India's gem and jewellery export industry.</p>
-            <p class="factory-desc">Serving premier jewellery retailers and brands across the USA, Europe, Australia, and the Middle East with high-volume, precision-crafted diamond jewellery.</p>
-            <ul class="factory-features">
-              <li><span class="ff-dot"></span>World-class export infrastructure operating under SEEPZ SEZ regulations</li>
-              <li><span class="ff-dot"></span>Full-scale mass manufacturing alongside bespoke fine jewellery lines</li>
-              <li><span class="ff-dot"></span>High-capacity casting, automatic setting, and robotic polishing units</li>
-              <li><span class="ff-dot"></span>100% compliant, audited, and certified international export facility</li>
-            </ul>
-          </div>
-        </div>
 
-        <!-- 6. SEEPZ 2 MUMBAI -->
-        <div class="factory-panel" id="fp-seepz2">
-          <div class="factory-img">
-            <img src="../public/factory/seepz2.jpg" alt="SEEPZ 2 Mumbai">
-            <div class="factory-img-overlay"></div>
-            <div class="factory-specs">
-              <div class="fspec"><span class="fspec-val">SEEPZ 2</span><span class="fspec-key">Facility</span></div>
-              <div class="fspec"><span class="fspec-val">NEST-2</span><span class="fspec-key">SEEPZ</span></div>
-              <div class="fspec"><span class="fspec-val">IDI Jewels</span><span class="fspec-key">Mfg Unit</span></div>
-              <div class="fspec"><span class="fspec-val">Export</span><span class="fspec-key">Excellence</span></div>
-            </div>
-          </div>
-          <div class="factory-info">
-            <h3>IDI JEWELS (INDIA) MFG PRIVATE LIMITED</h3>
-            <p class="factory-location">📍 Gala No: 301, NEST-2, SEEPZ, Andheri (East), Mumbai - 400096 · Tel: 022-28292901</p>
-            <p class="factory-desc">Specialized jewellery manufacturing and export division operating under IDI Jewels (India) Mfg Private Limited at NEST-2 SEEPZ.</p>
-            <p class="factory-desc">Purpose-engineered for intricate diamond jewellery programs, high-precision setting, and global export fulfillment.</p>
-            <ul class="factory-features">
-              <li><span class="ff-dot"></span>Dedicated manufacturing facility for specialized international retail programs</li>
-              <li><span class="ff-dot"></span>Advanced microscopic diamond setting and fine surface finishing</li>
-              <li><span class="ff-dot"></span>Full chain of custody, conflict-free diamond guarantee, and ethical sourcing</li>
-              <li><span class="ff-dot"></span>Seamless SEZ export customs clearance and global logistics integration</li>
-            </ul>
-          </div>
-        </div>
-
-        <!-- 7. GHB SURAT -->
-        <div class="factory-panel" id="fp-ghb-surat">
-          <div class="factory-img">
-            <img src="../public/factory/ghb_surat.jpg" alt="GHB Surat">
-            <div class="factory-img-overlay"></div>
-            <div class="factory-specs">
-              <div class="fspec"><span class="fspec-val">GHB Surat</span><span class="fspec-key">Facility</span></div>
-              <div class="fspec"><span class="fspec-val">Ichhapor</span><span class="fspec-key">Surat</span></div>
-              <div class="fspec"><span class="fspec-val">Gem Park</span><span class="fspec-key">Gujarat</span></div>
-              <div class="fspec"><span class="fspec-val">Mega Hub</span><span class="fspec-key">Capacity</span></div>
-            </div>
-          </div>
-          <div class="factory-info">
-            <h3>S. Vinodkumar Diamonds Pvt. Ltd</h3>
-            <p class="factory-location">📍 Plot No.10,11&12, Ghb Gem & Jewellery Park Ichhapor, Gujarat Hira Bourse, Surat Gj 395003</p>
-            <p class="factory-desc">Expansive facility in the diamond capital of Surat, situated within the Gujarat Hira Bourse (GHB) Gem & Jewellery Park at Ichhapor.</p>
-            <p class="factory-desc">Combining Surat's world-renowned diamond cutting and polishing ecosystem with large-scale fine jewellery manufacturing capabilities.</p>
-            <ul class="factory-features">
-              <li><span class="ff-dot"></span>Prime location at Gujarat Hira Bourse Gem & Jewellery Park, Ichhapor</li>
-              <li><span class="ff-dot"></span>Direct synergy between diamond sourcing, precision cutting, and jewellery fabrication</li>
-              <li><span class="ff-dot"></span>Large-scale infrastructure built for high-volume diamond jewellery processing</li>
-              <li><span class="ff-dot"></span>State-of-the-art technology with sustainable and eco-friendly facility operations</li>
-            </ul>
-          </div>
-        </div>
 
       </div>
     </section>

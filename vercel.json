@@ -1,8 +1,9 @@
 {
-  "buildCommand": "",
-  "outputDirectory": ".",
-  "framework": null,
   "cleanUrls": true,
+  "rewrites": [
+    { "source": "/indigo-evolve", "destination": "/indigo_evolve.html" },
+    { "source": "/indigo_evolve", "destination": "/indigo_evolve.html" }
+  ],
   "headers": [
     {
       "source": "/public/(.*)",

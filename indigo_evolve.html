@@ -8,7 +8,7 @@
   <link
     href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600;9..40,700&display=swap"
     rel="stylesheet">
-  <link rel="stylesheet" href="public/styles.css">
+  <link rel="stylesheet" href="public/styles.css?v=5">
 </head>
 
 <body>
@@ -52,9 +52,13 @@
   <div id="page-home" class="page active">
     <!-- HERO -->
     <section class="hero" style="min-height: 100vh;">
-      <div style="position: absolute; inset: 0; z-index: 1; overflow: hidden; opacity: 0.5;">
-        <img src="public/collection/jewel6.jpg" alt="Lab Grown Diamonds" style="width: 100%; height: 100%; object-fit: cover;">
-        <div style="position: absolute; inset: 0; background: linear-gradient(to right, rgba(5,11,26,0.95) 0%, rgba(5,11,26,0.5) 100%);"></div>
+      <div style="position: absolute; inset: 0; z-index: 1; overflow: hidden; opacity: 0.6;">
+        <video autoplay muted loop playsinline style="width: 100%; height: 100%; object-fit: cover;">
+          <source
+            src="https://svinodkumar.com/wp-content/uploads/2026/10/ring.mp4"
+            type="video/mp4">
+        </video>
+        <div style="position: absolute; inset: 0; background: linear-gradient(to right, rgba(5,11,26,0.95) 0%, rgba(5,11,26,0.5) 100%); opacity: 0.7;"></div>
       </div>
       
       <!-- subtle green glow to differentiate from natural diamonds -->
@@ -83,52 +87,271 @@
 
   <!-- ===================== ABOUT INDIGO EVOLVE PAGE ===================== -->
   <div id="page-about" class="page">
-    <!-- ABOUT INDIGO EVOLVE -->
-    <section id="about" class="about-section" style="padding-top: 9rem; padding-bottom: 7rem;">
+    <!-- ABOUT INDIGO EVOLVE / OUR PROFILE -->
+    <section id="about" class="about-section" style="padding-top: 9rem; padding-bottom: 5rem;">
       <div class="grid-bg" style="opacity:.3"></div>
       <div class="about-grid">
         <div class="about-content">
-          <p class="sec-label reveal" style="color:#4ade80">Our Heritage</p>
+          <p class="sec-label reveal" style="color:#4ade80">Our Heritage & Profile</p>
           <h2 class="sec-title reveal reveal-delay-1">Backed by a<br><em>50-year legacy</em></h2>
           <p class="reveal reveal-delay-2" style="margin-top:1.5rem">
-            Indigo Evolve is the dedicated lab-grown diamond division of the <strong>SV Group</strong>. While the origin of the stones has evolved through technology, the craftsmanship, precision, and global reach remain rooted in our multi-decade heritage.
+            Indigo Evolve is the fine lab-grown diamond jewelry division of <strong>S. Vinodkumar Diamonds Pvt. Ltd. (SV Group)</strong> — one of India's most respected names in diamond and jewelry manufacturing. Founded in 1978 by Mr. Sumatilal Shah and Mr. Vinod Shah, the group has become synonymous with quality, integrity, and global reach.
           </p>
           <p class="reveal reveal-delay-2">
-            We combine state-of-the-art CVD and HPHT growing technologies with our world-class jewelry manufacturing infrastructure in Mumbai and Asia. The result is unparalleled quality at scale.
+            While the origin of the stones has evolved through cutting-edge CVD and HPHT technology, the craftsmanship, precision, and global reach remain rooted in our multi-decade manufacturing infrastructure across Mumbai, Surat, and Asia. We are a dedicated <strong>manufacturing and wholesale partner</strong> to top-tier retailers worldwide.
           </p>
           <div class="about-pillars reveal reveal-delay-3">
             <div class="pillar">
               <div class="pillar-icon">
-                <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-                  <polygon points="8,1 15,5 15,11 8,15 1,11 1,5" stroke="#4ade80" stroke-width="1.2" fill="none" />
+                <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
+                  <polygon points="14,2 26,8 26,20 14,26 2,20 2,8" stroke="#4ade80" stroke-width="1.5"
+                    fill="none" />
+                  <polygon points="14,8 20,11 20,17 14,20 8,17 8,11" stroke="#4ade80" stroke-width="1"
+                    fill="rgba(74,222,128,.15)" />
+                  <line x1="14" y1="2" x2="14" y2="8" stroke="#4ade80" stroke-width="0.8" opacity=".5" />
+                  <line x1="26" y1="8" x2="20" y2="11" stroke="#4ade80" stroke-width="0.8" opacity=".5" />
+                  <line x1="2" y1="8" x2="8" y2="11" stroke="#4ade80" stroke-width="0.8" opacity=".5" />
                 </svg>
               </div>
-              <p class="pillar-title">Flawless Chemistry</p>
-              <p class="pillar-desc">Optically and chemically identical to natural mined diamonds</p>
+              <p class="pillar-title" style="color:#4ade80">Vertically Integrated</p>
+              <p class="pillar-desc">Rough sourcing to finished jewelry — one seamless pipeline</p>
             </div>
             <div class="pillar">
               <div class="pillar-icon">
-                <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-                  <circle cx="8" cy="8" r="6" stroke="#4ade80" stroke-width="1.2" />
-                  <path d="M5 8h6M8 5v6" stroke="#4ade80" stroke-width="1.2" />
+                <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
+                  <rect x="4" y="4" width="20" height="20" rx="2" stroke="#4ade80" stroke-width="1.5" fill="none" />
+                  <line x1="14" y1="4" x2="14" y2="24" stroke="#4ade80" stroke-width="0.8" opacity=".4" />
+                  <line x1="4" y1="14" x2="24" y2="14" stroke="#4ade80" stroke-width="0.8" opacity=".4" />
+                  <circle cx="10" cy="10" r="2" fill="rgba(74,222,128,.3)" stroke="#4ade80" stroke-width="1" />
+                  <circle cx="18" cy="18" r="2" fill="rgba(74,222,128,.3)" stroke="#4ade80" stroke-width="1" />
+                  <path d="M8 20 L14 14 L20 8" stroke="#4ade80" stroke-width="1.2" stroke-linecap="round"
+                    fill="none" />
                 </svg>
               </div>
-              <p class="pillar-title">Limitless Design</p>
-              <p class="pillar-desc">Creating larger carat weights and complex cuts previously inaccessible</p>
+              <p class="pillar-title" style="color:#4ade80">CAD-Driven Design</p>
+              <p class="pillar-desc">300+ new designs monthly with in-house CAD/CAM capabilities</p>
+            </div>
+            <div class="pillar">
+              <div class="pillar-icon">
+                <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
+                  <circle cx="14" cy="14" r="11" stroke="#4ade80" stroke-width="1.5" fill="none" />
+                  <circle cx="14" cy="14" r="7" stroke="#4ade80" stroke-width="0.8" fill="rgba(74,222,128,.08)" />
+                  <path d="M10 14 L13 17 L19 11" stroke="#4ade80" stroke-width="1.8" stroke-linecap="round"
+                    stroke-linejoin="round" fill="none" />
+                </svg>
+              </div>
+              <p class="pillar-title" style="color:#4ade80">RJC Certified</p>
+              <p class="pillar-desc">Responsible Jewellery Council certified, conflict-free sourcing</p>
+            </div>
+            <div class="pillar">
+              <div class="pillar-icon">
+                <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
+                  <circle cx="14" cy="12" r="4" stroke="#4ade80" stroke-width="1.5" fill="rgba(74,222,128,.1)" />
+                  <ellipse cx="14" cy="12" rx="11" ry="8" stroke="#4ade80" stroke-width="1" fill="none"
+                    stroke-dasharray="3 2" />
+                  <circle cx="6" cy="16" r="1.5" fill="#4ade80" opacity=".6" />
+                  <circle cx="22" cy="16" r="1.5" fill="#4ade80" opacity=".6" />
+                  <circle cx="14" cy="22" r="1.5" fill="#4ade80" opacity=".6" />
+                  <line x1="6" y1="16" x2="14" y2="12" stroke="#4ade80" stroke-width="0.6" opacity=".4" />
+                  <line x1="22" y1="16" x2="14" y2="12" stroke="#4ade80" stroke-width="0.6" opacity=".4" />
+                  <line x1="14" y1="22" x2="14" y2="12" stroke="#4ade80" stroke-width="0.6" opacity=".4" />
+                </svg>
+              </div>
+              <p class="pillar-title" style="color:#4ade80">Global Intelligence</p>
+              <p class="pillar-desc">Team travels to US, Australia, Europe monitoring consumer trends</p>
             </div>
           </div>
         </div>
         <div class="about-visual reveal reveal-delay-2">
           <div class="about-img-stack">
             <div class="about-img-main">
-              <img src="public/collection/jewel2.jpg" alt="Lab grown ring">
+              <img src="public/factory/ghb_surat.jpg" alt="Indigo GHB Surat Diamond Facility">
             </div>
             <div class="about-img-secondary">
-              <img src="public/collection/jewel8.jpg" alt="Diamond detail">
+              <img src="public/collection/jewel2.jpg" alt="Lab grown diamond jewelry">
             </div>
-            <div class="about-floating-card" style="background: rgba(34,197,94,0.1); border-color: rgba(34,197,94,0.3);">
-              <span class="afc-num" style="color: #4ade80;">100%</span>
-              <span class="afc-label">Conflict-Free</span>
+            <div class="about-floating-card" style="background: rgba(5, 11, 26, 0.95); border-color: #4ade80;">
+              <span class="afc-num" style="color: #4ade80;">1978</span>
+              <span class="afc-label">Group founded</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SV GROUP STORY & TIMELINE -->
+    <section style="padding: 3rem 5rem 6rem; position: relative;">
+      <div class="grid-bg" style="opacity:.2"></div>
+      <div style="max-width: 720px; margin: 0 auto 5rem; text-align: center;">
+        <p class="sec-label reveal" style="margin-bottom: .8rem; justify-content: center; color: #4ade80;">Our Story</p>
+        <h2 class="sec-title reveal reveal-delay-1" style="font-size: clamp(2.5rem, 4vw, 4rem); margin-bottom: 1.5rem;">
+          Crafting brilliance<br>since <em style="color: #4ade80;">1978</em>
+        </h2>
+        <p class="reveal reveal-delay-2" style="font-size: .95rem; font-weight: 300; line-height: 1.9; color: rgba(255,255,255,.65);">
+          Indigo Evolve is the premium lab-grown division of the SV Group, an associate of S. Vinodkumar Diamonds Pvt. Ltd. — a global powerhouse in diamond trading, manufacturing, and fine jewelry creation with over 50 years of distinguished heritage.
+        </p>
+      </div>
+
+      <!-- Timeline & Story Grid -->
+      <div class="about-story-grid reveal reveal-delay-2">
+        <div>
+          <h2 style="font-family: var(--serif); font-size: 2rem; font-weight: 400; margin-bottom: 2rem; color: var(--white);">
+            The <em style="color: #4ade80;">SV Group</em> Story
+          </h2>
+          <p style="font-size: .88rem; font-weight: 300; line-height: 1.95; color: rgba(255,255,255,.65); margin-bottom: 1rem;">
+            S. Vinodkumar Diamonds is one of India's leading manufacturers and distributors of polished diamonds. Co-founded by <strong style="color: var(--white);">Mr. Sumatilal Shah</strong> and <strong style="color: var(--white);">Mr. Vinod Shah</strong>, the company was established in 1978 with humble beginnings and has grown through family unity, unwavering work ethics, and a relentless pursuit of quality.
+          </p>
+          <p style="font-size: .88rem; font-weight: 300; line-height: 1.95; color: rgba(255,255,255,.65); margin-bottom: 1rem;">
+            Today, SV Group employs <strong style="color: var(--white);">over 5,000 people across 7 countries</strong>, and its name is synonymous with the finest manufactured diamonds globally. The group engages in direct procurement from mines, advanced CVD/HPHT diamond cultivation, diamond manufacturing, and precision diamond-studded jewelry creation.
+          </p>
+          <p style="font-size: .88rem; font-weight: 300; line-height: 1.95; color: rgba(255,255,255,.65);">
+            With decades of industry leadership, SV Group is a genuine partner in its clients' success. The Responsible Jewellery Council certification (renewed through 2029) reflects the group's enduring commitment to ethics, safety, and sustainable luxury.
+          </p>
+          <a href="https://svinodkumar.com" target="_blank" class="sv-link" style="margin-top: 1.5rem; display: inline-flex; color: #4ade80; border-color: rgba(74,222,128,0.3);">
+            Visit SV Group website ↗
+          </a>
+        </div>
+        <div>
+          <div style="display: flex; flex-direction: column; gap: 0;">
+            <div style="display: grid; grid-template-columns: 80px 1fr; gap: 1.5rem; padding-bottom: 2rem; border-left: 1px solid rgba(74,222,128,0.25); padding-left: 2rem; position: relative;">
+              <div style="position: absolute; left: -6px; top: 4px; width: 11px; height: 11px; border-radius: 50%; background: #4ade80; border: 2px solid var(--blue-deep);"></div>
+              <span style="font-family: var(--serif); font-size: 1.3rem; color: #4ade80; padding-top: .1rem;">1978</span>
+              <div>
+                <p style="font-size: .82rem; font-weight: 500; color: var(--white); margin-bottom: .3rem;">Foundation</p>
+                <p style="font-size: .78rem; font-weight: 300; color: rgba(255,255,255,.55); line-height: 1.7;">Mr. Sumatilal Shah & Mr. Vinod Shah establish S. Vinodkumar Diamonds in Mumbai</p>
+              </div>
+            </div>
+            <div style="display: grid; grid-template-columns: 80px 1fr; gap: 1.5rem; padding-bottom: 2rem; border-left: 1px solid rgba(74,222,128,0.25); padding-left: 2rem; position: relative;">
+              <div style="position: absolute; left: -6px; top: 4px; width: 11px; height: 11px; border-radius: 50%; background: #4ade80; border: 2px solid var(--blue-deep);"></div>
+              <span style="font-family: var(--serif); font-size: 1.3rem; color: #4ade80; padding-top: .1rem;">1999</span>
+              <div>
+                <p style="font-size: .82rem; font-weight: 500; color: var(--white); margin-bottom: .3rem;">Indigo is Born</p>
+                <p style="font-size: .78rem; font-weight: 300; color: rgba(255,255,255,.55); line-height: 1.7;">SV Group commissions its first jewelry manufacturing unit in SEEPZ, Mumbai — the Indigo Jewelry division launches</p>
+              </div>
+            </div>
+            <div style="display: grid; grid-template-columns: 80px 1fr; gap: 1.5rem; padding-bottom: 2rem; border-left: 1px solid rgba(74,222,128,0.25); padding-left: 2rem; position: relative;">
+              <div style="position: absolute; left: -6px; top: 4px; width: 11px; height: 11px; border-radius: 50%; background: #4ade80; border: 2px solid var(--blue-deep);"></div>
+              <span style="font-family: var(--serif); font-size: 1.3rem; color: #4ade80; padding-top: .1rem;">2006</span>
+              <div>
+                <p style="font-size: .82rem; font-weight: 500; color: var(--white); margin-bottom: .3rem;">Flagship Factory</p>
+                <p style="font-size: .78rem; font-weight: 300; color: rgba(255,255,255,.55); line-height: 1.7;">30,000 sq ft independent factory opens at SEEPZ++, Andheri — India's premier export zone</p>
+              </div>
+            </div>
+            <div style="display: grid; grid-template-columns: 80px 1fr; gap: 1.5rem; padding-bottom: 2rem; border-left: 1px solid rgba(74,222,128,0.25); padding-left: 2rem; position: relative;">
+              <div style="position: absolute; left: -6px; top: 4px; width: 11px; height: 11px; border-radius: 50%; background: #4ade80; border: 2px solid var(--blue-deep);"></div>
+              <span style="font-family: var(--serif); font-size: 1.3rem; color: #4ade80; padding-top: .1rem;">2007</span>
+              <div>
+                <p style="font-size: .82rem; font-weight: 500; color: var(--white); margin-bottom: .3rem;">Domestic Market Entry</p>
+                <p style="font-size: .78rem; font-weight: 300; color: rgba(255,255,255,.55); line-height: 1.7;">10,000 sq ft factory at MIDC Mumbai established to serve top-tier retailers</p>
+              </div>
+            </div>
+            <div style="display: grid; grid-template-columns: 80px 1fr; gap: 1.5rem; padding-bottom: 2rem; border-left: 1px solid rgba(74,222,128,0.25); padding-left: 2rem; position: relative;">
+              <div style="position: absolute; left: -6px; top: 4px; width: 11px; height: 11px; border-radius: 50%; background: #4ade80; border: 2px solid var(--blue-deep);"></div>
+              <span style="font-family: var(--serif); font-size: 1.3rem; color: #4ade80; padding-top: .1rem;">2016</span>
+              <div>
+                <p style="font-size: .82rem; font-weight: 500; color: var(--white); margin-bottom: .3rem;">RJC Certification</p>
+                <p style="font-size: .78rem; font-weight: 300; color: rgba(255,255,255,.55); line-height: 1.7;">First Responsible Jewellery Council certification achieved — renewed continuously through 2029</p>
+              </div>
+            </div>
+            <div style="display: grid; grid-template-columns: 80px 1fr; gap: 1.5rem; padding-bottom: 2rem; border-left: 1px solid rgba(74,222,128,0.25); padding-left: 2rem; position: relative;">
+              <div style="position: absolute; left: -6px; top: 4px; width: 11px; height: 11px; border-radius: 50%; background: #4ade80; border: 2px solid var(--blue-deep);"></div>
+              <span style="font-family: var(--serif); font-size: 1.3rem; color: #4ade80; padding-top: .1rem;">2024</span>
+              <div>
+                <p style="font-size: .82rem; font-weight: 500; color: var(--white); margin-bottom: .3rem;">Multi-Hub Manufacturing Expansion</p>
+                <p style="font-size: .78rem; font-weight: 300; color: rgba(255,255,255,.55); line-height: 1.7;">Commissioning of the Surat GHB Mega Hub at Gujarat Hira Bourse alongside 6 specialized facilities across SEEPZ and MIDC Mumbai — scaling production across 7 dedicated units</p>
+              </div>
+            </div>
+            <div style="display: grid; grid-template-columns: 80px 1fr; gap: 1.5rem; padding-left: 2rem; position: relative;">
+              <div style="position: absolute; left: -6px; top: 4px; width: 11px; height: 11px; border-radius: 50%; background: #4ade80; border: 2px solid var(--blue-deep);"></div>
+              <span style="font-family: var(--serif); font-size: 1.3rem; color: #4ade80; padding-top: .1rem;">Today</span>
+              <div>
+                <p style="font-size: .82rem; font-weight: 500; color: var(--white); margin-bottom: .3rem;">Global Leadership & Indigo Evolve</p>
+                <p style="font-size: .78rem; font-weight: 300; color: rgba(255,255,255,.55); line-height: 1.7;">Over 5,000 group personnel · 1,500+ master artisans across 7 production hubs · 80,000+ pieces monthly · Sustainable lab-grown diamond leadership across global retail channels</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Leadership -->
+      <div class="leadership reveal" style="margin-top: 5rem;">
+        <div class="leadership-head" style="text-align: center; margin-bottom: 3.5rem;">
+          <p class="sec-label" style="justify-content: center; color: #4ade80;">Management</p>
+          <h2 class="sec-title">The minds behind <em>SV Group & Indigo</em></h2>
+          <p style="max-width: 680px; margin: 1.2rem auto 0; font-size: 1.05rem; color: rgba(255, 255, 255, 0.75); font-weight: 300; line-height: 1.8;">
+            Meet the visionary minds steering our company, guiding it towards sustained excellence in the diamond and jewellery trade.
+          </p>
+        </div>
+        <div style="max-width: 1100px; margin: 0 auto 5rem; border-radius: 6px; overflow: hidden; border: 1px solid var(--glass-border); box-shadow: 0 20px 50px rgba(0,0,0,0.5);">
+          <img src="public/leadership.jpg" alt="The minds behind Indigo — SV Group Leadership" style="width: 100%; display: block;">
+        </div>
+
+        <!-- 4 Pillars of the SV Group -->
+        <div class="pillars-section" style="margin-top: 5rem;">
+          <div style="text-align: center; margin-bottom: 3.5rem;">
+            <p class="sec-label" style="justify-content: center; color: #4ade80;">Foundational Values</p>
+            <h2 class="sec-title">4 Pillars of the <em>SV Group</em></h2>
+          </div>
+          <div class="sv-pillars-grid" style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.8rem; max-width: 1200px; margin: 0 auto;">
+            <!-- Quality -->
+            <div class="sv-pillar-card">
+              <div class="sv-pillar-icon-wrap" style="border-color: rgba(74,222,128,0.3); background: rgba(74,222,128,0.08);">
+                <svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="#4ade80" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="12" cy="8" r="6"/>
+                  <path d="M15.48 12.89L17 22l-5-3-5 3 1.52-9.11"/>
+                  <circle cx="12" cy="8" r="2.2"/>
+                </svg>
+              </div>
+              <h3>Quality</h3>
+              <p>
+                We maintain the highest standards throughout our supply chain, ensuring every diamond and piece of jewellery exceeds expectations.
+              </p>
+            </div>
+
+            <!-- Trust -->
+            <div class="sv-pillar-card">
+              <div class="sv-pillar-icon-wrap" style="border-color: rgba(74,222,128,0.3); background: rgba(74,222,128,0.08);">
+                <svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="#4ade80" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M11 17l2 2a1 1 0 0 0 1.41 0l4.59-4.59a2 2 0 0 0 0-2.82l-1.42-1.42a2 2 0 0 0-2.82 0L13 12"/>
+                  <path d="M13 7.5l-2-2a2 2 0 0 0-2.83 0L3.59 10.09a2 2 0 0 0 0 2.82l1.41 1.42a2 2 0 0 0 2.83 0L11 11.5"/>
+                  <path d="M18 10l2 2"/>
+                  <path d="M6 14l-2-2"/>
+                </svg>
+              </div>
+              <h3>Trust</h3>
+              <p>
+                Building lasting relationships with our clients through transparency, honesty, and reliability in every transaction.
+              </p>
+            </div>
+
+            <!-- Commitment -->
+            <div class="sv-pillar-card">
+              <div class="sv-pillar-icon-wrap" style="border-color: rgba(74,222,128,0.3); background: rgba(74,222,128,0.08);">
+                <svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="#4ade80" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="12" cy="13" r="8"/>
+                  <path d="M12 9v4l2.5 1.5"/>
+                  <path d="M12 5V2"/>
+                  <path d="M10 2h4"/>
+                </svg>
+              </div>
+              <h3>Commitment</h3>
+              <p>
+                We deliver on our promises, meeting deadlines and specifications with unwavering dedication to client satisfaction.
+              </p>
+            </div>
+
+            <!-- Integrity -->
+            <div class="sv-pillar-card">
+              <div class="sv-pillar-icon-wrap" style="border-color: rgba(74,222,128,0.3); background: rgba(74,222,128,0.08);">
+                <svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="#4ade80" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                  <path d="m9 12 2 2 4-4"/>
+                </svg>
+              </div>
+              <h3>Integrity</h3>
+              <p>
+                Ethical sourcing and business practices are at the heart of everything we do, ensuring responsible diamond procurement.
+              </p>
             </div>
           </div>
         </div>
@@ -282,33 +505,33 @@
           <p style="margin-top:1rem">Embrace the future of fine jewelry. We supply major retailers, chain stores, and boutiques with premium lab-grown diamond collections.</p>
           <div class="contact-offices">
             <div class="office-item">
-              <p class="office-city">🇮🇳 Corporate Office — Mumbai</p>
-              <p class="office-addr">S. Vinodkumar Diamonds Pvt. Ltd.<br>7th Floor, B-Wing, Laxmi Tower, BKC, Bandra (E), Mumbai 51</p>
+              <p class="office-city"><svg class="flag-svg" width="28" height="19" viewBox="0 0 32 22" fill="none"><rect width="32" height="22" rx="3" fill="#ffffff"/><rect width="32" height="7.33" rx="3" fill="#FF9933"/><rect y="14.67" width="32" height="7.33" rx="3" fill="#138808"/><circle cx="16" cy="11" r="2.8" stroke="#000080" stroke-width="0.8" fill="none"/><circle cx="16" cy="11" r="0.8" fill="#000080"/></svg> Corporate Office — Mumbai</p>
+              <p class="office-addr">S. Vinodkumar Diamonds Pvt. Ltd.<br>7th Floor, B-Wing, Laxmi Tower, BKC, Bandra (E), Mumbai 400051</p>
               <p class="office-contact">T. +91 22 4069 5000 · indigo@svinodkumar.com</p>
             </div>
             <div class="office-item">
-              <p class="office-city">🇺🇸 New York</p>
+              <p class="office-city"><svg class="flag-svg" width="28" height="19" viewBox="0 0 32 22" fill="none"><rect width="32" height="22" rx="3" fill="#B22234"/><rect y="1.69" width="32" height="1.69" fill="#ffffff"/><rect y="5.07" width="32" height="1.69" fill="#ffffff"/><rect y="8.45" width="32" height="1.69" fill="#ffffff"/><rect y="11.83" width="32" height="1.69" fill="#ffffff"/><rect y="15.21" width="32" height="1.69" fill="#ffffff"/><rect y="18.59" width="32" height="1.69" fill="#ffffff"/><rect width="13" height="11.8" rx="2" fill="#3C3B6E"/><circle cx="3.5" cy="3.5" r="0.7" fill="#ffffff"/><circle cx="9.5" cy="3.5" r="0.7" fill="#ffffff"/><circle cx="6.5" cy="6" r="0.7" fill="#ffffff"/><circle cx="3.5" cy="8.5" r="0.7" fill="#ffffff"/><circle cx="9.5" cy="8.5" r="0.7" fill="#ffffff"/></svg> New York</p>
               <p class="office-addr">521 5th Avenue, Suite 820, New York, NY 10175</p>
               <p class="office-contact">Tel: +1-212-921-0056 · infousa@svinodkumar.com</p>
             </div>
           </div>
         </div>
         <div class="reveal reveal-delay-1">
-          <div style="background:var(--glass);border:1px solid var(--glass-border);padding:2.5rem;border-radius:4px">
+          <div class="enquiry-form-wrap" style="background:var(--glass);border:1px solid var(--glass-border);padding:2.5rem;border-radius:4px">
             <h3 style="font-family:var(--serif);font-size:1.4rem;font-weight:400;margin-bottom:1.5rem;color:var(--white)">LGD Wholesale Enquiry</h3>
             <div class="form-row">
-              <div class="form-group"><label class="form-label">First Name</label><input class="form-input" type="text"
-                  placeholder="John"></div>
-              <div class="form-group"><label class="form-label">Last Name</label><input class="form-input" type="text"
+              <div class="form-group"><label class="form-label">First Name</label><input name="firstName" class="form-input" type="text"
+                  placeholder="John" required></div>
+              <div class="form-group"><label class="form-label">Last Name</label><input name="lastName" class="form-input" type="text"
                   placeholder="Smith"></div>
             </div>
-            <div class="form-group"><label class="form-label">Company Name</label><input class="form-input" type="text"
+            <div class="form-group"><label class="form-label">Company Name</label><input name="company" class="form-input" type="text"
                 placeholder="Your company"></div>
-            <div class="form-group"><label class="form-label">Email Address</label><input class="form-input"
-                type="email" placeholder="you@company.com"></div>
+            <div class="form-group"><label class="form-label">Email Address</label><input name="email" class="form-input"
+                type="email" placeholder="you@company.com" required></div>
             <div class="form-row">
               <div class="form-group"><label class="form-label">Country</label>
-                <select class="form-select">
+                <select name="country" class="form-select">
                   <option value="">Select country...</option>
                   <option selected>United States</option>
                   <option>United Kingdom</option>
@@ -319,7 +542,7 @@
                 </select>
               </div>
               <div class="form-group"><label class="form-label">Business Type</label>
-                <select class="form-select">
+                <select name="businessType" class="form-select">
                   <option value="">Select type...</option>
                   <option>Independent Jewelry Retailer</option>
                   <option>Chain Store / Group</option>
@@ -330,7 +553,7 @@
               </div>
             </div>
             <div class="form-group"><label class="form-label">Product Interest</label>
-              <select class="form-select">
+              <select name="productInterest" class="form-select">
                 <option value="">Select category...</option>
                 <option>Diamond Rings</option>
                 <option>Necklaces & Pendants</option>
@@ -340,9 +563,10 @@
                 <option>Multiple Categories</option>
               </select>
             </div>
-            <div class="form-group"><label class="form-label">Message</label><textarea class="form-textarea" rows="4"
+            <div class="form-group"><label class="form-label">Message</label><textarea name="message" class="form-textarea" rows="4"
                 placeholder="Tell us about your business and what you're looking for..."></textarea></div>
             <button class="btn-primary" style="width:100%;justify-content:center; background:#16a34a; border-color:#16a34a;" onclick="handleSubmit(this)">Send Enquiry</button>
+            <div class="form-status" style="margin-top:1rem;font-size:0.85rem;display:none;text-align:center;line-height:1.5;"></div>
           </div>
         </div>
       </div>
@@ -456,13 +680,93 @@
       });
     }
 
-    // Form submit
-    function handleSubmit(btn) {
-      btn.textContent = 'Message Sent ✓';
-      btn.style.background = 'rgba(46,204,113,.3)';
-      btn.style.border = '1px solid rgba(46,204,113,.5)';
-      btn.style.color = '#fff';
-      btn.style.cursor = 'default';
+    // Form submit via Resend
+    async function handleSubmit(btn) {
+      const container = btn.closest('.enquiry-form-wrap') || btn.parentElement;
+      if (!container) return;
+
+      const firstName = container.querySelector('[name="firstName"]')?.value.trim() || '';
+      const lastName = container.querySelector('[name="lastName"]')?.value.trim() || '';
+      const company = container.querySelector('[name="company"]')?.value.trim() || '';
+      const email = container.querySelector('[name="email"]')?.value.trim() || '';
+      const country = container.querySelector('[name="country"]')?.value || '';
+      const businessType = container.querySelector('[name="businessType"]')?.value || '';
+      const productInterest = container.querySelector('[name="productInterest"]')?.value || '';
+      const message = container.querySelector('[name="message"]')?.value.trim() || '';
+
+      const statusEl = container.querySelector('.form-status');
+
+      if (!firstName || !email) {
+        if (statusEl) {
+          statusEl.style.display = 'block';
+          statusEl.style.color = '#f87171';
+          statusEl.textContent = 'Please fill in your name and email address.';
+        }
+        return;
+      }
+
+      const origText = btn.innerHTML;
+      btn.disabled = true;
+      btn.textContent = 'Sending Enquiry...';
+      btn.style.opacity = '0.7';
+      if (statusEl) statusEl.style.display = 'none';
+
+      try {
+        const res = await fetch('/api/contact', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            firstName,
+            lastName,
+            company,
+            email,
+            country,
+            businessType,
+            productInterest,
+            message,
+            source: 'Indigo Evolve — LGD Wholesale Enquiry'
+          })
+        });
+
+        let data;
+        const contentType = res.headers.get('content-type') || '';
+        if (contentType.includes('application/json')) {
+          data = await res.json();
+        } else {
+          const rawText = await res.text();
+          throw new Error(
+            res.status === 404 || res.status === 501
+              ? 'Form backend service is not running. Please ensure the local server is running with "npm start".'
+              : `Server returned an unexpected response (${res.status}).`
+          );
+        }
+
+        if (res.ok && data && data.success) {
+          btn.textContent = 'Enquiry Sent ✓';
+          btn.style.opacity = '1';
+          btn.style.background = 'rgba(34, 197, 94, .25)';
+          btn.style.borderColor = 'rgba(34, 197, 94, .6)';
+          btn.style.color = '#86efac';
+          btn.style.cursor = 'default';
+          if (statusEl) {
+            statusEl.style.display = 'block';
+            statusEl.style.color = '#86efac';
+            statusEl.textContent = 'Thank you! Your enquiry has been received and our team will get in touch shortly.';
+          }
+          container.querySelectorAll('input, textarea').forEach(i => i.value = '');
+        } else {
+          throw new Error((data && data.error) || 'Failed to send enquiry. Please try again.');
+        }
+      } catch (err) {
+        btn.disabled = false;
+        btn.style.opacity = '1';
+        btn.innerHTML = origText;
+        if (statusEl) {
+          statusEl.style.display = 'block';
+          statusEl.style.color = '#f87171';
+          statusEl.textContent = err.message || 'Unable to send enquiry. Please try again later.';
+        }
+      }
     }
   </script>
 </body>

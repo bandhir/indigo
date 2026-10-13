@@ -1,5 +1,15 @@
 {
+  "name": "indigo-jewelry",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Indigo Jewelry — B2B Fine Diamond Jewelry Manufacturing",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js"
+  },
   "dependencies": {
+    "dotenv": "^18.0.7",
+    "resend": "^6.32.1",
     "sharp": "^0.34.5"
   }
 }
