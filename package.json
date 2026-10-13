@@ -4,6 +4,7 @@
   "private": true,
   "description": "Indigo Jewelry — B2B Fine Diamond Jewelry Manufacturing",
   "scripts": {
+    "build": "echo 'Build ready'",
     "start": "node server.js",
     "dev": "node server.js"
   },
