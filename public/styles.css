@@ -3167,4 +3167,115 @@ footer {
   text-transform: uppercase;
   border-radius: 2px;
   font-weight: 500;
-}
+}
+
+/* ===================== COMMUNITY INITIATIVES (SUSTAINABILITY) ===================== */
+.community-initiatives-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.community-initiative-card {
+  background: rgba(12, 20, 48, 0.7);
+  border: 1px solid var(--glass-border);
+  border-radius: 6px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.35s ease, border-color 0.35s ease, box-shadow 0.35s ease;
+}
+
+.community-initiative-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(212, 175, 55, 0.3);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.35);
+}
+
+.community-initiative-media {
+  position: relative;
+  overflow: hidden;
+  aspect-ratio: 3 / 2;
+  width: 100%;
+  background: #050b1a;
+}
+
+.community-initiative-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  filter: saturate(0.95);
+  transition: transform 0.6s ease;
+}
+
+.community-initiative-card:hover .community-initiative-img {
+  transform: scale(1.03);
+}
+
+.community-initiative-body {
+  padding: 1.6rem 1.6rem 1.8rem;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.community-initiative-header {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  margin-bottom: 0.85rem;
+}
+
+.community-initiative-icon {
+  width: 34px;
+  height: 34px;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.05rem;
+  flex-shrink: 0;
+}
+
+.community-initiative-tag {
+  font-size: 0.65rem;
+  font-weight: 400;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  margin: 0;
+}
+
+.community-initiative-title {
+  font-family: var(--serif);
+  font-size: 1.45rem;
+  font-weight: 400;
+  color: var(--white);
+  margin-bottom: 0.75rem;
+  line-height: 1.25;
+}
+
+.community-initiative-desc {
+  font-size: 0.82rem;
+  font-weight: 300;
+  color: rgba(255, 255, 255, 0.65);
+  line-height: 1.75;
+  margin: 0;
+}
+
+@media (max-width: 992px) {
+  .community-initiatives-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.25rem;
+  }
+}
+
+@media (max-width: 640px) {
+  .community-initiatives-grid {
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+  }
+}
+

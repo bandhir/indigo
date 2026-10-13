@@ -286,8 +286,102 @@ footer { background:var(--ink);border-top:1px solid var(--glass-border);padding:
 .nav-links a.active-page { color:var(--white); }
 .nav-links a.active-page::after { width:100%; }
 
-/* LINE ACCENT */
-.line-accent { display:inline-block;width:40px;height:1px;background:var(--blue-glow);margin-right:.8rem;vertical-align:middle; }
+/* COMMUNITY INITIATIVES (SUSTAINABILITY) */
+.community-initiatives-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+.community-initiative-card {
+  background: rgba(12, 20, 48, 0.7);
+  border: 1px solid var(--glass-border);
+  border-radius: 6px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.35s ease, border-color 0.35s ease, box-shadow 0.35s ease;
+}
+.community-initiative-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(212, 175, 55, 0.3);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.35);
+}
+.community-initiative-media {
+  position: relative;
+  overflow: hidden;
+  aspect-ratio: 3 / 2;
+  width: 100%;
+  background: #050b1a;
+}
+.community-initiative-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  filter: saturate(0.95);
+  transition: transform 0.6s ease;
+}
+.community-initiative-card:hover .community-initiative-img {
+  transform: scale(1.03);
+}
+.community-initiative-body {
+  padding: 1.6rem 1.6rem 1.8rem;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+.community-initiative-header {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  margin-bottom: 0.85rem;
+}
+.community-initiative-icon {
+  width: 34px;
+  height: 34px;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.05rem;
+  flex-shrink: 0;
+}
+.community-initiative-tag {
+  font-size: 0.65rem;
+  font-weight: 400;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  margin: 0;
+}
+.community-initiative-title {
+  font-family: var(--serif);
+  font-size: 1.45rem;
+  font-weight: 400;
+  color: var(--white);
+  margin-bottom: 0.75rem;
+  line-height: 1.25;
+}
+.community-initiative-desc {
+  font-size: 0.82rem;
+  font-weight: 300;
+  color: rgba(255, 255, 255, 0.65);
+  line-height: 1.75;
+  margin: 0;
+}
+@media (max-width: 992px) {
+  .community-initiatives-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.25rem;
+  }
+}
+@media (max-width: 640px) {
+  .community-initiatives-grid {
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+  }
+}
 </style>
 </head>
 <body>
@@ -1664,39 +1758,47 @@ footer { background:var(--ink);border-top:1px solid var(--glass-border);padding:
       <h2 class="sec-title" style="margin-bottom:1rem">Profits that <em>give back</em></h2>
       <p style="font-size:.9rem;font-weight:300;color:rgba(255,255,255,.5);max-width:600px;margin:0 auto;line-height:1.9">"Profits earned from the business are futile, unless a substantial part of it is reinvested to uplift the underprivileged and marginalised segment of society." — <em style="color:rgba(255,255,255,.7)">Mr. Vinod Shah, Chairman, SV Group</em></p>
     </div>
-    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:1.5px;background:var(--glass-border)" class="reveal reveal-delay-1">
+    <div class="community-initiatives-grid reveal reveal-delay-1">
       <!-- Education -->
-      <div style="position:relative;overflow:hidden;aspect-ratio:3/4;cursor:none;group:true">
-        <img src="../public/images/education.jpg" alt="Education initiative" style="width:100%;height:100%;object-fit:cover;filter:saturate(.85);transition:transform .7s">
-        <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(10,15,46,.88) 0%,rgba(10,15,46,.2) 60%,transparent 100%)"></div>
-        <div style="position:absolute;inset:0;background:rgba(34,197,94,.07);opacity:0;transition:opacity .4s"></div>
-        <div style="position:absolute;bottom:0;left:0;right:0;padding:2rem">
-          <div style="width:40px;height:40px;background:rgba(34,197,94,.15);border:1px solid rgba(34,197,94,.3);border-radius:3px;display:flex;align-items:center;justify-content:center;font-size:1.1rem;margin-bottom:1rem">📚</div>
-          <p style="font-size:.65rem;font-weight:300;letter-spacing:.25em;text-transform:uppercase;color:#86efac;margin-bottom:.4rem">Education</p>
-          <h3 style="font-family:var(--serif);font-size:1.5rem;font-weight:400;color:var(--white);margin-bottom:.7rem">Shaping Futures</h3>
-          <p style="font-size:.8rem;font-weight:300;color:rgba(255,255,255,.6);line-height:1.7">SV Group's educational schemes enable children from underprivileged backgrounds to access quality education and build successful careers. Computer classes in Surat and school sponsorships benefit over 500 students every year.</p>
+      <div class="community-initiative-card">
+        <div class="community-initiative-media">
+          <img src="../public/images/education.jpg" alt="Education initiative" class="community-initiative-img">
+        </div>
+        <div class="community-initiative-body">
+          <div class="community-initiative-header">
+            <div class="community-initiative-icon" style="background:rgba(34,197,94,.12);border:1px solid rgba(34,197,94,.3);">📚</div>
+            <p class="community-initiative-tag" style="color:#86efac">Education</p>
+          </div>
+          <h3 class="community-initiative-title">Shaping Futures</h3>
+          <p class="community-initiative-desc">SV Group's educational schemes enable children from underprivileged backgrounds to access quality education and build successful careers. Computer classes in Surat and school sponsorships benefit over 500 students every year.</p>
         </div>
       </div>
       <!-- Healthcare -->
-      <div style="position:relative;overflow:hidden;aspect-ratio:3/4;cursor:none">
-        <img src="../public/images/healingcommunities.jpg" alt="Healthcare initiative" style="width:100%;height:100%;object-fit:cover;filter:saturate(.85)">
-        <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(10,15,46,.88) 0%,rgba(10,15,46,.2) 60%,transparent 100%)"></div>
-        <div style="position:absolute;bottom:0;left:0;right:0;padding:2rem">
-          <div style="width:40px;height:40px;background:rgba(59,130,246,.15);border:1px solid rgba(59,130,246,.3);border-radius:3px;display:flex;align-items:center;justify-content:center;font-size:1.1rem;margin-bottom:1rem">🏥</div>
-          <p style="font-size:.65rem;font-weight:300;letter-spacing:.25em;text-transform:uppercase;color:var(--blue-pale);margin-bottom:.4rem">Healthcare</p>
-          <h3 style="font-family:var(--serif);font-size:1.5rem;font-weight:400;color:var(--white);margin-bottom:.7rem">Healing Communities</h3>
-          <p style="font-size:.8rem;font-weight:300;color:rgba(255,255,255,.6);line-height:1.7">The group sponsors charitable clinics at Mahidharpura and Katargam, Surat — providing medical services to thousands of patients. Medicines are supplied at concessional rates so that cost is never a barrier to care.</p>
+      <div class="community-initiative-card">
+        <div class="community-initiative-media">
+          <img src="../public/images/healingcommunities.jpg" alt="Healthcare initiative" class="community-initiative-img">
+        </div>
+        <div class="community-initiative-body">
+          <div class="community-initiative-header">
+            <div class="community-initiative-icon" style="background:rgba(59,130,246,.12);border:1px solid rgba(59,130,246,.3);">🏥</div>
+            <p class="community-initiative-tag" style="color:var(--blue-pale)">Healthcare</p>
+          </div>
+          <h3 class="community-initiative-title">Healing Communities</h3>
+          <p class="community-initiative-desc">The group sponsors charitable clinics at Mahidharpura and Katargam, Surat — providing medical services to thousands of patients. Medicines are supplied at concessional rates so that cost is never a barrier to care.</p>
         </div>
       </div>
       <!-- Animal & Environment -->
-      <div style="position:relative;overflow:hidden;aspect-ratio:3/4;cursor:none">
-        <img src="../public/images/animalwelfare.jpg" alt="Nature and animal welfare" style="width:100%;height:100%;object-fit:cover;filter:saturate(.9)">
-        <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(10,15,46,.88) 0%,rgba(10,15,46,.2) 60%,transparent 100%)"></div>
-        <div style="position:absolute;bottom:0;left:0;right:0;padding:2rem">
-          <div style="width:40px;height:40px;background:rgba(251,191,36,.1);border:1px solid rgba(251,191,36,.25);border-radius:3px;display:flex;align-items:center;justify-content:center;font-size:1.1rem;margin-bottom:1rem">🐄</div>
-          <p style="font-size:.65rem;font-weight:300;letter-spacing:.25em;text-transform:uppercase;color:var(--gold-light);margin-bottom:.4rem">Animal Welfare</p>
-          <h3 style="font-family:var(--serif);font-size:1.5rem;font-weight:400;color:var(--white);margin-bottom:.7rem">Caring for All Life</h3>
-          <p style="font-size:.8rem;font-weight:300;color:rgba(255,255,255,.6);line-height:1.7">A dedicated cattle camp at Deesa, Gujarat, provides shelter, food and medical treatment for sick and elderly cattle. Buildings and shade structures have been constructed to offer dignified care for animals that can no longer fend for themselves.</p>
+      <div class="community-initiative-card">
+        <div class="community-initiative-media">
+          <img src="../public/images/animalwelfare.jpg" alt="Nature and animal welfare" class="community-initiative-img">
+        </div>
+        <div class="community-initiative-body">
+          <div class="community-initiative-header">
+            <div class="community-initiative-icon" style="background:rgba(251,191,36,.1);border:1px solid rgba(251,191,36,.25);">🐄</div>
+            <p class="community-initiative-tag" style="color:var(--gold-light)">Animal Welfare</p>
+          </div>
+          <h3 class="community-initiative-title">Caring for All Life</h3>
+          <p class="community-initiative-desc">A dedicated cattle camp at Deesa, Gujarat, provides shelter, food and medical treatment for sick and elderly cattle. Buildings and shade structures have been constructed to offer dignified care for animals that can no longer fend for themselves.</p>
         </div>
       </div>
     </div>
