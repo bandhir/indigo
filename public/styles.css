@@ -1357,6 +1357,24 @@ footer {
   font-weight: 500;
 }
 
+.footer-credit {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.footer-credit a {
+  color: var(--gold) !important;
+  font-weight: 500;
+  text-decoration: none;
+  transition: opacity .2s ease, text-decoration .2s ease;
+}
+
+.footer-credit a:hover {
+  text-decoration: underline;
+  opacity: .85;
+}
+
 /* REVEAL */
 .reveal {
   opacity: 0;
