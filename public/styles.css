@@ -686,8 +686,8 @@ section {
   width: 100%;
   max-width: 100%;
   height: 100%;
-  margin-left: auto;
-  margin-right: 0;
+  margin-left: 0;
+  margin-right: auto;
   display: flex;
   flex-direction: column;
 }
@@ -707,7 +707,7 @@ section {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: center;
+  object-position: left center;
   opacity: 1;
   display: block;
   transition: transform .6s ease;
