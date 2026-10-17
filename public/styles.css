@@ -1399,6 +1399,10 @@ footer {
   border-bottom: 1px solid var(--glass-border);
 }
 
+.footer-top:has(> :last-child:nth-child(3)) {
+  grid-template-columns: 2.2fr 1fr 1fr;
+}
+
 .footer-col h4 {
   font-size: .7rem;
   font-weight: 500;
