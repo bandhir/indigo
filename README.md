@@ -1,6 +1,6 @@
 # Indigo Jewelry — B2B Fine Diamond Jewelry Manufacturing
 
-Digital flagship for **Indigo Jewelry** and **Indigo Evolve** (SV Group). Vertically integrated diamond jewelry manufacturing across 7 production hubs in Mumbai and Surat.
+Digital flagship for **Indigo Jewelry** and **Indigo Evolve** (SV Group). Vertically integrated diamond jewelry manufacturing across 7 manufacturing units (250,000+ sq ft) in Mumbai and Surat.
 
 ---
 
