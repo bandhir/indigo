@@ -173,8 +173,11 @@ section { position:relative; }
 .factory-panels { }
 .factory-panel { display:none; }
 .factory-panel.active { display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center; }
+.factory-panel.is-vertical.active, #fp-ghb-surat.active, #fp-seepz1.active, #fp-seepz2.active { grid-template-columns:minmax(320px, 460px) 1fr; gap:4rem; align-items:center; }
 .factory-img { position:relative;aspect-ratio:4/3;overflow:hidden;border-radius:4px;border:1px solid var(--glass-border); }
+.factory-img.factory-img-vertical, .factory-panel.is-vertical .factory-img, #fp-ghb-surat .factory-img, #fp-seepz1 .factory-img, #fp-seepz2 .factory-img { aspect-ratio:3/4; max-width:460px; width:100%; }
 .factory-img img { width:100%;height:100%;object-fit:cover;opacity:.8; }
+.factory-img.factory-img-vertical img, .factory-panel.is-vertical .factory-img img, #fp-ghb-surat .factory-img img, #fp-seepz1 .factory-img img, #fp-seepz2 .factory-img img { object-position:center; }
 .factory-img-overlay { position:absolute;inset:0;background:linear-gradient(to top,rgba(10,15,46,.6),transparent); }
 .factory-specs { display:grid;grid-template-columns:1fr 1fr;gap:1rem;position:absolute;bottom:1.5rem;left:1.5rem;right:1.5rem; }
 .fspec { background:rgba(10,15,46,.85);backdrop-filter:blur(10px);border:1px solid var(--glass-border);padding:.8rem 1rem;border-radius:3px; }
@@ -1165,8 +1168,8 @@ footer { background:var(--ink);border-top:1px solid var(--glass-border);padding:
       <div class="factory-panels">
 
         <!-- 1. GHB SURAT -->
-        <div class="factory-panel active" id="fp-ghb-surat">
-          <div class="factory-img">
+        <div class="factory-panel active is-vertical" id="fp-ghb-surat">
+          <div class="factory-img factory-img-vertical">
             <img src="../public/factory/ghb_surat.jpg" alt="GHB Surat">
           </div>
           <div class="factory-info">
@@ -1185,8 +1188,8 @@ footer { background:var(--ink);border-top:1px solid var(--glass-border);padding:
         </div>
 
         <!-- 2. SEEPZ 1 MUMBAI -->
-        <div class="factory-panel" id="fp-seepz1">
-          <div class="factory-img">
+        <div class="factory-panel is-vertical" id="fp-seepz1">
+          <div class="factory-img factory-img-vertical">
             <img src="../public/factory/seepz1.jpg" alt="SEEPZ 1 Mumbai">
           </div>
           <div class="factory-info">
@@ -1204,8 +1207,8 @@ footer { background:var(--ink);border-top:1px solid var(--glass-border);padding:
         </div>
 
         <!-- 3. SEEPZ 2 MUMBAI -->
-        <div class="factory-panel" id="fp-seepz2">
-          <div class="factory-img">
+        <div class="factory-panel is-vertical" id="fp-seepz2">
+          <div class="factory-img factory-img-vertical">
             <img src="../public/factory/seepz2.jpg" alt="SEEPZ 2 Mumbai">
           </div>
           <div class="factory-info">
