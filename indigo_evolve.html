@@ -421,27 +421,28 @@
         </p>
       </div>
       
-      <div
-        style="display:inline-flex;background:var(--glass);border:1px solid var(--glass-border);padding:.4rem;border-radius:3px;margin-bottom:2.5rem;display:flex;justify-content:center;gap:.3rem;flex-wrap:wrap">
-        <button class="ftab active" onclick="filterProds(this,'all')" style="padding:.45rem 1.2rem">All Categories</button>
-        <button class="ftab" onclick="filterProds(this,'rings')" style="padding:.45rem 1.2rem">Rings</button>
-        <button class="ftab" onclick="filterProds(this,'pandent')" style="padding:.45rem 1.2rem">Pendant</button>
-        <button class="ftab" onclick="filterProds(this,'necklace')" style="padding:.45rem 1.2rem">Necklace</button>
-        <button class="ftab" onclick="filterProds(this,'earrings')" style="padding:.45rem 1.2rem">Earrings</button>
-        <button class="ftab" onclick="filterProds(this,'bracelet')" style="padding:.45rem 1.2rem">Bracelet</button>
-      </div>
       <div class="products-grid" id="prodsGrid">
         <div class="prod-card reveal" data-cat="rings">
-          <div class="prod-img"><img src="public/product/ring1.jpeg" alt="Solitaire Ring" decoding="async" loading="lazy">
+          <div class="prod-img"><img src="public/product/ring1.jpeg" alt="Wedding Ring" decoding="async" loading="lazy">
             <div class="prod-overlay"></div>
           </div>
           <div class="prod-info">
             <p class="prod-cat" style="color:#86efac;">Rings</p>
-            <p class="prod-name">Diamond Rings</p>
+            <p class="prod-name">Wedding Ring</p>
             <p class="prod-desc">Classic prong-set rounds in 14K & 18K gold. Available in certified & non-certified options.</p>
           </div>
         </div>
-        <div class="prod-card reveal reveal-delay-1" data-cat="pandent">
+        <div class="prod-card reveal reveal-delay-1" data-cat="rings">
+          <div class="prod-img"><img src="public/product/fashionring.jpg" alt="Fashion Ring" decoding="async" loading="lazy">
+            <div class="prod-overlay"></div>
+          </div>
+          <div class="prod-info">
+            <p class="prod-cat" style="color:#86efac;">Rings</p>
+            <p class="prod-name">Fashion Ring</p>
+            <p class="prod-desc">Contemporary multi-row pavé and statement diamond bands crafted in 14K & 18K gold.</p>
+          </div>
+        </div>
+        <div class="prod-card reveal reveal-delay-2" data-cat="pandent">
           <div class="prod-img"><img src="public/product/pandent.jpeg" alt="Diamond Pendant" decoding="async" loading="lazy">
             <div class="prod-overlay"></div>
           </div>
@@ -451,7 +452,7 @@
             <p class="prod-desc">Everyday wear to special occasion. Stunning designs in white and yellow gold.</p>
           </div>
         </div>
-        <div class="prod-card reveal reveal-delay-2" data-cat="necklace">
+        <div class="prod-card reveal" data-cat="necklace">
           <div class="prod-img prod-img-necklace"><img src="public/product/necklace.jpeg" alt="Diamond Necklace" decoding="async" loading="lazy">
             <div class="prod-overlay"></div>
           </div>
@@ -461,7 +462,7 @@
             <p class="prod-desc">On-trend designs for chain store programmes. High commercial value with strong margin architecture.</p>
           </div>
         </div>
-        <div class="prod-card reveal" data-cat="earrings">
+        <div class="prod-card reveal reveal-delay-1" data-cat="earrings">
           <div class="prod-img"><img src="public/product/bracelet1.jpeg" alt="Diamond Hoop Earrings" decoding="async" loading="lazy">
             <div class="prod-overlay"></div>
           </div>
@@ -471,7 +472,7 @@
             <p class="prod-desc">Classic inside-out diamond hoops and huggie styles in 14K & 18K gold. Precision prong-set with secure closure mechanisms.</p>
           </div>
         </div>
-        <div class="prod-card reveal reveal-delay-1" data-cat="bracelet">
+        <div class="prod-card reveal reveal-delay-2" data-cat="bracelet">
           <div class="prod-img"><img src="public/product/bracelate2.jpeg" alt="Tennis Bracelet" decoding="async" loading="lazy">
             <div class="prod-overlay"></div>
           </div>
