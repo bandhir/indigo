@@ -38,7 +38,7 @@ module.exports = async function handler(req, res) {
       businessType = '',
       productInterest = '',
       message = '',
-      source = 'Indigo Jewelry Partner Enquiry'
+      source = 'Indigo Jewellery Partner Enquiry'
     } = body || {};
 
     if (!email || !firstName) {
@@ -59,7 +59,7 @@ module.exports = async function handler(req, res) {
     const resend = new Resend(apiKey.trim());
 
     const toEmail = process.env.CONTACT_TO_EMAIL || 'ensure01@gmail.com';
-    const fromEmail = process.env.CONTACT_FROM_EMAIL || 'Indigo Jewelry <info@svinodkumar.com>';
+    const fromEmail = process.env.CONTACT_FROM_EMAIL || 'Indigo Jewellery <info@svinodkumar.com>';
     const fullName = [firstName, lastName].filter(Boolean).join(' ') || 'Prospect';
 
     const emailSubject = `[New Enquiry] ${source} — ${fullName}${company ? ` (${company})` : ''}`;
