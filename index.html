@@ -888,70 +888,7 @@
         </div>
       </div>
 
-      <div
-        style="display:inline-flex;background:var(--glass);border:1px solid var(--glass-border);padding:.4rem;border-radius:3px;margin-bottom:2.5rem;display:flex;justify-content:center;gap:.3rem;flex-wrap:wrap">
-        <button class="ftab active" onclick="filterProds(this,'all')" style="padding:.45rem 1.2rem">All
-          Categories</button>
-        <button class="ftab" onclick="filterProds(this,'rings')" style="padding:.45rem 1.2rem">Rings</button>
-        <button class="ftab" onclick="filterProds(this,'pandent')" style="padding:.45rem 1.2rem">Pendant</button>
-        <button class="ftab" onclick="filterProds(this,'necklace')" style="padding:.45rem 1.2rem">Necklace</button>
-        <button class="ftab" onclick="filterProds(this,'earrings')" style="padding:.45rem 1.2rem">Earrings</button>
-        <button class="ftab" onclick="filterProds(this,'bracelet')" style="padding:.45rem 1.2rem">Bracelet</button>
-      </div>
-      <div class="products-grid" id="prodsGrid">
-        <div class="prod-card" data-cat="rings">
-          <div class="prod-img"><img src="public/product/ring1.jpeg" alt="Solitaire Ring" decoding="async" loading="lazy">
-            <div class="prod-overlay"></div>
-          </div>
-          <div class="prod-info">
-            <p class="prod-cat">Rings</p>
-            <p class="prod-name">Diamond Rings</p>
-            <p class="prod-desc">Classic prong-set rounds in 14K & 18K gold. Available in certified & non-certified
-              options.</p>
-          </div>
-        </div>
-        <div class="prod-card" data-cat="pandent">
-          <div class="prod-img"><img src="public/product/pandent.jpeg" alt="Diamond Pendant" decoding="async" loading="lazy">
-            <div class="prod-overlay"></div>
-          </div>
-          <div class="prod-info">
-            <p class="prod-cat">Pendant</p>
-            <p class="prod-name">Diamond Pendants</p>
-            <p class="prod-desc">Everyday wear to special occasion. Stunning designs in white and yellow gold.</p>
-          </div>
-        </div>
-        <div class="prod-card" data-cat="necklace">
-          <div class="prod-img prod-img-necklace"><img src="public/product/necklace.jpeg" alt="Diamond Necklace" decoding="async" loading="lazy">
-            <div class="prod-overlay"></div>
-          </div>
-          <div class="prod-info">
-            <p class="prod-cat">Necklace</p>
-            <p class="prod-name">Diamond Necklaces</p>
-            <p class="prod-desc">On-trend designs for chain store programmes. High commercial value with strong margin
-              architecture.</p>
-          </div>
-        </div>
-        <div class="prod-card" data-cat="earrings">
-          <div class="prod-img"><img src="public/product/bracelet1.jpeg" alt="Diamond Hoop Earrings" decoding="async" loading="lazy">
-            <div class="prod-overlay"></div>
-          </div>
-          <div class="prod-info">
-            <p class="prod-cat">Earrings</p>
-            <p class="prod-name">Diamond Hoop Earrings</p>
-            <p class="prod-desc">Classic inside-out diamond hoops and huggie styles in 14K & 18K gold. Precision prong-set with secure closure mechanisms.</p>
-          </div>
-        </div>
-        <div class="prod-card" data-cat="bracelet">
-          <div class="prod-img"><img src="public/product/bracelate2.jpeg" alt="Tennis Bracelet" decoding="async" loading="lazy">
-            <div class="prod-overlay"></div>
-          </div>
-          <div class="prod-info">
-            <p class="prod-cat">Bracelet</p>
-            <p class="prod-name">Tennis Bracelet</p>
-            <p class="prod-desc">High-volume production capability for major chains.</p>
-          </div>
-        </div>
-      </div>
+
 
       <div
         style="margin-top:4rem;background:var(--blue-dark);border:1px solid var(--glass-border);padding:3rem;border-radius:4px;text-align:center">
@@ -1098,10 +1035,6 @@
         <div
           style="display:flex;gap:4rem;justify-content:center;padding-top:2.5rem;padding-bottom:2.5rem;border-top:1px solid var(--glass-border);opacity:0;animation:fadeUp .7s .9s forwards">
           <div><span
-              style="font-family:var(--serif);font-size:2.8rem;font-weight:400;color:#4ade80;display:block;line-height:1">Many</span><span
-              style="font-size:.62rem;font-weight:300;letter-spacing:.15em;text-transform:uppercase;color:var(--muted);display:block;margin-top:.4rem">Students
-              benefited</span></div>
-          <div><span
               style="font-family:var(--serif);font-size:2.8rem;font-weight:400;color:#4ade80;display:block;line-height:1">RJC</span><span
               style="font-size:.62rem;font-weight:300;letter-spacing:.15em;text-transform:uppercase;color:var(--muted);display:block;margin-top:.4rem">Certified
               since 2016</span></div>
@@ -1113,6 +1046,9 @@
               style="font-family:var(--serif);font-size:2.8rem;font-weight:400;color:#4ade80;display:block;line-height:1">5,000+</span><span
               style="font-size:.62rem;font-weight:300;letter-spacing:.15em;text-transform:uppercase;color:var(--muted);display:block;margin-top:.4rem">Livelihoods
               supported</span></div>
+          <div><span
+              style="font-family:var(--serif);font-size:2.8rem;font-weight:400;color:#4ade80;display:block;line-height:1">REACH</span><span
+              style="font-size:.62rem;font-weight:300;letter-spacing:.15em;text-transform:uppercase;color:var(--muted);display:block;margin-top:.4rem">Compliance</span></div>
         </div>
       </div>
     </section>
@@ -1175,10 +1111,73 @@
       </div>
     </section>
 
-    <!-- RESPONSIBLE SOURCING -->
+    <!-- WORKER WELFARE / 5,000 LIVELIHOODS -->
     <section style="padding:7rem 5rem;position:relative;overflow:hidden">
-      <div class="grid-bg" style="opacity:.3"></div>
-      <div style="max-width: 960px; margin: 0 auto;" class="reveal">
+      <div class="grid-bg" style="opacity:.25"></div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:6rem;align-items:center;position:relative;z-index:1">
+        <div class="reveal">
+          <p class="sec-label" style="color:#4ade80">People at the Centre</p>
+          <h2 class="sec-title" style="margin-bottom:1.5rem">5,000 livelihoods,<br><em>one responsibility</em></h2>
+          <p style="font-size:.9rem;font-weight:300;line-height:1.95;color:rgba(255,255,255,.58);margin-bottom:1.2rem">
+            Across our diamond manufacturing units in Surat, our 7 jewelry factories in Mumbai and Surat spanning 250,000+ sq ft, and our sales offices
+            around the world, SV Group employs over 5,000 people. For many of them, particularly our master artisans
+            in Surat, this is more than a job — it is a livelihood that supports entire families and communities.</p>
+          <p style="font-size:.9rem;font-weight:300;line-height:1.95;color:rgba(255,255,255,.58);margin-bottom:1.2rem">
+            We are signatories to the Women's Empowerment Principles — reflecting our commitment to gender equality and
+            equal opportunity across all levels of our organisation. We believe the brilliance of our industry comes not
+            just from our diamonds, but from the people who shape them.</p>
+          <p style="font-size:.9rem;font-weight:300;line-height:1.95;color:rgba(255,255,255,.58)">Our factories are
+            built, certified and operated to international labour and safety standards — audited independently by the
+            Responsible Jewellery Council and compliant with leading global ethical standards.</p>
+          <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:1rem;margin-top:2.5rem">
+            <div
+              style="text-align:center;padding:1.2rem .5rem;background:var(--glass);border:1px solid var(--glass-border);border-radius:3px;display:flex;flex-direction:column;justify-content:center;align-items:center">
+              <span style="font-family:var(--serif);font-size:1.8rem;color:#4ade80;display:block">5,000+</span><span
+                style="font-size:.62rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);display:block;margin-top:.2rem">Total
+                employees</span>
+            </div>
+            <div
+              style="text-align:center;padding:1.2rem .5rem;background:var(--glass);border:1px solid var(--glass-border);border-radius:3px;display:flex;flex-direction:column;justify-content:center;align-items:center">
+              <span style="font-family:var(--serif);font-size:1.8rem;color:#4ade80;display:block">WEPs</span><span
+                style="font-size:.62rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);display:block;line-height:1.35;margin-top:.2rem">Women's
+                Empowerment Principles</span>
+            </div>
+            <div
+              style="text-align:center;padding:1.2rem .5rem;background:var(--glass);border:1px solid var(--glass-border);border-radius:3px;display:flex;flex-direction:column;justify-content:center;align-items:center">
+              <span style="font-family:var(--serif);font-size:1.8rem;color:#4ade80;display:block">7</span><span
+                style="font-size:.62rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);display:block;margin-top:.2rem">Countries
+                represented</span>
+            </div>
+          </div>
+        </div>
+        <div style="position:relative" class="reveal reveal-delay-1">
+          <div class="img-hover-overlay-container"
+            style="position:relative;aspect-ratio:4/3;overflow:hidden;border-radius:4px;border:1px solid var(--glass-border);margin-bottom:1.5rem">
+            <img src="public/images/svgroupteam.jpg"
+              alt="SV Group Team & Women's Empowerment" style="width:100%;height:100%;object-fit:cover;filter:saturate(.95)" decoding="async" loading="lazy">
+            <div class="img-hover-overlay" style="position:absolute;inset:0;background:rgba(10,17,40,0.5);pointer-events:none"></div>
+          </div>
+          <div
+            style="background:rgba(34,197,94,.07);border:1px solid rgba(34,197,94,.2);padding:1.4rem;border-radius:3px">
+            <p
+              style="font-size:.68rem;font-weight:400;letter-spacing:.18em;text-transform:uppercase;color:#86efac;margin-bottom:.5rem">
+              WEPs Signatory</p>
+            <p style="font-size:.82rem;font-weight:300;color:rgba(255,255,255,.65);line-height:1.7">SV Group is
+              committed to the UN Women's Empowerment Principles — because we believe gender equality is essential for
+              innovation, integrity, and sustainable growth. Every individual deserves the opportunity to shine to their
+              fullest potential.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- RESPONSIBLE SOURCING / FROM MINE TO MARKET -->
+    <section style="padding:7rem 5rem;background:var(--blue-dark);position:relative;overflow:hidden">
+      <div
+        style="position:absolute;inset:0;background:radial-gradient(ellipse 60% 50% at 50% 0%,rgba(34,197,94,.05),transparent);pointer-events:none">
+      </div>
+      <div class="grid-bg" style="opacity:.2"></div>
+      <div style="max-width: 960px; margin: 0 auto; position:relative; z-index:1;" class="reveal">
         <p class="sec-label" style="color:#4ade80">Responsible Sourcing</p>
         <h2 class="sec-title" style="margin-bottom:1.5rem">From mine to market —<br><em>transparently</em></h2>
         <p style="font-size:.95rem;font-weight:300;line-height:1.95;color:rgba(255,255,255,.7);margin-bottom:1.2rem">
@@ -1228,7 +1227,65 @@
       </div>
     </section>
 
-    <!-- COMMUNITY - SPLIT FEATURE -->
+    <!-- CULTURAL HERITAGE / PRESERVING PLACES OF PEACE -->
+    <section style="padding:7rem 5rem;position:relative;overflow:hidden">
+      <div class="grid-bg" style="opacity:.25"></div>
+      <div
+        style="display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center;position:relative;z-index:1"
+        class="reveal">
+        <div>
+          <p class="sec-label" style="color:#4ade80">Cultural Heritage</p>
+          <h3 style="font-family:var(--serif);font-size:2rem;font-weight:400;margin-bottom:1rem;color:var(--white)">
+            Preserving places of <em>peace</em></h3>
+          <p style="font-size:.88rem;font-weight:300;line-height:1.95;color:rgba(255,255,255,.55);margin-bottom:1rem">
+            The SV Group has funded the construction of a dharamshala — a Jain pilgrimage rest house — at Palitana,
+            Gujarat. The facility houses 34 rooms and four halls with a canteen, providing safe and comfortable
+            accommodation for thousands of pilgrims every year.</p>
+          <p style="font-size:.88rem;font-weight:300;line-height:1.95;color:rgba(255,255,255,.55)">This reflects the
+            founders' deep-rooted belief that business success carries with it a duty to support cultural, spiritual and
+            community infrastructure — particularly for those who have the least.</p>
+          <div style="margin-top:1.5rem;display:flex;align-items:center;gap:1.25rem;flex-wrap:wrap">
+            <a href="https://bhuribayatrikbhavan.com/" target="_blank" rel="noopener noreferrer"
+              style="display:inline-flex;align-items:center;background:#ffffff;padding:0.45rem 1rem;border-radius:4px;text-decoration:none;transition:transform .2s,box-shadow .2s;box-shadow:0 4px 14px rgba(0,0,0,0.25);"
+              onmouseover="this.style.transform='translateY(-2px)';this.style.boxShadow='0 6px 18px rgba(0,0,0,0.35)'"
+              onmouseout="this.style.transform='translateY(0)';this.style.boxShadow='0 4px 14px rgba(0,0,0,0.25)'"
+              title="Visit Bhuriba Yatrik Bhavan Website">
+              <img src="public/images/byb_palitana_logo.png" alt="Bhuriba Yatrik Bhavan - Jain Dharamshala, Palitana"
+                style="height:36px;width:auto;display:block;" decoding="async" loading="lazy">
+            </a>
+            <a href="https://bhuribayatrikbhavan.com/" target="_blank" rel="noopener noreferrer"
+              style="display:inline-flex;align-items:center;gap:.4rem;font-size:.82rem;font-weight:400;color:#4ade80;text-decoration:none;border-bottom:1px solid rgba(74,222,128,.4);padding-bottom:2px;transition:color .2s,border-color .2s;"
+              onmouseover="this.style.color='#86efac';this.style.borderColor='#86efac'"
+              onmouseout="this.style.color='#4ade80';this.style.borderColor='rgba(74,222,128,.4)'">
+              <span>Visit bhuribayatrikbhavan.com</span>
+              <span style="font-size:.85rem;line-height:1">↗</span>
+            </a>
+          </div>
+          <div style="display:flex;gap:2rem;margin-top:2rem">
+            <div style="border-top:1px solid rgba(34,197,94,.3);padding-top:1rem"><span
+                style="font-family:var(--serif);font-size:1.8rem;color:#4ade80;display:block">34</span><span
+                style="font-size:.62rem;letter-spacing:.15em;text-transform:uppercase;color:var(--muted)">Rooms
+                built</span></div>
+            <div style="border-top:1px solid rgba(34,197,94,.3);padding-top:1rem"><span
+                style="font-family:var(--serif);font-size:1.8rem;color:#4ade80;display:block">4</span><span
+                style="font-size:.62rem;letter-spacing:.15em;text-transform:uppercase;color:var(--muted)">Community
+                halls</span></div>
+            <div style="border-top:1px solid rgba(34,197,94,.3);padding-top:1rem"><span
+                style="font-family:var(--serif);font-size:1.8rem;color:#4ade80;display:block">1978</span><span
+                style="font-size:.62rem;letter-spacing:.15em;text-transform:uppercase;color:var(--muted)">Community
+                ethos since</span></div>
+          </div>
+        </div>
+        <div class="img-hover-overlay-container"
+          style="position:relative;overflow:hidden;border-radius:4px;border:1px solid var(--glass-border);aspect-ratio:16/10">
+          <img src="public/images/dharmashala.jpg" alt="SV Group Dharamshala at Palitana, Gujarat"
+            style="width:100%;height:100%;object-fit:cover;" decoding="async" loading="lazy">
+          <div class="img-hover-overlay" style="position:absolute;inset:0;background:rgba(10,17,40,0.5);pointer-events:none"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- COMMUNITY / PROFITS THAT GIVE BACK -->
     <section style="padding:7rem 5rem;background:var(--blue-dark);position:relative;overflow:hidden">
       <div
         style="position:absolute;inset:0;background:radial-gradient(ellipse 60% 50% at 50% 100%,rgba(34,197,94,.06),transparent);pointer-events:none">
@@ -1286,64 +1343,9 @@
           </div>
         </div>
       </div>
-
-      <!-- Dharamshala / Pilgrimage -->
-      <div
-        style="display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center;margin-top:5rem;padding-top:5rem;border-top:1px solid var(--glass-border)"
-        class="reveal">
-        <div>
-          <p class="sec-label" style="color:#4ade80">Cultural Heritage</p>
-          <h3 style="font-family:var(--serif);font-size:2rem;font-weight:400;margin-bottom:1rem;color:var(--white)">
-            Preserving places of <em>peace</em></h3>
-          <p style="font-size:.88rem;font-weight:300;line-height:1.95;color:rgba(255,255,255,.55);margin-bottom:1rem">
-            The SV Group has funded the construction of a dharamshala — a Jain pilgrimage rest house — at Palitana,
-            Gujarat. The facility houses 34 rooms and four halls with a canteen, providing safe and comfortable
-            accommodation for thousands of pilgrims every year.</p>
-          <p style="font-size:.88rem;font-weight:300;line-height:1.95;color:rgba(255,255,255,.55)">This reflects the
-            founders' deep-rooted belief that business success carries with it a duty to support cultural, spiritual and
-            community infrastructure — particularly for those who have the least.</p>
-          <div style="margin-top:1.5rem;display:flex;align-items:center;gap:1.25rem;flex-wrap:wrap">
-            <a href="https://bhuribayatrikbhavan.com/" target="_blank" rel="noopener noreferrer"
-              style="display:inline-flex;align-items:center;background:#ffffff;padding:0.45rem 1rem;border-radius:4px;text-decoration:none;transition:transform .2s,box-shadow .2s;box-shadow:0 4px 14px rgba(0,0,0,0.25);"
-              onmouseover="this.style.transform='translateY(-2px)';this.style.boxShadow='0 6px 18px rgba(0,0,0,0.35)'"
-              onmouseout="this.style.transform='translateY(0)';this.style.boxShadow='0 4px 14px rgba(0,0,0,0.25)'"
-              title="Visit Bhuriba Yatrik Bhavan Website">
-              <img src="public/images/byb_palitana_logo.png" alt="Bhuriba Yatrik Bhavan - Jain Dharamshala, Palitana"
-                style="height:36px;width:auto;display:block;" decoding="async" loading="lazy">
-            </a>
-            <a href="https://bhuribayatrikbhavan.com/" target="_blank" rel="noopener noreferrer"
-              style="display:inline-flex;align-items:center;gap:.4rem;font-size:.82rem;font-weight:400;color:#4ade80;text-decoration:none;border-bottom:1px solid rgba(74,222,128,.4);padding-bottom:2px;transition:color .2s,border-color .2s;"
-              onmouseover="this.style.color='#86efac';this.style.borderColor='#86efac'"
-              onmouseout="this.style.color='#4ade80';this.style.borderColor='rgba(74,222,128,.4)'">
-              <span>Visit bhuribayatrikbhavan.com</span>
-              <span style="font-size:.85rem;line-height:1">↗</span>
-            </a>
-          </div>
-          <div style="display:flex;gap:2rem;margin-top:2rem">
-            <div style="border-top:1px solid rgba(34,197,94,.3);padding-top:1rem"><span
-                style="font-family:var(--serif);font-size:1.8rem;color:#4ade80;display:block">34</span><span
-                style="font-size:.62rem;letter-spacing:.15em;text-transform:uppercase;color:var(--muted)">Rooms
-                built</span></div>
-            <div style="border-top:1px solid rgba(34,197,94,.3);padding-top:1rem"><span
-                style="font-family:var(--serif);font-size:1.8rem;color:#4ade80;display:block">4</span><span
-                style="font-size:.62rem;letter-spacing:.15em;text-transform:uppercase;color:var(--muted)">Community
-                halls</span></div>
-            <div style="border-top:1px solid rgba(34,197,94,.3);padding-top:1rem"><span
-                style="font-family:var(--serif);font-size:1.8rem;color:#4ade80;display:block">1978</span><span
-                style="font-size:.62rem;letter-spacing:.15em;text-transform:uppercase;color:var(--muted)">Community
-                ethos since</span></div>
-          </div>
-        </div>
-        <div class="img-hover-overlay-container"
-          style="position:relative;overflow:hidden;border-radius:4px;border:1px solid var(--glass-border);aspect-ratio:16/10">
-          <img src="public/images/dharmashala.jpg" alt="SV Group Dharamshala at Palitana, Gujarat"
-            style="width:100%;height:100%;object-fit:cover;" decoding="async" loading="lazy">
-          <div class="img-hover-overlay" style="position:absolute;inset:0;background:rgba(10,17,40,0.5);pointer-events:none"></div>
-        </div>
-      </div>
     </section>
 
-    <!-- ENVIRONMENTAL COMMITMENTS -->
+    <!-- ENVIRONMENTAL COMMITMENTS / MANUFACTURING THAT RESPECTS THE EARTH -->
     <section style="padding:7rem 5rem;position:relative;overflow:hidden">
       <div class="grid-bg" style="opacity:.3"></div>
       <div style="text-align:center;margin-bottom:4rem" class="reveal">
@@ -1401,11 +1403,13 @@
             important factor in the US and European retail markets we serve.</p>
         </div>
       </div>
+    </section>
 
-      <!-- Nature feature image -->
+    <!-- QUOTE -->
+    <section style="padding:0 5rem 6rem;position:relative;overflow:hidden">
       <div
-        style="margin-top:4rem;position:relative;height:380px;overflow:hidden;border-radius:4px;border:1px solid var(--glass-border)"
-        class="reveal reveal-delay-1">
+        style="position:relative;height:380px;overflow:hidden;border-radius:4px;border:1px solid var(--glass-border)"
+        class="reveal">
         <img src="public/images/naturebanner.jpg" alt="Nature and diamonds banner"
           style="width:100%;height:100%;object-fit:cover;object-position:center right;filter:saturate(1.05)" decoding="async" loading="lazy">
         <div
@@ -1422,67 +1426,8 @@
       </div>
     </section>
 
-    <!-- WORKER WELFARE -->
-    <section style="padding:7rem 5rem;background:var(--blue-dark);position:relative">
-      <div style="display:grid;grid-template-columns:1fr 1fr;gap:6rem;align-items:center">
-        <div class="reveal">
-          <p class="sec-label" style="color:#4ade80">People at the Centre</p>
-          <h2 class="sec-title" style="margin-bottom:1.5rem">5,000 livelihoods,<br><em>one responsibility</em></h2>
-          <p style="font-size:.9rem;font-weight:300;line-height:1.95;color:rgba(255,255,255,.58);margin-bottom:1.2rem">
-            Across our diamond manufacturing units in Surat, our 7 jewelry factories in Mumbai and Surat spanning 250,000+ sq ft, and our sales offices
-            around the world, SV Group employs over 5,000 people. For many of them, particularly our 2500+ Master Artisans
-            in Surat, this is more than a job — it is a livelihood that supports entire families and communities.</p>
-          <p style="font-size:.9rem;font-weight:300;line-height:1.95;color:rgba(255,255,255,.58);margin-bottom:1.2rem">
-            We are signatories to the Women's Empowerment Principles — reflecting our commitment to gender equality and
-            equal opportunity across all levels of our organisation. We believe the brilliance of our industry comes not
-            just from our diamonds, but from the people who shape them.</p>
-          <p style="font-size:.9rem;font-weight:300;line-height:1.95;color:rgba(255,255,255,.58)">Our factories are
-            built, certified and operated to international labour and safety standards — audited independently by the
-            Responsible Jewellery Council and compliant with leading global ethical standards.</p>
-          <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:1rem;margin-top:2.5rem">
-            <div
-              style="text-align:center;padding:1.2rem;background:var(--glass);border:1px solid var(--glass-border);border-radius:3px">
-              <span style="font-family:var(--serif);font-size:1.8rem;color:#4ade80;display:block">5,000+</span><span
-                style="font-size:.62rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)">Total
-                employees</span>
-            </div>
-            <div
-              style="text-align:center;padding:1.2rem;background:var(--glass);border:1px solid var(--glass-border);border-radius:3px">
-              <span style="font-family:var(--serif);font-size:1.8rem;color:#4ade80;display:block">2500+</span><span
-                style="font-size:.62rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)">Master
-                Artisans</span>
-            </div>
-            <div
-              style="text-align:center;padding:1.2rem;background:var(--glass);border:1px solid var(--glass-border);border-radius:3px">
-              <span style="font-family:var(--serif);font-size:1.8rem;color:#4ade80;display:block">7</span><span
-                style="font-size:.62rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)">Countries
-                represented</span>
-            </div>
-          </div>
-        </div>
-        <div style="position:relative" class="reveal reveal-delay-1">
-          <div class="img-hover-overlay-container"
-            style="position:relative;aspect-ratio:4/3;overflow:hidden;border-radius:4px;border:1px solid var(--glass-border);margin-bottom:1.5rem">
-            <img src="public/images/svgroupteam.jpg"
-              alt="SV Group Team & Women's Empowerment" style="width:100%;height:100%;object-fit:cover;filter:saturate(.95)" decoding="async" loading="lazy">
-            <div class="img-hover-overlay" style="position:absolute;inset:0;background:rgba(10,17,40,0.5);pointer-events:none"></div>
-          </div>
-          <div
-            style="background:rgba(34,197,94,.07);border:1px solid rgba(34,197,94,.2);padding:1.4rem;border-radius:3px">
-            <p
-              style="font-size:.68rem;font-weight:400;letter-spacing:.18em;text-transform:uppercase;color:#86efac;margin-bottom:.5rem">
-              WEPs Signatory</p>
-            <p style="font-size:.82rem;font-weight:300;color:rgba(255,255,255,.65);line-height:1.7">SV Group is
-              committed to the UN Women's Empowerment Principles — because we believe gender equality is essential for
-              innovation, integrity, and sustainable growth. Every individual deserves the opportunity to shine to their
-              fullest potential.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- CTA -->
-    <section style="padding:7rem 5rem;text-align:center;position:relative;overflow:hidden">
+    <!-- CTA / SUSTAINABILITY IS OUR SHARED RESPONSIBILITY -->
+    <section style="padding:7rem 5rem;text-align:center;position:relative;overflow:hidden;background:var(--blue-dark)">
       <div
         style="position:absolute;inset:0;background:radial-gradient(ellipse 50% 60% at 50% 50%,rgba(34,197,94,.06),transparent 70%);pointer-events:none">
       </div>
