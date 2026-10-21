@@ -3435,4 +3435,83 @@ footer {
   transform: scale(1.02);
 }
 
+/* ==========================================================================
+   ENQUIRY FORM ENHANCEMENTS & LOADING STATES
+   ========================================================================== */
+@keyframes formSpin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes pulseGlow {
+  0%, 100% { opacity: 0.45; transform: scale(0.9); }
+  50% { opacity: 1; transform: scale(1.2); }
+}
+
+@keyframes formFadeInScale {
+  from {
+    opacity: 0;
+    transform: scale(0.96) translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+@keyframes formShake {
+  0%, 100% { transform: translateX(0); }
+  20%, 60% { transform: translateX(-5px); }
+  40%, 80% { transform: translateX(5px); }
+}
+
+.form-input-error {
+  border-bottom-color: #f87171 !important;
+  animation: formShake 0.35s ease-in-out;
+}
+
+.form-spinner-icon {
+  display: inline-block;
+  width: 17px;
+  height: 17px;
+  border: 2px solid rgba(255, 255, 255, 0.25);
+  border-top-color: #ffffff;
+  border-radius: 50%;
+  animation: formSpin 0.75s linear infinite;
+  vertical-align: middle;
+  flex-shrink: 0;
+}
+
+.form-live-status {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-top: 0.85rem;
+  font-size: 0.82rem;
+  line-height: 1.4;
+  text-align: center;
+  transition: all 0.3s ease;
+}
+
+.pulse-live-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: #4ade80;
+  box-shadow: 0 0 8px #4ade80;
+  animation: pulseGlow 1.2s ease-in-out infinite;
+  display: inline-block;
+  flex-shrink: 0;
+}
+
+.pulse-live-dot.gold {
+  background-color: var(--gold);
+  box-shadow: 0 0 8px var(--gold);
+}
+
+.form-success-card {
+  animation: formFadeInScale 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
 

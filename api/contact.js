@@ -1,6 +1,19 @@
 require('dotenv').config();
 const { Resend } = require('resend');
 
+// Module-level cached Resend client to avoid re-instantiation overhead
+let cachedResend = null;
+let cachedKey = null;
+
+function getResendClient(apiKey) {
+  const cleanKey = (apiKey || '').trim();
+  if (!cachedResend || cachedKey !== cleanKey) {
+    cachedResend = new Resend(cleanKey);
+    cachedKey = cleanKey;
+  }
+  return cachedResend;
+}
+
 module.exports = async function handler(req, res) {
   // CORS Headers
   res.setHeader('Access-Control-Allow-Credentials', 'true');
@@ -56,9 +69,9 @@ module.exports = async function handler(req, res) {
       });
     }
 
-    const resend = new Resend(apiKey.trim());
+    const resend = getResendClient(apiKey);
 
-    const toEmail = process.env.CONTACT_TO_EMAIL || 'ensure01@gmail.com';
+    const toEmail = process.env.CONTACT_TO_EMAIL || 'indigo@svinodkumar.com';
     const fromEmail = process.env.CONTACT_FROM_EMAIL || 'Indigo Jewellery <info@svinodkumar.com>';
     const fullName = [firstName, lastName].filter(Boolean).join(' ') || 'Prospect';
 
@@ -138,13 +151,19 @@ module.exports = async function handler(req, res) {
 </html>
     `;
 
-    const sendResult = await resend.emails.send({
+    const sendPromise = resend.emails.send({
       from: fromEmail,
       to: [toEmail],
       replyTo: email,
       subject: emailSubject,
       html: htmlContent
     });
+
+    const timeoutPromise = new Promise((_, reject) =>
+      setTimeout(() => reject(new Error('Resend email delivery timed out after 8s')), 8000)
+    );
+
+    const sendResult = await Promise.race([sendPromise, timeoutPromise]);
 
     if (sendResult.error) {
       console.error('Resend API Error:', sendResult.error);

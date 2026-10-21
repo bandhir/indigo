@@ -33,7 +33,7 @@ Digital flagship for **Indigo Jewellery** and **Indigo Evolve** (SV Group). Vert
    ```
    ```env
    RESEND_API_KEY=re_your_api_key_here
-   CONTACT_TO_EMAIL=ensure01@gmail.com
+   CONTACT_TO_EMAIL=indigo@svinodkumar.com
    CONTACT_FROM_EMAIL=Indigo Jewellery <info@svinodkumar.com>
    ```
 
@@ -52,7 +52,7 @@ This repository is pre-configured for zero-config Vercel deployment:
 1. Import this repository into your [Vercel Dashboard](https://vercel.com/new).
 2. Set the following **Environment Variables** in Vercel Project Settings:
    * `RESEND_API_KEY`: Your Resend API key (`re_...`)
-   * `CONTACT_TO_EMAIL`: `ensure01@gmail.com`
+   * `CONTACT_TO_EMAIL`: `indigo@svinodkumar.com`
    * `CONTACT_FROM_EMAIL`: `Indigo Jewellery <info@svinodkumar.com>`
 3. Deploy! Vercel will automatically serve the static pages and host `api/contact.js` as a serverless function.
 

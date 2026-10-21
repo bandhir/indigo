@@ -495,56 +495,106 @@
           </div>
         </div>
         <div class="reveal reveal-delay-1">
-          <div class="enquiry-form-wrap" style="background:var(--glass);border:1px solid var(--glass-border);padding:2.5rem;border-radius:4px">
-            <h3 style="font-family:var(--serif);font-size:1.4rem;font-weight:400;margin-bottom:1.5rem;color:var(--white)">LGD Wholesale Enquiry</h3>
-            <div class="form-row">
-              <div class="form-group"><label class="form-label">First Name</label><input name="firstName" class="form-input" type="text"
-                  placeholder="John" required></div>
-              <div class="form-group"><label class="form-label">Last Name</label><input name="lastName" class="form-input" type="text"
-                  placeholder="Smith"></div>
-            </div>
-            <div class="form-group"><label class="form-label">Company Name</label><input name="company" class="form-input" type="text"
-                placeholder="Your company"></div>
-            <div class="form-group"><label class="form-label">Email Address</label><input name="email" class="form-input"
-                type="email" placeholder="you@company.com" required></div>
-            <div class="form-row">
-              <div class="form-group"><label class="form-label">Country</label>
-                <select name="country" class="form-select">
-                  <option value="">Select country...</option>
-                  <option selected>United States</option>
-                  <option>United Kingdom</option>
-                  <option>Canada</option>
-                  <option>Australia</option>
-                  <option>India</option>
-                  <option>Other</option>
+          <div class="enquiry-form-wrap" style="background:var(--glass);border:1px solid var(--glass-border);padding:2.5rem;border-radius:4px;position:relative;">
+            <form id="evolvePartnerForm" onsubmit="handleSubmit(event, this)" novalidate>
+              <h3 style="font-family:var(--serif);font-size:1.4rem;font-weight:400;margin-bottom:1.5rem;color:var(--white)">LGD Wholesale Enquiry</h3>
+              <div class="form-row">
+                <div class="form-group">
+                  <label class="form-label">First Name <span style="color:#4ade80">*</span></label>
+                  <input name="firstName" class="form-input" type="text" placeholder="John" required autocomplete="given-name">
+                </div>
+                <div class="form-group">
+                  <label class="form-label">Last Name</label>
+                  <input name="lastName" class="form-input" type="text" placeholder="Smith" autocomplete="family-name">
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="form-label">Company Name</label>
+                <input name="company" class="form-input" type="text" placeholder="Your company" autocomplete="organization">
+              </div>
+              <div class="form-group">
+                <label class="form-label">Email Address <span style="color:#4ade80">*</span></label>
+                <input name="email" class="form-input" type="email" placeholder="you@company.com" required autocomplete="email">
+              </div>
+              <div class="form-row">
+                <div class="form-group">
+                  <label class="form-label">Country</label>
+                  <select name="country" class="form-select">
+                    <option value="">Select country...</option>
+                    <option selected>United States</option>
+                    <option>United Kingdom</option>
+                    <option>Canada</option>
+                    <option>Australia</option>
+                    <option>India</option>
+                    <option>Other</option>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label class="form-label">Business Type</label>
+                  <select name="businessType" class="form-select">
+                    <option value="">Select type...</option>
+                    <option>Independent Jewellery Retailer</option>
+                    <option>Chain Store / Group</option>
+                    <option>Luxury Brand</option>
+                    <option>Wholesale / Distributor</option>
+                    <option>Other</option>
+                  </select>
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="form-label">Product Interest</label>
+                <select name="productInterest" class="form-select">
+                  <option value="">Select category...</option>
+                  <option>Diamond Rings</option>
+                  <option>Necklaces & Pendants</option>
+                  <option>Earrings</option>
+                  <option>Bracelets</option>
+                  <option>Custom / Full Collection</option>
+                  <option>Multiple Categories</option>
                 </select>
               </div>
-              <div class="form-group"><label class="form-label">Business Type</label>
-                <select name="businessType" class="form-select">
-                  <option value="">Select type...</option>
-                  <option>Independent Jewellery Retailer</option>
-                  <option>Chain Store / Group</option>
-                  <option>Luxury Brand</option>
-                  <option>Wholesale / Distributor</option>
-                  <option>Other</option>
-                </select>
+              <div class="form-group">
+                <label class="form-label">Message</label>
+                <textarea name="message" class="form-textarea" rows="4" placeholder="Tell us about your business and what you're looking for..."></textarea>
+              </div>
+              
+              <button type="submit" class="btn-primary form-submit-btn" style="width:100%;justify-content:center; background:#16a34a; border-color:#16a34a; min-height:48px; display:inline-flex; align-items:center; gap:0.6rem; cursor:pointer;">
+                <span class="btn-spinner form-spinner-icon" style="display:none;"></span>
+                <span class="btn-label">Send Enquiry →</span>
+              </button>
+
+              <div class="form-live-status" style="display:none;">
+                <span class="pulse-live-dot"></span>
+                <span class="live-status-text" style="color:#86efac; font-size:0.82rem;">Transmitting enquiry to SV Group...</span>
+              </div>
+              
+              <div class="form-status" style="margin-top:0.85rem;font-size:0.85rem;display:none;text-align:center;line-height:1.5;"></div>
+              
+              <p style="font-size:.72rem;font-weight:300;color:rgba(255,255,255,.35);text-align:center;margin-top:1rem;line-height:1.6">
+                By submitting this form you agree to be contacted by Indigo Evolve. We treat all partnership inquiries with strict confidentiality.
+              </p>
+            </form>
+
+            <!-- Success Screen -->
+            <div class="form-success-card" style="display:none; text-align:center; padding:1.5rem 0.5rem;">
+              <div style="width:68px; height:68px; margin:0 auto 1.2rem; border-radius:50%; background:rgba(34,197,94,0.12); border:2px solid #22c55e; display:flex; align-items:center; justify-content:center; box-shadow:0 0 25px rgba(34,197,94,0.35);">
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#4ade80" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="20 6 9 17 4 12"></polyline>
+                </svg>
+              </div>
+              <h3 style="font-family:var(--serif); font-size:1.65rem; color:#fff; margin-bottom:0.6rem;">Enquiry Successfully Sent</h3>
+              <p class="success-personal-msg" style="font-size:0.92rem; color:rgba(255,255,255,0.8); line-height:1.7; max-width:440px; margin:0 auto 1.4rem;">
+                Thank you! Your partnership inquiry has been routed to our Lab Grown Diamonds team. We will review your requirements and reach out to you within 24 hours.
+              </p>
+              <div class="success-ref-wrap" style="display:inline-block; padding:0.4rem 1.1rem; border-radius:9999px; background:rgba(255,255,255,0.05); border:1px solid rgba(255,255,255,0.12); font-size:0.75rem; color:rgba(255,255,255,0.65); margin-bottom:1.8rem;">
+                Enquiry Ref: <span class="success-ref-code" style="color:#86efac; font-family:monospace; font-weight:600;"></span>
+              </div>
+              <div>
+                <button type="button" class="btn-outline" onclick="resetEnquiryForm(this)" style="padding:0.6rem 1.5rem; font-size:0.8rem; cursor:pointer;">
+                  ← Send Another Enquiry
+                </button>
               </div>
             </div>
-            <div class="form-group"><label class="form-label">Product Interest</label>
-              <select name="productInterest" class="form-select">
-                <option value="">Select category...</option>
-                <option>Diamond Rings</option>
-                <option>Necklaces & Pendants</option>
-                <option>Earrings</option>
-                <option>Bracelets</option>
-                <option>Custom / Full Collection</option>
-                <option>Multiple Categories</option>
-              </select>
-            </div>
-            <div class="form-group"><label class="form-label">Message</label><textarea name="message" class="form-textarea" rows="4"
-                placeholder="Tell us about your business and what you're looking for..."></textarea></div>
-            <button class="btn-primary" style="width:100%;justify-content:center; background:#16a34a; border-color:#16a34a;" onclick="handleSubmit(this)">Send Enquiry</button>
-            <div class="form-status" style="margin-top:1rem;font-size:0.85rem;display:none;text-align:center;line-height:1.5;"></div>
           </div>
         </div>
       </div>
@@ -663,41 +713,97 @@
       });
     }
 
-    // Form submit via Resend
-    async function handleSubmit(btn) {
-      const container = btn.closest('.enquiry-form-wrap') || btn.parentElement;
-      if (!container) return;
+    // Form submit via Resend with instant visual feedback & validation
+    async function handleSubmit(e, formOrBtn) {
+      if (e && e.preventDefault) e.preventDefault();
 
-      const firstName = container.querySelector('[name="firstName"]')?.value.trim() || '';
-      const lastName = container.querySelector('[name="lastName"]')?.value.trim() || '';
-      const company = container.querySelector('[name="company"]')?.value.trim() || '';
-      const email = container.querySelector('[name="email"]')?.value.trim() || '';
-      const country = container.querySelector('[name="country"]')?.value || '';
-      const businessType = container.querySelector('[name="businessType"]')?.value || '';
-      const productInterest = container.querySelector('[name="productInterest"]')?.value || '';
-      const message = container.querySelector('[name="message"]')?.value.trim() || '';
+      let form = null;
+      if (formOrBtn) {
+        form = formOrBtn.tagName === 'FORM' ? formOrBtn : formOrBtn.closest('form');
+      }
+      if (!form) form = document.getElementById('evolvePartnerForm');
+      if (!form) return;
 
-      const statusEl = container.querySelector('.form-status');
+      const container = form.closest('.enquiry-form-wrap') || form.parentElement;
+      const statusEl = form.querySelector('.form-status');
+      const liveStatus = form.querySelector('.form-live-status');
+      const submitBtn = form.querySelector('.form-submit-btn') || form.querySelector('button[type="submit"]');
+      const btnLabel = submitBtn?.querySelector('.btn-label');
+      const btnSpinner = submitBtn?.querySelector('.btn-spinner');
+      const successCard = container.querySelector('.form-success-card');
 
-      if (!firstName || !email) {
+      // Clear previous error states
+      form.querySelectorAll('.form-input-error').forEach(el => el.classList.remove('form-input-error'));
+      if (statusEl) {
+        statusEl.style.display = 'none';
+        statusEl.textContent = '';
+      }
+
+      const firstNameInput = form.querySelector('[name="firstName"]');
+      const emailInput = form.querySelector('[name="email"]');
+
+      const firstName = firstNameInput?.value.trim() || '';
+      const lastName = form.querySelector('[name="lastName"]')?.value.trim() || '';
+      const company = form.querySelector('[name="company"]')?.value.trim() || '';
+      const email = emailInput?.value.trim() || '';
+      const country = form.querySelector('[name="country"]')?.value || '';
+      const businessType = form.querySelector('[name="businessType"]')?.value || '';
+      const productInterest = form.querySelector('[name="productInterest"]')?.value || '';
+      const message = form.querySelector('[name="message"]')?.value.trim() || '';
+
+      // Validate First Name
+      if (!firstName) {
+        if (firstNameInput) {
+          firstNameInput.classList.add('form-input-error');
+          firstNameInput.focus();
+          firstNameInput.addEventListener('input', () => firstNameInput.classList.remove('form-input-error'), { once: true });
+        }
         if (statusEl) {
           statusEl.style.display = 'block';
           statusEl.style.color = '#f87171';
-          statusEl.textContent = 'Please fill in your name and email address.';
+          statusEl.textContent = 'Please enter your first name.';
         }
         return;
       }
 
-      const origText = btn.innerHTML;
-      btn.disabled = true;
-      btn.textContent = 'Sending Enquiry...';
-      btn.style.opacity = '0.7';
-      if (statusEl) statusEl.style.display = 'none';
+      // Validate Email
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (!email || !emailRegex.test(email)) {
+        if (emailInput) {
+          emailInput.classList.add('form-input-error');
+          emailInput.focus();
+          emailInput.addEventListener('input', () => emailInput.classList.remove('form-input-error'), { once: true });
+        }
+        if (statusEl) {
+          statusEl.style.display = 'block';
+          statusEl.style.color = '#f87171';
+          statusEl.textContent = !email ? 'Please enter your email address.' : 'Please enter a valid email address.';
+        }
+        return;
+      }
+
+      // Instant responsive UI feedback (Zero latency)
+      if (submitBtn) {
+        submitBtn.disabled = true;
+        submitBtn.style.cursor = 'wait';
+        submitBtn.style.opacity = '0.9';
+        if (btnSpinner) btnSpinner.style.display = 'inline-block';
+        if (btnLabel) btnLabel.textContent = 'Sending Enquiry...';
+      }
+      if (liveStatus) {
+        liveStatus.style.display = 'flex';
+      }
+      form.querySelectorAll('input, select, textarea').forEach(el => el.disabled = true);
+
+      // Abort controller with 15s timeout
+      const controller = new AbortController();
+      const timeoutId = setTimeout(() => controller.abort(), 15000);
 
       try {
         const res = await fetch('/api/contact', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
+          signal: controller.signal,
           body: JSON.stringify({
             firstName,
             lastName,
@@ -711,6 +817,8 @@
           })
         });
 
+        clearTimeout(timeoutId);
+
         let data;
         const contentType = res.headers.get('content-type') || '';
         if (contentType.includes('application/json')) {
@@ -719,36 +827,84 @@
           const rawText = await res.text();
           throw new Error(
             res.status === 404 || res.status === 501
-              ? 'Form backend service is not running. Please ensure the local server is running with "npm start".'
-              : `Server returned an unexpected response (${res.status}).`
+              ? 'Form backend service is not running. Please ensure the server is active.'
+              : `Server returned status (${res.status}).`
           );
         }
 
         if (res.ok && data && data.success) {
-          btn.textContent = 'Enquiry Sent ✓';
-          btn.style.opacity = '1';
-          btn.style.background = 'rgba(34, 197, 94, .25)';
-          btn.style.borderColor = 'rgba(34, 197, 94, .6)';
-          btn.style.color = '#86efac';
-          btn.style.cursor = 'default';
-          if (statusEl) {
-            statusEl.style.display = 'block';
-            statusEl.style.color = '#86efac';
-            statusEl.textContent = 'Thank you! Your enquiry has been received and our team will get in touch shortly.';
+          // Transition smoothly to success card
+          form.style.display = 'none';
+          if (successCard) {
+            const msgEl = successCard.querySelector('.success-personal-msg');
+            if (msgEl) {
+              msgEl.textContent = `Thank you, ${firstName}! Your wholesale enquiry has been routed to our global diamond desk. A dedicated representative will contact you at ${email} within 24 hours.`;
+            }
+            const refCode = successCard.querySelector('.success-ref-code');
+            if (refCode) {
+              refCode.textContent = (data.messageId || 'IE-' + Math.random().toString(36).substring(2, 8).toUpperCase());
+            }
+            successCard.style.display = 'block';
           }
-          container.querySelectorAll('input, textarea').forEach(i => i.value = '');
         } else {
           throw new Error((data && data.error) || 'Failed to send enquiry. Please try again.');
         }
       } catch (err) {
-        btn.disabled = false;
-        btn.style.opacity = '1';
-        btn.innerHTML = origText;
+        clearTimeout(timeoutId);
+        form.querySelectorAll('input, select, textarea').forEach(el => el.disabled = false);
+        if (submitBtn) {
+          submitBtn.disabled = false;
+          submitBtn.style.cursor = 'pointer';
+          submitBtn.style.opacity = '1';
+          if (btnSpinner) btnSpinner.style.display = 'none';
+          if (btnLabel) btnLabel.textContent = 'Send Enquiry →';
+        }
+        if (liveStatus) liveStatus.style.display = 'none';
         if (statusEl) {
           statusEl.style.display = 'block';
           statusEl.style.color = '#f87171';
-          statusEl.textContent = err.message || 'Unable to send enquiry. Please try again later.';
+          if (err.name === 'AbortError') {
+            statusEl.textContent = 'Network request timed out. Please check your internet connection and try again.';
+          } else {
+            statusEl.textContent = err.message || 'Unable to send enquiry. Please try again later.';
+          }
         }
+      }
+    }
+
+    function resetEnquiryForm(btn) {
+      const container = btn ? (btn.closest('.enquiry-form-wrap') || document.querySelector('.enquiry-form-wrap')) : document.querySelector('.enquiry-form-wrap');
+      if (!container) return;
+      const form = container.querySelector('form');
+      const successCard = container.querySelector('.form-success-card');
+      const submitBtn = form?.querySelector('.form-submit-btn');
+      const btnLabel = submitBtn?.querySelector('.btn-label');
+      const btnSpinner = submitBtn?.querySelector('.btn-spinner');
+      const liveStatus = form?.querySelector('.form-live-status');
+      const statusEl = form?.querySelector('.form-status');
+
+      if (form) {
+        form.reset();
+        form.querySelectorAll('input, select, textarea').forEach(el => {
+          el.disabled = false;
+          el.classList.remove('form-input-error');
+        });
+        if (submitBtn) {
+          submitBtn.disabled = false;
+          submitBtn.style.cursor = 'pointer';
+          submitBtn.style.opacity = '1';
+          if (btnSpinner) btnSpinner.style.display = 'none';
+          if (btnLabel) btnLabel.textContent = 'Send Enquiry →';
+        }
+        if (liveStatus) liveStatus.style.display = 'none';
+        if (statusEl) {
+          statusEl.style.display = 'none';
+          statusEl.textContent = '';
+        }
+        form.style.display = 'block';
+      }
+      if (successCard) {
+        successCard.style.display = 'none';
       }
     }
   </script>
