@@ -958,11 +958,12 @@ section {
   align-items: center;
 }
 
-/* Portrait factory panels (GHB Surat, SEEPZ 1, SEEPZ 2) */
+/* Portrait factory panels (GHB Surat, SEEPZ 1, SEEPZ 2, MIDC 3) */
 .factory-panel.is-vertical.active,
 #fp-ghb-surat.active,
 #fp-seepz1.active,
-#fp-seepz2.active {
+#fp-seepz2.active,
+#fp-midc3.active {
   grid-template-columns: minmax(320px, 460px) 1fr;
   gap: 4.5rem;
   align-items: center;
@@ -980,7 +981,8 @@ section {
 .factory-panel.is-vertical .factory-img,
 #fp-ghb-surat .factory-img,
 #fp-seepz1 .factory-img,
-#fp-seepz2 .factory-img {
+#fp-seepz2 .factory-img,
+#fp-midc3 .factory-img {
   aspect-ratio: 3 / 4 !important;
   max-width: 460px;
   width: 100%;
@@ -999,7 +1001,8 @@ section {
 .factory-panel.is-vertical .factory-img img,
 #fp-ghb-surat .factory-img img,
 #fp-seepz1 .factory-img img,
-#fp-seepz2 .factory-img img {
+#fp-seepz2 .factory-img img,
+#fp-midc3 .factory-img img {
   object-position: center;
 }
 
@@ -1927,7 +1930,8 @@ footer {
   .factory-panel.is-vertical.active,
   #fp-ghb-surat.active,
   #fp-seepz1.active,
-  #fp-seepz2.active {
+  #fp-seepz2.active,
+  #fp-midc3.active {
     grid-template-columns: 1fr;
     gap: 2.5rem;
   }
@@ -1936,7 +1940,8 @@ footer {
   .factory-panel.is-vertical .factory-img,
   #fp-ghb-surat .factory-img,
   #fp-seepz1 .factory-img,
-  #fp-seepz2 .factory-img {
+  #fp-seepz2 .factory-img,
+  #fp-midc3 .factory-img {
     aspect-ratio: 3 / 4 !important;
     max-width: 440px;
     margin: 0 auto;
@@ -2326,7 +2331,8 @@ footer {
   .factory-panel.is-vertical .factory-img,
   #fp-ghb-surat .factory-img,
   #fp-seepz1 .factory-img,
-  #fp-seepz2 .factory-img {
+  #fp-seepz2 .factory-img,
+  #fp-midc3 .factory-img {
     aspect-ratio: 3 / 4 !important;
     max-width: min(380px, 100%);
     margin: 0 auto;
