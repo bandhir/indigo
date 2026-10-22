@@ -958,12 +958,12 @@ section {
   align-items: center;
 }
 
-/* Portrait factory panels (GHB Surat, SEEPZ 1, SEEPZ 2, MIDC 3) */
+/* Portrait factory panels (GHB Surat, SEEPZ 1, SEEPZ 2, MIDC 4) */
 .factory-panel.is-vertical.active,
 #fp-ghb-surat.active,
 #fp-seepz1.active,
 #fp-seepz2.active,
-#fp-midc3.active {
+#fp-midc4.active {
   grid-template-columns: minmax(320px, 460px) 1fr;
   gap: 4.5rem;
   align-items: center;
@@ -982,7 +982,7 @@ section {
 #fp-ghb-surat .factory-img,
 #fp-seepz1 .factory-img,
 #fp-seepz2 .factory-img,
-#fp-midc3 .factory-img {
+#fp-midc4 .factory-img {
   aspect-ratio: 3 / 4 !important;
   max-width: 460px;
   width: 100%;
@@ -1002,7 +1002,7 @@ section {
 #fp-ghb-surat .factory-img img,
 #fp-seepz1 .factory-img img,
 #fp-seepz2 .factory-img img,
-#fp-midc3 .factory-img img {
+#fp-midc4 .factory-img img {
   object-position: center;
 }
 
@@ -1931,7 +1931,7 @@ footer {
   #fp-ghb-surat.active,
   #fp-seepz1.active,
   #fp-seepz2.active,
-  #fp-midc3.active {
+  #fp-midc4.active {
     grid-template-columns: 1fr;
     gap: 2.5rem;
   }
@@ -1941,7 +1941,7 @@ footer {
   #fp-ghb-surat .factory-img,
   #fp-seepz1 .factory-img,
   #fp-seepz2 .factory-img,
-  #fp-midc3 .factory-img {
+  #fp-midc4 .factory-img {
     aspect-ratio: 3 / 4 !important;
     max-width: 440px;
     margin: 0 auto;
@@ -2332,7 +2332,7 @@ footer {
   #fp-ghb-surat .factory-img,
   #fp-seepz1 .factory-img,
   #fp-seepz2 .factory-img,
-  #fp-midc3 .factory-img {
+  #fp-midc4 .factory-img {
     aspect-ratio: 3 / 4 !important;
     max-width: min(380px, 100%);
     margin: 0 auto;

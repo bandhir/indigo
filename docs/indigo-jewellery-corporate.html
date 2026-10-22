@@ -176,11 +176,11 @@ section { position:relative; }
 .factory-panels { }
 .factory-panel { display:none; }
 .factory-panel.active { display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center; }
-.factory-panel.is-vertical.active, #fp-ghb-surat.active, #fp-seepz1.active, #fp-seepz2.active, #fp-midc3.active { grid-template-columns:minmax(320px, 460px) 1fr; gap:4rem; align-items:center; }
+.factory-panel.is-vertical.active, #fp-ghb-surat.active, #fp-seepz1.active, #fp-seepz2.active, #fp-midc4.active { grid-template-columns:minmax(320px, 460px) 1fr; gap:4rem; align-items:center; }
 .factory-img { position:relative;aspect-ratio:4/3;overflow:hidden;border-radius:4px;border:1px solid var(--glass-border); }
-.factory-img.factory-img-vertical, .factory-panel.is-vertical .factory-img, #fp-ghb-surat .factory-img, #fp-seepz1 .factory-img, #fp-seepz2 .factory-img, #fp-midc3 .factory-img { aspect-ratio:3/4; max-width:460px; width:100%; }
+.factory-img.factory-img-vertical, .factory-panel.is-vertical .factory-img, #fp-ghb-surat .factory-img, #fp-seepz1 .factory-img, #fp-seepz2 .factory-img, #fp-midc4 .factory-img { aspect-ratio:3/4; max-width:460px; width:100%; }
 .factory-img img { width:100%;height:100%;object-fit:cover;opacity:.8; }
-.factory-img.factory-img-vertical img, .factory-panel.is-vertical .factory-img img, #fp-ghb-surat .factory-img img, #fp-seepz1 .factory-img img, #fp-seepz2 .factory-img img, #fp-midc3 .factory-img img { object-position:center; }
+.factory-img.factory-img-vertical img, .factory-panel.is-vertical .factory-img img, #fp-ghb-surat .factory-img img, #fp-seepz1 .factory-img img, #fp-seepz2 .factory-img img, #fp-midc4 .factory-img img { object-position:center; }
 .factory-img-overlay { position:absolute;inset:0;background:linear-gradient(to top,rgba(10,15,46,.6),transparent); }
 .factory-specs { display:grid;grid-template-columns:1fr 1fr;gap:1rem;position:absolute;bottom:1.5rem;left:1.5rem;right:1.5rem; }
 .fspec { background:rgba(10,15,46,.85);backdrop-filter:blur(10px);border:1px solid var(--glass-border);padding:.8rem 1rem;border-radius:3px; }
@@ -1256,9 +1256,9 @@ footer { background:var(--ink);border-top:1px solid var(--glass-border);padding:
         </div>
 
         <!-- 3. MIDC 3 MUMBAI -->
-        <div class="factory-panel is-vertical" id="fp-midc3">
-          <div class="factory-img factory-img-vertical">
-            <img src="../public/factory/midc3a.jpg" alt="MIDC 3 Mumbai">
+        <div class="factory-panel" id="fp-midc3">
+          <div class="factory-img">
+            <img src="../public/factory/midc3.jpg" alt="MIDC 3 Mumbai">
           </div>
           <div class="factory-info">
             <h3>Indigo Jewellery : MIDC – 3 – Mumbai</h3>
@@ -1275,9 +1275,9 @@ footer { background:var(--ink);border-top:1px solid var(--glass-border);padding:
         </div>
 
         <!-- 4. MIDC 4 MUMBAI -->
-        <div class="factory-panel" id="fp-midc4">
-          <div class="factory-img">
-            <img src="../public/factory/midc4.png" alt="MIDC 4 Mumbai">
+        <div class="factory-panel is-vertical" id="fp-midc4">
+          <div class="factory-img factory-img-vertical">
+            <img src="../public/factory/midc3a.jpg" alt="MIDC 4 Mumbai">
           </div>
           <div class="factory-info">
             <h3>Indigo Jewellery : MIDC – 4 – Mumbai</h3>
